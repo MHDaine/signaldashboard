@@ -331,7 +331,7 @@ def run_ranking_with_progress(top_n: int = None, use_keywords: bool = False):
     return r
 
 
-def run_enrichment_with_progress(signals: List[Dict[str, Any]]):
+def run_enrichment_with_progress(signals: List[Dict[str, Any]], deep: bool = False):
     """Run enrichment as a subprocess with live stdout-based progress tracking."""
     temp_file = "outputs/_temp_enrich_input.json"
     Path("outputs").mkdir(exist_ok=True)
@@ -339,6 +339,8 @@ def run_enrichment_with_progress(signals: List[Dict[str, Any]]):
         json.dump({"signals": signals}, f)
 
     cmd = [sys.executable, "-u", "scripts/enrich_signals.py", temp_file, "--save"]
+    if deep:
+        cmd.append("--deep")
     # stderr=STDOUT prevents pipe deadlock (rich output can fill stderr buffer)
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
                             bufsize=1, cwd=str(Path(__file__).parent))
@@ -724,13 +726,15 @@ with tab_approved:
         st.markdown(f"**{len(approved)}** signals approved")
 
         # Action row
-        a1, a2, a3 = st.columns([1, 1, 1])
+        a1, a2, a3, a4 = st.columns([1.2, 0.8, 1, 1])
         with a1:
             enrich_btn = st.button("🔬 Enrich All", type="primary", use_container_width=True,
                                    disabled=st.session_state.enrichment_running)
         with a2:
-            export_appr_btn = st.button("📤 Export to Sheets", use_container_width=True, key="exp_appr")
+            deep_research = st.toggle("Deep research", value=False, help="Use sonar-deep-research (slower but more thorough). Default: sonar-pro (fast & reliable).")
         with a3:
+            export_appr_btn = st.button("📤 Export to Sheets", use_container_width=True, key="exp_appr")
+        with a4:
             clear_appr_btn = st.button("🗑️ Clear Approved", use_container_width=True)
 
         if clear_appr_btn:
@@ -752,8 +756,9 @@ with tab_approved:
 
         if enrich_btn:
             st.session_state.enrichment_running = True
-            st.markdown("#### 🔬 Running deep-research enrichment")
-            result = run_enrichment_with_progress(approved)
+            mode_label = "deep research (sonar-deep-research)" if deep_research else "standard (sonar-pro)"
+            st.markdown(f"#### 🔬 Running enrichment — {mode_label}")
+            result = run_enrichment_with_progress(approved, deep=deep_research)
             if result.returncode == 0:
                 st.success("✅ Enrichment complete!")
                 st.session_state.enriched_signals = load_enriched_signals()

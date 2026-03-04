@@ -39,6 +39,11 @@ console = Console(stderr=True)  # rich output to stderr, keep stdout clean for P
 PERPLEXITY_API_KEY = os.environ.get("PERPLEXITY_API_KEY")
 PERPLEXITY_API_URL = "https://api.perplexity.ai/chat/completions"
 
+# Model tiers — sonar-pro is fast & reliable; sonar-deep-research is thorough but flaky
+MODEL_STANDARD = "sonar-pro"
+MODEL_DEEP = "sonar-deep-research"
+MODEL_FALLBACK = "sonar"  # basic fallback if pro also fails
+
 CONTEXT_FILE = "context/context_summary.md"
 POV_FILE = "context/pov.md"
 
@@ -186,8 +191,10 @@ def get_founder_info(founder_key: str) -> Dict[str, Any]:
     return founder
 
 
-async def _call_perplexity(prompt: str, client: httpx.AsyncClient) -> dict:
+async def _call_perplexity(prompt: str, client: httpx.AsyncClient, model: str = MODEL_STANDARD) -> dict:
     """Make a single Perplexity API call and return the raw response data."""
+    # Deep research needs much longer timeout
+    timeout = 180.0 if model == MODEL_DEEP else 90.0
     response = await client.post(
         PERPLEXITY_API_URL,
         headers={
@@ -195,22 +202,26 @@ async def _call_perplexity(prompt: str, client: httpx.AsyncClient) -> dict:
             "Content-Type": "application/json"
         },
         json={
-            "model": "sonar-deep-research",
+            "model": model,
             "messages": [
                 {
                     "role": "system",
-                    "content": "You are a senior content strategist and researcher. Always respond with valid JSON only, no markdown formatting."
+                    "content": (
+                        "You are a senior content strategist and researcher. "
+                        "You MUST respond with ONLY valid JSON. "
+                        "No markdown, no code fences, no explanation text — just the raw JSON object."
+                    )
                 },
                 {
                     "role": "user",
                     "content": prompt
                 }
             ],
-            "temperature": 0.3,
+            "temperature": 0.2,
             "max_tokens": 4000,
             "return_citations": True
         },
-        timeout=120.0  # Deep research can take longer
+        timeout=timeout
     )
     response.raise_for_status()
     return response.json()
@@ -234,14 +245,107 @@ def _extract_json_from_content(raw_content: str) -> str:
     return content
 
 
+async def _try_enrich_with_model(
+    signal: Dict[str, Any],
+    prompt: str,
+    client: httpx.AsyncClient,
+    model: str,
+    max_retries: int = 2
+) -> Dict[str, Any]:
+    """Try to enrich a signal with a specific model. Returns result dict or raises on total failure."""
+    
+    last_error = ""
+    for attempt in range(1, max_retries + 2):  # 1 initial + max_retries
+        try:
+            data = await _call_perplexity(prompt, client, model=model)
+            
+            # Extract content and citations
+            raw_content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+            citations = data.get("citations", [])
+            
+            if not raw_content or not raw_content.strip():
+                last_error = f"Empty response from {model}"
+                if attempt <= max_retries:
+                    console.print(f"[yellow]  ↻ Empty response ({model}), retrying ({attempt}/{max_retries})…[/yellow]")
+                    await asyncio.sleep(2 * attempt)
+                    continue
+                raise RuntimeError(last_error)
+            
+            # Clean and extract JSON
+            content = _extract_json_from_content(raw_content)
+            
+            if not content or not content.strip():
+                last_error = f"No JSON found after cleaning ({model}, {len(raw_content)} chars raw)"
+                if attempt <= max_retries:
+                    console.print(f"[yellow]  ↻ No JSON in response ({model}), retrying ({attempt}/{max_retries})…[/yellow]")
+                    await asyncio.sleep(2 * attempt)
+                    continue
+                raise RuntimeError(last_error)
+            
+            # Parse JSON response
+            enrichment = json.loads(content)
+            
+            # Add citations from Perplexity
+            if citations:
+                existing_sources = enrichment.get("related_sources", [])
+                for citation in citations[:5]:
+                    if isinstance(citation, dict):
+                        existing_sources.append(citation.get("url", ""))
+                    elif isinstance(citation, str):
+                        existing_sources.append(citation)
+                enrichment["related_sources"] = list(set(existing_sources))[:8]
+            
+            enrichment["_model_used"] = model
+            return {
+                "signal_id": signal.get("id", ""),
+                "original_signal": signal,
+                "enrichment": enrichment,
+                "enriched_at": datetime.now().isoformat(),
+                "error": None
+            }
+            
+        except json.JSONDecodeError as e:
+            last_error = f"JSON parse error ({model}): {str(e)[:80]}"
+            if attempt <= max_retries:
+                console.print(f"[yellow]  ↻ JSON parse failed ({model}), retrying ({attempt}/{max_retries})…[/yellow]")
+                await asyncio.sleep(2 * attempt)
+                continue
+        except httpx.HTTPStatusError as e:
+            status_code = e.response.status_code
+            last_error = f"API error ({model}): {status_code} - {e.response.text[:80]}"
+            if status_code in (429, 500, 502, 503, 504) and attempt <= max_retries:
+                wait = 5 * attempt if status_code == 429 else 2 * attempt
+                console.print(f"[yellow]  ↻ HTTP {status_code} ({model}), retrying in {wait}s ({attempt}/{max_retries})…[/yellow]")
+                await asyncio.sleep(wait)
+                continue
+        except (httpx.ConnectError, httpx.ReadTimeout, httpx.ConnectTimeout) as e:
+            last_error = f"Connection error ({model}): {str(e)[:80]}"
+            if attempt <= max_retries:
+                console.print(f"[yellow]  ↻ Connection issue ({model}), retrying ({attempt}/{max_retries})…[/yellow]")
+                await asyncio.sleep(3 * attempt)
+                continue
+        except RuntimeError:
+            raise
+        except Exception as e:
+            last_error = str(e)[:100]
+            if attempt <= max_retries:
+                console.print(f"[yellow]  ↻ Error ({model}): {last_error}, retrying ({attempt}/{max_retries})…[/yellow]")
+                await asyncio.sleep(2 * attempt)
+                continue
+    
+    raise RuntimeError(last_error)
+
+
 async def enrich_signal_with_perplexity(
     signal: Dict[str, Any],
     client: httpx.AsyncClient,
+    model: str = MODEL_STANDARD,
     max_retries: int = 2
 ) -> Dict[str, Any]:
-    """Enrich a single signal using Perplexity deep research.
+    """Enrich a single signal using Perplexity with automatic model fallback.
     
-    Retries up to `max_retries` times on transient/parse errors.
+    Tries the requested model first, then falls back to simpler models
+    if the primary fails after all retries.
     """
     
     # Extract signal data
@@ -261,96 +365,24 @@ async def enrich_signal_with_perplexity(
         founder_pillars=", ".join(founder.get("pillars", []))
     )
     
-    last_error = ""
-    for attempt in range(1, max_retries + 2):  # 1 initial + max_retries
-        try:
-            data = await _call_perplexity(prompt, client)
-            
-            # Extract content and citations
-            raw_content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
-            citations = data.get("citations", [])
-            
-            if not raw_content or not raw_content.strip():
-                last_error = "Empty response from Perplexity"
-                if attempt <= max_retries:
-                    console.print(f"[yellow]  ↻ Empty response, retrying ({attempt}/{max_retries})…[/yellow]")
-                    await asyncio.sleep(2 * attempt)
-                    continue
-                return {
-                    "signal_id": signal.get("id", ""),
-                    "original_signal": signal,
-                    "enrichment": None,
-                    "enriched_at": datetime.now().isoformat(),
-                    "error": last_error
-                }
-            
-            # Clean and extract JSON
-            content = _extract_json_from_content(raw_content)
-            
-            if not content or not content.strip():
-                last_error = f"No JSON found after cleaning response ({len(raw_content)} chars raw)"
-                if attempt <= max_retries:
-                    console.print(f"[yellow]  ↻ No JSON in response, retrying ({attempt}/{max_retries})…[/yellow]")
-                    await asyncio.sleep(2 * attempt)
-                    continue
-                return {
-                    "signal_id": signal.get("id", ""),
-                    "original_signal": signal,
-                    "enrichment": None,
-                    "enriched_at": datetime.now().isoformat(),
-                    "error": last_error
-                }
-            
-            # Parse JSON response
-            enrichment = json.loads(content)
-            
-            # Add citations from Perplexity
-            if citations:
-                existing_sources = enrichment.get("related_sources", [])
-                for citation in citations[:5]:  # Limit to 5 additional sources
-                    if isinstance(citation, dict):
-                        existing_sources.append(citation.get("url", ""))
-                    elif isinstance(citation, str):
-                        existing_sources.append(citation)
-                enrichment["related_sources"] = list(set(existing_sources))[:8]
-            
-            return {
-                "signal_id": signal.get("id", ""),
-                "original_signal": signal,
-                "enrichment": enrichment,
-                "enriched_at": datetime.now().isoformat(),
-                "error": None
-            }
-            
-        except json.JSONDecodeError as e:
-            last_error = f"JSON parse error: {str(e)[:100]}"
-            if attempt <= max_retries:
-                console.print(f"[yellow]  ↻ JSON parse failed, retrying ({attempt}/{max_retries})…[/yellow]")
-                await asyncio.sleep(2 * attempt)
-                continue
-        except httpx.HTTPStatusError as e:
-            status_code = e.response.status_code
-            last_error = f"API error: {status_code} - {e.response.text[:100]}"
-            # Retry on 429 (rate limit) and 5xx (server errors)
-            if status_code in (429, 500, 502, 503, 504) and attempt <= max_retries:
-                wait = 5 * attempt if status_code == 429 else 2 * attempt
-                console.print(f"[yellow]  ↻ HTTP {status_code}, retrying in {wait}s ({attempt}/{max_retries})…[/yellow]")
-                await asyncio.sleep(wait)
-                continue
-        except (httpx.ConnectError, httpx.ReadTimeout, httpx.ConnectTimeout) as e:
-            last_error = f"Connection error: {str(e)[:100]}"
-            if attempt <= max_retries:
-                console.print(f"[yellow]  ↻ Connection issue, retrying ({attempt}/{max_retries})…[/yellow]")
-                await asyncio.sleep(3 * attempt)
-                continue
-        except Exception as e:
-            last_error = str(e)[:100]
-            if attempt <= max_retries:
-                console.print(f"[yellow]  ↻ Error: {last_error}, retrying ({attempt}/{max_retries})…[/yellow]")
-                await asyncio.sleep(2 * attempt)
-                continue
+    # Build fallback chain: requested model → standard → fallback
+    models_to_try = [model]
+    if model == MODEL_DEEP and MODEL_STANDARD not in models_to_try:
+        models_to_try.append(MODEL_STANDARD)
+    if MODEL_FALLBACK not in models_to_try:
+        models_to_try.append(MODEL_FALLBACK)
     
-    # All retries exhausted
+    last_error = ""
+    for i, try_model in enumerate(models_to_try):
+        try:
+            if i > 0:
+                console.print(f"[yellow]  ⬇ Falling back to {try_model}…[/yellow]")
+            return await _try_enrich_with_model(signal, prompt, client, try_model, max_retries)
+        except RuntimeError as e:
+            last_error = str(e)
+            continue
+    
+    # All models exhausted
     return {
         "signal_id": signal.get("id", ""),
         "original_signal": signal,
@@ -385,18 +417,25 @@ def emit_progress(
 
 async def enrich_signals(
     signals: List[Dict[str, Any]],
-    batch_size: int = 2
+    batch_size: int = 1,
+    model: str = MODEL_STANDARD
 ) -> List[Dict[str, Any]]:
-    """Enrich all signals using Perplexity."""
+    """Enrich all signals using Perplexity with automatic fallback.
+    
+    Default: sequential (batch_size=1) with sonar-pro for reliability.
+    Use model=MODEL_DEEP and batch_size=1 for thorough deep research.
+    """
     
     if not PERPLEXITY_API_KEY:
         console.print("[red]Error: PERPLEXITY_API_KEY not set in .env[/red]")
         sys.exit(1)
     
+    model_label = {MODEL_DEEP: "sonar-deep-research (thorough)", MODEL_STANDARD: "sonar-pro (reliable)", MODEL_FALLBACK: "sonar (basic)"}.get(model, model)
     console.print(Panel(
         f'[bold cyan]Signal Enrichment System[/bold cyan]\n\n'
         f'Signals to enrich: {len(signals)}\n'
-        f'Model: sonar-deep-research\n'
+        f'Model: {model_label}\n'
+        f'Fallback: auto (→ sonar-pro → sonar)\n'
         f'Batch size: {batch_size}',
         border_style='cyan'
     ))
@@ -430,7 +469,7 @@ async def enrich_signals(
                 
                 # Enrich batch concurrently
                 coros = [
-                    enrich_signal_with_perplexity(signal, client)
+                    enrich_signal_with_perplexity(signal, client, model=model)
                     for signal in batch
                 ]
                 
@@ -450,6 +489,9 @@ async def enrich_signals(
                         console.print(f"[yellow]⚠️ {result.get('error')}[/yellow]")
                     else:
                         success_count += 1
+                        used_model = result.get("enrichment", {}).get("_model_used", model)
+                        if used_model != model:
+                            console.print(f"[dim]  (enriched via fallback: {used_model})[/dim]")
                     
                     enriched_signals.append(result)
                     completed += 1
@@ -460,7 +502,7 @@ async def enrich_signals(
                 
                 # Rate limit between batches
                 if i + batch_size < total:
-                    await asyncio.sleep(2)  # Be gentle with rate limits
+                    await asyncio.sleep(1)
     
     # Emit final progress
     emit_progress(total, total, success_count, error_count, "", "complete")
@@ -537,12 +579,14 @@ async def main():
     """Main entry point."""
     
     parser = argparse.ArgumentParser(
-        description='Enrich approved signals with Perplexity deep research'
+        description='Enrich approved signals with Perplexity research'
     )
     parser.add_argument('input_file', type=str,
                        help='Path to approved signals JSON file')
-    parser.add_argument('--batch-size', type=int, default=2,
-                       help='Batch size for API calls (default: 2)')
+    parser.add_argument('--batch-size', type=int, default=1,
+                       help='Batch size for API calls (default: 1 = sequential)')
+    parser.add_argument('--deep', action='store_true',
+                       help='Use sonar-deep-research (slower but more thorough)')
     parser.add_argument('--save', action='store_true',
                        help='Save to file in outputs/')
     parser.add_argument('--output', type=str, default=None,
@@ -560,6 +604,8 @@ async def main():
         console.print("[red]Error: PERPLEXITY_API_KEY not set in .env[/red]")
         sys.exit(1)
     
+    model = MODEL_DEEP if args.deep else MODEL_STANDARD
+    
     # Load signals
     console.print(f"[dim]Loading signals from: {args.input_file}[/dim]")
     signals = load_signals(args.input_file)
@@ -573,7 +619,8 @@ async def main():
     # Enrich signals
     enriched_signals = await enrich_signals(
         signals=signals,
-        batch_size=args.batch_size
+        batch_size=args.batch_size,
+        model=model
     )
     
     # Output
