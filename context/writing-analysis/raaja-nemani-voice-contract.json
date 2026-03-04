@@ -1,0 +1,368 @@
+{
+  "version": "1.0",
+  "founderId": "raaja-nemani",
+  "founderName": "Raaja Nemani",
+  "extractedAt": "2026-02-05T12:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 10,
+      "openingStyle": "Bold declarative statement or contrarian take",
+      "paragraphPattern": "Single-sentence paragraphs with heavy line breaks for mobile optimization. Every 1-3 sentences gets a break."
+    },
+    "vocabulary": {
+      "register": "professional-direct",
+      "contractions": true,
+      "avoidList": [
+        "dive into",
+        "deep dive",
+        "unlock potential",
+        "leverage (as generic verb)",
+        "synergy",
+        "rockstar",
+        "touch base",
+        "circle back",
+        "let's unpack",
+        "at the end of the day",
+        "Amazing!",
+        "Incredible!"
+      ],
+      "signaturePhrases": [
+        "Here's the thing:",
+        "But here's what I tell them:",
+        "This is exactly why we built...",
+        "The future of marketing isn't... It's...",
+        "Which side of history will you be on?",
+        "Stepping off high horse now.",
+        "Not 'good enough.' Excellent.",
+        "The gap between [X] and [Y] is [massive/10x]",
+        "Where does this leave us?",
+        "The fear is real. But so is the opportunity.",
+        "Here is the problem with [X] in a nutshell.",
+        "The hiring process is totally broken.",
+        "This is the rental trap.",
+        "AI has fundamentally changed this equation.",
+        "Persistence outlasts talent.",
+        "Relationships compound."
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": true,
+      "hookPattern": "Bold declarative statement, contrarian take, or customer quote opener",
+      "ctaStyle": "Challenge question (Which side? Which one are you?) or advantage statement (Companies that figure this out first...)"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 150,
+      "max": 250
+    },
+    "averageWordCount": 200,
+    "distribution": {
+      "short": {
+        "percentage": 10,
+        "wordRange": "30-80 words",
+        "description": "Milestone announcements, quick updates"
+      },
+      "medium": {
+        "percentage": 50,
+        "wordRange": "150-250 words",
+        "description": "Standard thought leadership posts"
+      },
+      "long": {
+        "percentage": 40,
+        "wordRange": "250-350 words",
+        "description": "Extended essays with frameworks and templates"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "Actual quote from a CEO on a call today:\n\n\"We spent $47K in AI marketing tool licenses and not only isn't performance better, we feel even more bloated than ever with all these tools.\"",
+      "why": "Customer quote opener -- highest engagement post (1,040 reactions). Grounds the post in a real conversation with specific dollar amount.",
+      "engagement": {
+        "likes": 1040,
+        "comments": 52
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "What I learned from selling my first company:\n\nIn 2017, we sold Bucketfeet to Threadless.\n\n7 years of building, pivoting, grinding.\n\nHere's what that experience taught me:\n\n1. Exits rarely look like you imagined\n2. The journey matters more than the destination\n3. Your team is your legacy\n4. Relationships opened every door\n5. The next thing is always unclear until it isn't\n\nAfter Bucketfeet, I took time off.\n\nThen I met up with Chris Toy, an old friend from college.\n\nWe started exploring ideas.\n\nOne of those ideas became MarketerHire.\n\nNow we've helped 6,000+ companies find great marketers.\n\nThe entrepreneurial journey is rarely linear.\n\nBut if you keep building, keep learning, keep connecting...\n\nGood things tend to happen.",
+      "why": "Personal journey post -- second highest engagement (423 reactions, 76 comments). Shows vulnerability, numbered lessons, inspirational closer, and natural bridge to MarketerHire.",
+      "engagement": {
+        "likes": 423,
+        "comments": 76
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "Hot take: Most companies don't have a marketing problem.\n\nThey have a product problem.\n\nOr a positioning problem.\n\nOr a market problem.\n\nMarketing can amplify what's working.\n\nBut it can't fix fundamental issues with the business.\n\nI've seen companies pour millions into marketing with nothing to show for it.\n\nNot because the marketing was bad.\n\nBut because they were trying to market something that didn't resonate.\n\nBefore you hire marketers or buy tools, ask yourself:\n\n- Do customers actually want what we're selling?\n- Is our positioning clear and differentiated?\n- Are we in a market that can support our goals?\n\nIf the answer to any of these is 'no', fix that first.\n\nThen marketing can do its job.",
+      "why": "Contrarian take pattern -- strong engagement (267 reactions, 54 comments). Shows the 'Hot take:' opener, single-sentence paragraph pacing, diagnostic bullet list, and practical closer.",
+      "engagement": {
+        "likes": 267,
+        "comments": 54
+      }
+    },
+    {
+      "type": "cta",
+      "text": "The generalist SaaS era is ending. The specialist system era is beginning.\n\nWhich side of history will you be on?",
+      "why": "Signature challenge-question closer -- creates binary choice that drives comments and self-identification.",
+      "engagement": {
+        "likes": 133,
+        "comments": 14
+      }
+    },
+    {
+      "type": "hook",
+      "text": "CMOs are terrified right now.",
+      "why": "Bold emotional declaration opener -- three words that create immediate curiosity and drove highest comment count (87 comments).",
+      "engagement": {
+        "likes": 154,
+        "comments": 87
+      }
+    },
+    {
+      "type": "cta",
+      "text": "Stepping off high horse now.",
+      "why": "Signature self-aware dismount -- provides humor and humility after a strong take, very distinctive to Raaja's voice.",
+      "engagement": {
+        "likes": 59,
+        "comments": 5
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "Bold Declaration",
+      "pattern": "Definitive statement about an industry shift or reality. Often a single sentence.",
+      "examples": [
+        "We're witnessing the end of SaaS as we know it.",
+        "The era of \"off-the-shelf\" marketing strategy is over.",
+        "CMOs are terrified right now.",
+        "We have a new problem in marketing: Speed without soul."
+      ],
+      "frequency": "25%"
+    },
+    {
+      "style": "Problem Statement",
+      "pattern": "Direct identification of a specific problem in accessible language.",
+      "examples": [
+        "Here is the problem with hiring in a nutshell.",
+        "Why do startups struggle with marketing?",
+        "The most underrated skill in marketing: patience."
+      ],
+      "frequency": "15%"
+    },
+    {
+      "style": "Contrarian / Hot Take",
+      "pattern": "Signals challenging conventional wisdom with a label followed by the contrarian claim.",
+      "examples": [
+        "Hot take: Most companies don't have a marketing problem.",
+        "Unpopular opinion: Most marketing agencies are fundamentally broken.",
+        "Time to say the secret out loud."
+      ],
+      "frequency": "15%"
+    },
+    {
+      "style": "Customer Quote",
+      "pattern": "Leads with a real quote from a specific role and context, grounding the post in reality.",
+      "examples": [
+        "Actual quote from a CEO on a call today:\n\n\"We spent $47K in AI marketing tool licenses and not only isn't performance better, we feel even more bloated than ever with all these tools.\""
+      ],
+      "frequency": "5%"
+    },
+    {
+      "style": "Personal Revelation",
+      "pattern": "Shares from his own journey to establish credibility and connection.",
+      "examples": [
+        "I've been an entrepreneur for 15 years now.",
+        "Building MarketerHire has taught me one thing above all else:",
+        "What I learned from selling my first company:",
+        "Had dinner with 20 LA founders last night."
+      ],
+      "frequency": "20%"
+    },
+    {
+      "style": "Historical Timeline",
+      "pattern": "Creates perspective through a sequence of historical events, building to a pivot.",
+      "examples": [
+        "Google was founded in 1998.\n\nLinkedIn was founded in 2002.\n\nFacebook was founded in 2004.\n\nThe iPhone was released in 2007.\n\nInstagram was founded in 2010.\n\nAll of these changed marketing forever.\n\nBut none of them compare to what AI is doing right now."
+      ],
+      "frequency": "5%"
+    },
+    {
+      "style": "Observation from Experience",
+      "pattern": "Shares an insight from direct conversations or working with many people, citing specific numbers.",
+      "examples": [
+        "I've talked to dozens of them over the past few months. The common thread? Fear.",
+        "I've worked with thousands of marketers over the past 6 years building MarketerHire.",
+        "I think because marketing is so approachable, people think it's easy."
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "Milestone Announcement",
+      "pattern": "Understated excitement with numbered milestones.",
+      "examples": [
+        "Pretty excited to share:\n\n1. We crossed 6,000 customers earlier this year at MarketerHire\n2. Our newest product MH-1 is now live and converting\n\nWhat a year."
+      ],
+      "frequency": "5%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": null,
+    "vocabulary": {},
+    "placementRules": [
+      "Raaja uses virtually no emojis across all 20 posts analyzed",
+      "Zero emojis is the default and expected pattern",
+      "Maximum 1 emoji in rare cases, strategically placed",
+      "Never inline emojis within sentences"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "Bold Claim > Context > 'Here's the thing:' Pivot > Explanation > MarketerHire Bridge > Bulleted Features > Challenge Closer",
+      "structure": [
+        "Bold claim about industry change",
+        "Historical context with optional numbers",
+        "'Here's the thing:' pivot to core insight",
+        "Explanation of the shift",
+        "Bridge to MarketerHire/MH-1",
+        "Bulleted features or benefits",
+        "Closing challenge question"
+      ],
+      "useCase": "Industry shift / thought leadership posts"
+    },
+    {
+      "name": "Customer Quote > Paradox Label > Problem List > Insight > Problem Stack > Solution Bridge > Simple Truth Closer",
+      "structure": [
+        "Direct customer quote with role and context",
+        "'This is the [label] of [topic]:' framing",
+        "Bulleted paradox or problem list",
+        "'Here's what I've learned:' transition",
+        "Core insight as single statement",
+        "3 parallel 'They're [doing X]' problem statements",
+        "'This is exactly why we built [product]'",
+        "Bulleted solution features",
+        "Simple truth closer"
+      ],
+      "useCase": "Customer pain point / product positioning posts"
+    },
+    {
+      "name": "Contrarian Opener > Real Problem Diagnosis > Concrete Example > Self-Check Questions > Conditional Advice",
+      "structure": [
+        "'Hot take:' or 'Unpopular opinion:' opener",
+        "Explanation of the real underlying problem",
+        "'Marketing can [X]. But it can't [Y].' framing",
+        "Concrete example from experience",
+        "'Before you [action], ask yourself:' + diagnostic questions",
+        "Conditional advice closer"
+      ],
+      "useCase": "Contrarian take / diagnostic posts"
+    },
+    {
+      "name": "Personal Experience > Credentials > Numbered Lessons > Reflection > Inspirational Closer",
+      "structure": [
+        "Personal experience opener with timeline",
+        "List of companies or experiences for credibility",
+        "'Here's what I've learned:' transition",
+        "Numbered lessons (typically 5)",
+        "Reflection on the pattern",
+        "Inspirational but grounded closer"
+      ],
+      "useCase": "Personal journey / lessons learned posts"
+    },
+    {
+      "name": "Emotional State Opener > Credibility > Fear/Problem List > 'But here's what I tell them:' Reframe > Advice > Solution Bridge > Binary Choice Closer",
+      "structure": [
+        "Emotional state of audience ('CMOs are terrified')",
+        "'I've talked to [number] of them' credibility",
+        "'The common thread? [Emotion].'",
+        "Bulleted fear or problem list",
+        "'But here's what I tell them:' reframe",
+        "Advice as 'Who [verb]...' parallel statements",
+        "Bridge to MarketerHire",
+        "'Which one are you?' binary closer"
+      ],
+      "useCase": "Fear-opportunity / audience empathy posts"
+    },
+    {
+      "name": "Contrasting Lists (Good vs Average)",
+      "structure": [
+        "Setup statement about the gap",
+        "'The good ones:' bulleted list (5 items)",
+        "'The average ones:' bulleted list (5 items)",
+        "Statement about AI widening the gap",
+        "Bridge to solution"
+      ],
+      "useCase": "Talent quality / excellence differentiation posts"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "Excessive emojis",
+      "Hashtags (almost never used)",
+      "Long dense paragraphs without line breaks",
+      "Vague generic statements without specifics",
+      "Overly promotional language ('Amazing!' 'Incredible!')",
+      "Unexplained jargon",
+      "Lengthy introductions before getting to the point",
+      "Questions without providing his own answer",
+      "Pure negativity without offering solutions",
+      "Corporate-speak",
+      "dive into / deep dive",
+      "unlock / unlocking (as buzzword)",
+      "leverage (as generic verb)",
+      "synergy",
+      "rockstar",
+      "touch base",
+      "circle back",
+      "let's unpack",
+      "at the end of the day"
+    ],
+    "formattingToAvoid": [
+      "Dense paragraphs without line breaks -- always use single-sentence paragraphs",
+      "Excessive formatting (bold, headers, etc.) -- keep it clean text",
+      "Inline hashtags -- no hashtags at all",
+      "Emoji-heavy posts -- zero or max 1 emoji",
+      "Posts without at least one list (bullet or numbered)"
+    ],
+    "toneToAvoid": [
+      "Lecturing without sharing own experience",
+      "Criticizing without offering an alternative",
+      "Promoting without providing value first",
+      "Claiming expertise he does not have",
+      "Making claims without numbers when numbers are available",
+      "Hedging language ('I think maybe...' 'It could be...')",
+      "Generic platitudes without personal grounding",
+      "Humble-bragging",
+      "Passive voice"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "Not used",
+    "maxCount": 0,
+    "format": "N/A -- Raaja almost never uses hashtags",
+    "commonTags": []
+  },
+  "taggingStyle": {
+    "frequency": "Minimal -- rarely tags individuals",
+    "patterns": [
+      "Mentions companies by name (MarketerHire, Bucketfeet, Threadless)",
+      "Mentions co-founder Chris Toy by name in narrative context",
+      "Does not do heavy @mention tagging of other people",
+      "References roles generically ('CMOs', 'a CEO on a call today')"
+    ],
+    "specialPhrases": [
+      "We've fixed this (for marketing at least) at MarketerHire.",
+      "At MarketerHire, we're...",
+      "This is exactly why we built MarketerHire differently."
+    ]
+  },
+  "metadata": {
+    "postsAnalyzed": 20,
+    "confidenceScore": 0.95,
+    "extractionMethod": "markdown-parsing",
+    "dateRange": "March 2024 - December 2025"
+  }
+}

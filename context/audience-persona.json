@@ -1,0 +1,445 @@
+{
+  "icp": {
+    "company_characteristics": [
+      {
+        "attribute": "Industry",
+        "ideal_profile": "B2B SaaS, Fintech, eCommerce/DTC, Technology, Healthcare Tech—sectors with high digital acquisition costs and pressure to adopt AI"
+      },
+      {
+        "attribute": "Company Size",
+        "ideal_profile": "Mid-market: 50-500 employees, $10M-$100M ARR. Venture-backed growth stage (Series A-C) also qualifies regardless of revenue"
+      },
+      {
+        "attribute": "Geography",
+        "ideal_profile": "Primary: United States. Secondary: English-speaking markets (UK, Canada, Australia) with USD-equivalent budgets"
+      },
+      {
+        "attribute": "Tech Maturity",
+        "ideal_profile": "Digital-native but AI-curious. Using marketing tools (HubSpot, Marketo, Salesforce) but struggling to integrate AI workflows systematically"
+      },
+      {
+        "attribute": "Budget",
+        "ideal_profile": "$360K+ annualized marketing services budget ($30K/mo MH-1 commitment). Typically replacing or consolidating 2-3 existing vendors"
+      }
+    ],
+    "buying_characteristics": [
+      {
+        "attribute": "Decision Timeline",
+        "profile": "2-6 weeks. \"Cancel anytime\" accelerates decision vs. typical 6-12 month agency commitments"
+      },
+      {
+        "attribute": "Buying Committee",
+        "profile": "Champion: VP Marketing/Growth. Decision Maker: CMO or CEO. Influencer: Head of Ops/Finance. Blocker: CFO (budget scrutiny)"
+      },
+      {
+        "attribute": "Procurement Process",
+        "profile": "Light procurement. Often handled directly by marketing leadership without formal RFP. May require CEO sign-off at $30K/mo"
+      }
+    ],
+    "problem_fit": {
+      "primary_pain_points": [
+        {
+          "name": "AI Adoption Gap",
+          "description": "Using AI tools (ChatGPT, Jasper) but not seeing EBIT impact due to poor integration and workflow chaos"
+        },
+        {
+          "name": "Vendor Fragmentation",
+          "description": "Managing 5+ marketing vendors/agencies, each with separate contracts, billing, and communication overhead"
+        },
+        {
+          "name": "Headcount Constraints",
+          "description": "Need enterprise-grade marketing capabilities but under pressure to reduce payroll and freeze hiring"
+        },
+        {
+          "name": "Speed vs. Quality Trade-off",
+          "description": "Traditional agencies are too slow; freelance marketplaces (Upwork) are too inconsistent"
+        }
+      ],
+      "current_solutions": [
+        "Multiple point solutions: Traditional agencies ($50K+/mo retainers), freelance marketplaces (Upwork, Fiverr), in-house generalists stretched thin",
+        "AI tools without integration: Experimenting with 3-5 AI tools but manually copying/pasting between them",
+        "Fractional CMO relationships without execution support"
+      ],
+      "switching_triggers": [
+        "Just raised a funding round (Series A/B/C) and need to scale marketing quickly",
+        "New marketing leadership (CMO/VP) looking to \"reset\" vendor relationships",
+        "Board/CEO pressure to adopt AI but internal team lacks expertise",
+        "Recent layoffs created capability gaps in marketing team",
+        "Existing agency contract ending or underperforming"
+      ]
+    },
+    "anti_icp": [
+      "**Early-stage startups (<$5M ARR)**: Can't afford $30K/mo; better served by core MarketerHire marketplace",
+      "**Enterprise (5000+ employees)**: Prefer building internal AI teams or working with Big 4 consultancies",
+      "**Low digital acquisition cost industries**: Manufacturing, heavy industry, real estate (traditional)—AI marketing less relevant",
+      "**Companies seeking only creative services**: Looking for design/branding agencies, not AI-enabled growth",
+      "**Risk-averse, slow-moving organizations**: Require 6+ month pilots and formal procurement; won't match MH-1's sprint-based model"
+    ]
+  },
+  "buyer_personas": [
+    {
+      "persona_id": "growth_stage_vp_of_marketing",
+      "title": "The Growth-Stage VP of Marketing",
+      "tagline": "I know AI is the future, but I can't spend the next 6 months experimenting. I need results this quarter.",
+      "demographics": [
+        {
+          "attribute": "Title",
+          "value": "VP of Marketing, VP of Growth, Head of Demand Gen"
+        },
+        {
+          "attribute": "Department",
+          "value": "Marketing"
+        },
+        {
+          "attribute": "Seniority",
+          "value": "VP-level; 8-15 years experience"
+        },
+        {
+          "attribute": "Reports To",
+          "value": "CMO (if exists) or CEO directly"
+        },
+        {
+          "attribute": "Team Size",
+          "value": "5-15 direct reports"
+        },
+        {
+          "attribute": "Age Range",
+          "value": "32-45"
+        }
+      ],
+      "day_in_the_life": "Spends mornings reviewing campaign performance dashboards and responding to leadership requests for \"the latest numbers.\" Afternoons are consumed by vendor calls, team 1:1s, and planning meetings. Constantly context-switching between strategic initiatives (AI adoption, new channel tests) and tactical fires (underperforming campaigns, urgent creative needs). Leaves work feeling productive but rarely strategic.",
+      "pain_points": [
+        {
+          "name": "The AI Expectation Gap",
+          "what_it_looks_like": "CEO/Board asking \"what's our AI strategy?\" but team lacks expertise to implement",
+          "impact": "Political pressure without resources; risks being seen as a laggard"
+        },
+        {
+          "name": "Vendor Whack-a-Mole",
+          "what_it_looks_like": "Managing 4-5 agencies/freelancers with different contracts, onboarding processes, and communication styles",
+          "impact": "20% of time spent on vendor coordination instead of strategy"
+        },
+        {
+          "name": "Headcount Freeze Handcuffs",
+          "what_it_looks_like": "Business growing 30% YoY but can't add headcount due to \"efficiency\" mandates",
+          "impact": "Team burnout, quality decline, missed opportunities"
+        }
+      ],
+      "goals": [
+        "**Prove AI ROI**: Demonstrate measurable AI impact to justify budget and build internal credibility",
+        "**Consolidate Vendors**: Replace 3-5 point solutions with one partner who can do it all",
+        "**Scale Without Scaling**: Achieve 2-3x output without proportional headcount increase"
+      ],
+      "success_metrics": [
+        "Pipeline generated / Marketing Qualified Leads (MQLs)",
+        "Customer Acquisition Cost (CAC)",
+        "Marketing-sourced revenue",
+        "Campaign velocity (time-to-launch)",
+        "Marketing efficiency ratio (spend per outcome)"
+      ],
+      "objections": [
+        {
+          "objection": "$30K/mo is more than my current agency spend",
+          "response_strategy": "Focus on consolidation: MH-1 replaces 2-3 vendors, often at equal or lower total cost. Plus, cancel anytime reduces risk."
+        },
+        {
+          "objection": "My team won't know how to work with AI specialists",
+          "response_strategy": "MH-1 provides the system AND the talent—clients don't need internal AI expertise"
+        },
+        {
+          "objection": "I've been burned by agencies that over-promise",
+          "response_strategy": "Sprint-based execution with weekly optimization. See results in 30 days, not 6 months. Cancel anytime."
+        },
+        {
+          "objection": "How is this different from hiring freelancers on MarketerHire?",
+          "response_strategy": "MH-1 is a system, not a marketplace. You get unlimited automations, a dedicated team, and 1M+ datapoints—not just a warm body"
+        }
+      ],
+      "buying_triggers": {
+        "internal": [
+          "Just lost a key team member and can't backfill",
+          "Q1/Q2 planning reveals budget for \"AI initiatives\"",
+          "New executive (CEO, CMO) asking for fresh vendor recommendations",
+          "Team piloted 3 AI tools, none produced meaningful results"
+        ],
+        "external": [
+          "Competitor launched AI-powered campaign that outperformed",
+          "Board member shared McKinsey AI report in a meeting",
+          "Attended conference where peers discussed AI agency partnerships",
+          "Industry publication featured case study from a similar company"
+        ]
+      },
+      "information_sources": {
+        "where_they_learn": "LinkedIn, CMO Coffee Talk, Demand Gen Report, Growth Marketing Slack communities, Pavilion (formerly Revenue Collective)",
+        "who_they_trust": "Peer CMOs/VPs, former colleagues, B2B marketing influencers (Sangram Vajre, Dave Gerhardt)",
+        "how_they_research": "LinkedIn posts first, then direct outreach to peers for recommendations, then website/demo"
+      },
+      "champion_traits": [
+        "Has budget authority or strong CEO relationship to unlock budget",
+        "Personally frustrated with current vendor situation",
+        "Already believes in AI's potential but needs execution partner",
+        "Politically motivated to be seen as \"the one who brought AI in\""
+      ]
+    },
+    {
+      "persona_id": "founder_ceo_of_a_growth_stage_startup",
+      "title": "The Founder/CEO of a Growth-Stage Startup",
+      "tagline": "I don't have time to manage a marketing team or vet agencies. Just give me a system that works.",
+      "demographics": [
+        {
+          "attribute": "Title",
+          "value": "CEO, Founder, Co-founder"
+        },
+        {
+          "attribute": "Department",
+          "value": "Executive/Leadership"
+        },
+        {
+          "attribute": "Seniority",
+          "value": "C-level; company founder"
+        },
+        {
+          "attribute": "Reports To",
+          "value": "Board of Directors"
+        },
+        {
+          "attribute": "Team Size",
+          "value": "30-150 total employees; 2-8 in marketing"
+        },
+        {
+          "attribute": "Age Range",
+          "value": "30-50"
+        }
+      ],
+      "day_in_the_life": "Mornings: Board prep, investor updates, all-hands meetings. Afternoons: Customer calls, product reviews, hiring decisions. Marketing is on the radar but not the focus—expects it to \"just work\" while attention is on product and fundraising. Reviews marketing dashboards weekly, gets frustrated when numbers don't move. Defaults to asking \"why can't we just use AI to do this?\" without understanding the complexity.",
+      "pain_points": [
+        {
+          "name": "Marketing Is a Black Box",
+          "what_it_looks_like": "Sees money going out, not sure what's coming back. Feels dependent on people he can't evaluate.",
+          "impact": "Either over-invests (hiring too many marketers) or under-invests (one generalist doing everything)"
+        },
+        {
+          "name": "Agency PTSD",
+          "what_it_looks_like": "Had a bad experience with a $50K/mo agency that delivered \"strategy decks\" but no results",
+          "impact": "Distrustful of all agencies; prefers \"doing it ourselves\" even when that's not working"
+        },
+        {
+          "name": "The AI Mandate Without Expertise",
+          "what_it_looks_like": "Told the board \"we're going all-in on AI\" but has no idea how to operationalize it in marketing",
+          "impact": "Pressure to show AI ROI in next board meeting; needs a win"
+        }
+      ],
+      "goals": [
+        "**Marketing That Runs Without Me**: A system he can trust without daily oversight",
+        "**Capital Efficiency**: Show investors marketing spend is driving efficient growth (not just burning cash)",
+        "**Competitive Moat**: Use AI as a differentiator before competitors catch up"
+      ],
+      "success_metrics": [
+        "Revenue growth rate",
+        "CAC payback period",
+        "Burn multiple (net burn / net new ARR)",
+        "Pipeline coverage for quarterly targets",
+        "Investor/board perception of marketing maturity"
+      ],
+      "objections": [
+        {
+          "objection": "I've been burned by agencies before",
+          "response_strategy": "MH-1 is cancel anytime, sprint-based. If it's not working in 30 days, leave. No 12-month contracts."
+        },
+        {
+          "objection": "$30K/mo is a lot to commit to",
+          "response_strategy": "Compare to: (1) hiring 2 full-time marketers ($200K+/yr loaded), (2) your current agency stack. MH-1 often saves money."
+        },
+        {
+          "objection": "My VP of Marketing should be handling this",
+          "response_strategy": "MH-1 supports your VP—gives them capabilities they couldn't build alone. Your VP picks us, you approve budget."
+        },
+        {
+          "objection": "Is this just another ChatGPT wrapper?",
+          "response_strategy": "MH-1 is humans + AI + workflows. You're buying integration expertise and 1M+ datapoints, not another tool subscription."
+        }
+      ],
+      "buying_triggers": {
+        "internal": [
+          "Just closed funding round; board expects marketing scale-up",
+          "Marketing leader quit or underperforming",
+          "Looked at marketing budget and asked \"why are we spending this much?\"",
+          "Product is ready; \"sales needs more leads\" is the bottleneck"
+        ],
+        "external": [
+          "Investor introduced them to MH-1 or similar service",
+          "Peer founder (YC batch, CEO network) recommended the service",
+          "Saw a competitor's AI-powered marketing that clearly outperformed",
+          "Podcast interview or LinkedIn post from Chris Toy caught attention"
+        ]
+      },
+      "information_sources": {
+        "where_they_learn": "CEO peer groups (YPO, Founders Network), Twitter/X, podcasts (All-In, My First Million, Lenny's Podcast)",
+        "who_they_trust": "Other founders (especially from same investor portfolio), trusted advisors, board members",
+        "how_they_research": "Quick—asks network for recs, looks at website for 5 minutes, schedules a call if it passes the sniff test"
+      },
+      "champion_traits": [
+        "Has budget authority (can sign off immediately)",
+        "Cares about results, not process",
+        "Willing to try new things if risk is managed (cancel anytime matters)",
+        "Likely to refer other founders if it works"
+      ]
+    },
+    {
+      "persona_id": "first_time_cmo_at_a_scaling_company",
+      "title": "The First-Time CMO at a Scaling Company",
+      "tagline": "I finally have the title, now I need to prove I deserve it. I can't afford a slow start.",
+      "demographics": [
+        {
+          "attribute": "Title",
+          "value": "CMO, Chief Marketing Officer"
+        },
+        {
+          "attribute": "Department",
+          "value": "Marketing (runs department)"
+        },
+        {
+          "attribute": "Seniority",
+          "value": "C-level; first CMO role (previously VP)"
+        },
+        {
+          "attribute": "Reports To",
+          "value": "CEO"
+        },
+        {
+          "attribute": "Team Size",
+          "value": "10-30 in marketing"
+        },
+        {
+          "attribute": "Age Range",
+          "value": "38-52"
+        }
+      ],
+      "day_in_the_life": "First 90 days in the role. Inherited a team of varying quality and a vendor stack that doesn't make sense. Spending time auditing what exists, meeting stakeholders, and planning the \"CMO's vision.\" Under pressure to deliver quick wins while simultaneously building a long-term strategy. Every decision is being watched by the CEO and board. Can't afford to make a big hiring mistake or pick the wrong agency.",
+      "pain_points": [
+        {
+          "name": "The 90-Day Pressure Cooker",
+          "what_it_looks_like": "Board expects a \"marketing transformation plan\" in first quarter while also demanding pipeline this quarter",
+          "impact": "Paralyzed between strategy and tactics; risks looking indecisive"
+        },
+        {
+          "name": "Inherited Chaos",
+          "what_it_looks_like": "Three agencies on contract, two underperforming team members, no clear attribution, AI tools scattered",
+          "impact": "Can't make changes without first untangling the mess; burning credibility days"
+        },
+        {
+          "name": "Proving ROI on \"Modern Marketing\"",
+          "what_it_looks_like": "CEO/board heard AI marketing is the future but doesn't understand what it means",
+          "impact": "Needs to show AI wins to validate their hire; career risk if it fails"
+        }
+      ],
+      "goals": [
+        "**Quick Win in Q1**: Visible results (pipeline, campaign success) to establish credibility",
+        "**Vendor Rationalization**: Clean up the agency/tool mess into something manageable",
+        "**Build the AI Story**: Position self as the CMO who \"brought AI to marketing\" at this company"
+      ],
+      "success_metrics": [
+        "Marketing-influenced revenue",
+        "Cost per opportunity",
+        "Brand awareness metrics (share of voice, earned media)",
+        "Team engagement/retention",
+        "\"Marketing transformation\" progress against stated plan"
+      ],
+      "objections": [
+        {
+          "objection": "I just started; I can't bring in a $30K/mo vendor yet",
+          "response_strategy": "Perfect timing—MH-1 helps you audit, build the roadmap, and execute. Use us to establish your plan faster."
+        },
+        {
+          "objection": "I need to give my team a chance first",
+          "response_strategy": "MH-1 augments your team—we don't replace them. Your team gets AI superpowers; you get the credit."
+        },
+        {
+          "objection": "What if this doesn't work and I look bad?",
+          "response_strategy": "Cancel anytime, sprint-based. If Q1 isn't working, pivot. No long-term contract = no career risk."
+        },
+        {
+          "objection": "My last company used [competitor]; why switch?",
+          "response_strategy": "MH-1's unlimited automations and 1M+ datapoints go beyond what [competitor] offers. Plus: cancel anytime."
+        }
+      ],
+      "buying_triggers": {
+        "internal": [
+          "Started new CMO role in last 6 months",
+          "Received mandate from CEO to \"modernize marketing\" or \"adopt AI\"",
+          "Conducted vendor audit and found 30%+ of spend is underperforming",
+          "Just let go of an underperforming agency and needs replacement"
+        ],
+        "external": [
+          "CMO peer recommended MH-1 during onboarding conversations",
+          "Saw MH-1 case study featuring similar company",
+          "Attended CMO event where AI marketing was hot topic",
+          "Chris Toy's LinkedIn content appeared in feed"
+        ]
+      },
+      "information_sources": {
+        "where_they_learn": "CMO peer networks (Chief, CMO Alliance), Gartner/Forrester reports, industry conferences (SaaStr, HubSpot INBOUND)",
+        "who_they_trust": "Former bosses, CMO peer group, executive recruiters who placed them",
+        "how_they_research": "Methodical—reads case studies, wants references from similar companies, asks for detailed SOW before deciding"
+      },
+      "champion_traits": [
+        "Strong CEO relationship (can push budget through)",
+        "Personal career stake in AI marketing success",
+        "Willing to take calculated risks to establish credibility",
+        "Likely to become long-term account if first 90 days succeed"
+      ]
+    }
+  ],
+  "buying_committee": [
+    {
+      "role": "Champion",
+      "persona": "VP of Marketing",
+      "involvement": "Identifies need, builds internal case, manages evaluation",
+      "key_concern": "Will this make my team look good or threatened?"
+    },
+    {
+      "role": "Decision Maker",
+      "persona": "CEO or CMO",
+      "involvement": "Final budget approval, strategic alignment",
+      "key_concern": "Is this worth $360K/year? What's the downside?"
+    },
+    {
+      "role": "Influencer",
+      "persona": "Head of Revenue/Sales",
+      "involvement": "Validates pipeline impact, may co-fund",
+      "key_concern": "Will this actually generate leads my team can close?"
+    },
+    {
+      "role": "User",
+      "persona": "Marketing team",
+      "involvement": "Will work daily with MH-1",
+      "key_concern": "Is this going to make my job easier or create more work?"
+    },
+    {
+      "role": "Blocker",
+      "persona": "CFO / Finance",
+      "involvement": "Budget scrutiny, ROI validation",
+      "key_concern": "Why can't we do this cheaper? What's the payback period?"
+    }
+  ],
+  "messaging_by_persona": [
+    {
+      "persona": "VP of Marketing",
+      "lead_with": "Consolidate your vendor chaos into one AI-powered system",
+      "emphasize": "Unlimited automations, 48-hour time-to-value, cancel anytime",
+      "proof_points": "Case studies from similar growth-stage companies, specific automation examples, CAC improvements"
+    },
+    {
+      "persona": "Founder/CEO",
+      "lead_with": "Enterprise-grade marketing without the headcount",
+      "emphasize": "Fraction of the cost of traditional agencies, month-to-month flexibility, AI-native",
+      "proof_points": "Founder testimonials, investor-friendly efficiency metrics, competitive examples"
+    },
+    {
+      "persona": "First-Time CMO",
+      "lead_with": "Win your first 90 days with AI-powered quick wins",
+      "emphasize": "Complete audit + roadmap, sprint-based execution, makes your team look good",
+      "proof_points": "CMO transformation stories, before/after metrics, team augmentation (not replacement) narrative"
+    }
+  ]
+}

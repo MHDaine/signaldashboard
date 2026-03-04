@@ -1,0 +1,41 @@
+{
+  "web-sources-rss": [
+    "https://www.saastr.com/feed/",
+    "https://blog.hubspot.com/marketing/rss.xml",
+    "https://foundationinc.co/lab/feed/",
+    "https://nogood.io/blog/feed/",
+    "https://www.lennysnewsletter.com/feed",
+    "https://newsletter.mkt1.co/feed",
+    "https://www.elenaverna.com/feed"
+  ],
+  "linkedin-thought-leaders": [
+    "https://www.linkedin.com/in/lennyrachitsky/",
+    "https://www.linkedin.com/in/neilkpatel/",
+    "https://www.linkedin.com/in/lerdem/",
+    "https://www.linkedin.com/in/richardvanderblom/",
+    "https://www.linkedin.com/in/marcelsantilli/",
+    "https://www.linkedin.com/in/audrey-chia/"
+  ],
+  "reddit-subreddits": [
+    "marketing",
+    "digital_marketing",
+    "startups",
+    "Entrepreneur",
+    "smallbusiness",
+    "SaaS",
+    "socialmedia",
+    "content_marketing",
+    "SEO",
+    "artificial"
+  ],
+  "keywords": [
+    "AI marketing",
+    "marketing automation",
+    "fractional CMO",
+    "fractional marketing",
+    "growth marketing",
+    "marketing AI tools",
+    "AI workflow automation",
+    "marketing ROI"
+  ]
+}

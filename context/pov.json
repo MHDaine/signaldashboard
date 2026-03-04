@@ -1,0 +1,205 @@
+[
+  {
+    "founder_name": "chris-toy",
+    "content_pillar": "death-of-attribution",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "TOFU",
+    "pov": "Marketing attribution as we know it is dead. The companies winning today aren't the ones with the best tracking pixels\u2014they're the ones who've returned to marketing fundamentals and learned to trust their intuition again."
+  },
+  {
+    "founder_name": "chris-toy",
+    "content_pillar": "talent-cloud",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "MOFU",
+    "pov": "The future of marketing teams isn't full-time or freelance\u2014it's elastic. Companies should spin up marketing specialists as easily as they spin up AWS servers."
+  },
+  {
+    "founder_name": "chris-toy",
+    "content_pillar": "fundamentals-over-fads",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "TOFU",
+    "pov": "TikTok, AI, whatever comes next\u2014channels change every 18 months. Customer psychology hasn't changed in 100 years. Stop chasing channels and start mastering fundamentals."
+  },
+  {
+    "founder_name": "chris-toy",
+    "content_pillar": "agency-model-broken",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "BOFU",
+    "pov": "Traditional agencies charge you for hours when you need outcomes. They're built to maximize billing, not results. The $30k/month you spend on retainers could buy a complete AI-native marketing system."
+  },
+  {
+    "founder_name": "chris-toy",
+    "content_pillar": "ai-superpower",
+    "target_persona": "first-time-cmo",
+    "funnel_stage": "MOFU",
+    "pov": "78% of companies are 'using AI' but fewer than 20% are seeing real business impact. The gap isn't tools\u2014it's integration. AI only works when it's woven into workflows by people who understand both marketing and systems."
+  },
+  {
+    "founder_name": "raaja-nemani",
+    "content_pillar": "community-as-moat",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "TOFU",
+    "pov": "The companies that will dominate the next decade aren't the ones with the best products\u2014they're the ones with the most engaged communities. Products can be copied in 6 months. Communities take years to build and are nearly impossible to replicate."
+  },
+  {
+    "founder_name": "raaja-nemani",
+    "content_pillar": "attention-to-detail",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "MOFU",
+    "pov": "Move fast and break things is wrong. Move carefully and build right. The fastest companies aren't the ones that skip steps\u2014they're the ones that never have to go back and fix mistakes."
+  },
+  {
+    "founder_name": "raaja-nemani",
+    "content_pillar": "individual-as-media",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "TOFU",
+    "pov": "Individual creators are becoming media brands that compete with legacy institutions. The executives who understand this will build personal platforms that generate revenue. The ones who don't will become invisible."
+  },
+  {
+    "founder_name": "raaja-nemani",
+    "content_pillar": "finance-plus-creative",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "MOFU",
+    "pov": "Most creative marketing fails because it ignores unit economics. Most finance-driven marketing fails because it ignores creativity. The winners are the operators who can hold both truths simultaneously."
+  },
+  {
+    "founder_name": "aneesha-rao",
+    "content_pillar": "full-stack-operator",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "TOFU",
+    "pov": "The best consumer growth leaders aren't just marketers or just operators\u2014they're full-stack executives who can present to creative directors in the morning and defend P&L numbers to the board in the afternoon."
+  },
+  {
+    "founder_name": "aneesha-rao",
+    "content_pillar": "managing-expert-talent",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "With expert freelancers, the guardrails you implement should depend entirely on their expertise level. Treat a senior specialist like a junior hire, and you'll lose them. Treat a junior like a senior, and you'll get chaos."
+  },
+  {
+    "founder_name": "aneesha-rao",
+    "content_pillar": "premium-psychology",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "MOFU",
+    "pov": "Premium consumers don't buy products\u2014they buy identity validation. The brands that win in luxury understand that every touchpoint is either reinforcing or undermining the customer's self-image."
+  },
+  {
+    "founder_name": "aneesha-rao",
+    "content_pillar": "single-to-portfolio",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "BOFU",
+    "pov": "Managing one brand is marketing. Managing a portfolio of brands is operations. The playbooks are completely different, and most single-brand marketers fail when they try to scale to portfolio management."
+  },
+  {
+    "founder_name": "cameron-rzonca",
+    "content_pillar": "ai-tools-to-systems",
+    "target_persona": "first-time-cmo",
+    "funnel_stage": "TOFU",
+    "pov": "The future of marketing doesn't belong to companies that use AI tools. It belongs to companies that build AI systems. Tools are commodities. Systems are competitive advantages."
+  },
+  {
+    "founder_name": "cameron-rzonca",
+    "content_pillar": "human-plus-ai-hybrid",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "AI won't replace marketers. AI will replace marketers who don't know how to work with AI. The winning model is human strategy and creativity combined with AI-driven execution and scale."
+  },
+  {
+    "founder_name": "cameron-rzonca",
+    "content_pillar": "data-driven-creativity",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "With a background in mathematics, I approach every marketing challenge as a data-driven problem solver. The best creative work isn't born from pure intuition\u2014it's born from understanding patterns in data and finding the creative breakthrough that exploits them."
+  },
+  {
+    "founder_name": "cameron-rzonca",
+    "content_pillar": "enterprise-for-growth",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "BOFU",
+    "pov": "I left managing $100M+ campaigns for companies like adidas to focus on helping small businesses access the same enterprise-grade strategies. The playbooks that work at Fortune 500 scale can be systematized for growing companies."
+  },
+  {
+    "founder_name": "nikhil-arora",
+    "content_pillar": "pandl-driven-growth",
+    "target_persona": "first-time-cmo",
+    "funnel_stage": "TOFU",
+    "pov": "Growth isn't about acquisition metrics\u2014it's about owning the P&L. The marketers who will lead the next generation aren't optimizing CAC in isolation; they're accountable for revenue, margin, and unit economics."
+  },
+  {
+    "founder_name": "nikhil-arora",
+    "content_pillar": "cross-industry-playbooks",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "The growth playbook that works in meal kits works in digital health works in fintech. The channels change, the regulations change, but the underlying acquisition math and retention psychology are universal."
+  },
+  {
+    "founder_name": "nikhil-arora",
+    "content_pillar": "depersonalize-failure",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "TOFU",
+    "pov": "The fastest-learning teams are the ones that depersonalize failure. When experiments fail, it's data, not defeat. The companies that win are the ones where people feel safe running\u2014and failing\u2014experiments."
+  },
+  {
+    "founder_name": "nikhil-arora",
+    "content_pillar": "ai-for-leverage",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "MOFU",
+    "pov": "In a previous business, AI replaced a full-time hire. That's not a threat\u2014that's a superpower. The companies that win will be the ones that use AI to do more with less, not the ones that hire more people to manage more AI tools."
+  },
+  {
+    "founder_name": "alice-hansen",
+    "content_pillar": "change-agents-playbook",
+    "target_persona": "first-time-cmo",
+    "funnel_stage": "TOFU",
+    "pov": "The companies that fail at transformation aren't the ones with bad strategies\u2014they're the ones that can't align strategy, brand, and culture into a single coordinated movement. Transformation isn't a project; it's an orchestration."
+  },
+  {
+    "founder_name": "alice-hansen",
+    "content_pillar": "vulnerability-as-strategy",
+    "target_persona": "first-time-cmo",
+    "funnel_stage": "TOFU",
+    "pov": "The executives who project invincibility are the ones nobody trusts. Real leadership authority comes from being calm under pressure while being honest about what you don't know. Vulnerability isn't weakness\u2014it's the foundation of trust."
+  },
+  {
+    "founder_name": "alice-hansen",
+    "content_pillar": "ai-implementation",
+    "target_persona": "first-time-cmo",
+    "funnel_stage": "MOFU",
+    "pov": "The debate about 'whether' to use AI in marketing is over. The only question that matters now is 'how.' And most companies are failing at implementation because they're treating AI as a technology project instead of an organizational change initiative."
+  },
+  {
+    "founder_name": "alice-hansen",
+    "content_pillar": "journalism-to-strategy",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "The best strategists I know started in journalism or communications. They understand narrative, they know how to synthesize complexity into clarity, and they've been trained to find the story that moves people. Strategy is storytelling with business constraints."
+  },
+  {
+    "founder_name": "matt-greener",
+    "content_pillar": "sales-enablement",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "Marketing that isn't directly enabling sales is just expensive brand therapy. The best marketing leaders measure success by how much they accelerate sales cycles and increase close rates\u2014not by how many MQLs they generate."
+  },
+  {
+    "founder_name": "matt-greener",
+    "content_pillar": "veterans-advantage",
+    "target_persona": "founder-ceo-of-growth-stage-startup",
+    "funnel_stage": "TOFU",
+    "pov": "In a world obsessed with 'digital natives,' companies are overlooking the veterans who've survived five platform shifts, three economic cycles, and every 'revolutionary' channel since the first banner ad. Experience isn't obsolete\u2014it's pattern recognition at scale."
+  },
+  {
+    "founder_name": "matt-greener",
+    "content_pillar": "strategic-tactical-hybrid",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "The marketers who can only do strategy are useless. The marketers who can only do tactics are limited. The ones who win are the hybrids\u2014leaders who can present to the board in the morning and optimize a landing page in the afternoon."
+  },
+  {
+    "founder_name": "matt-greener",
+    "content_pillar": "b2b-fundamentals",
+    "target_persona": "growth-stage-vp-of-marketing",
+    "funnel_stage": "MOFU",
+    "pov": "B2B and B2C marketing aren't as different as people think. The fundamentals\u2014understanding your buyer, creating value, building trust\u2014are universal. The channels and tactics differ, but the psychology is identical."
+  }
+]

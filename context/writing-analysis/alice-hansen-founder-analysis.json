@@ -1,0 +1,137 @@
+{
+  "profile": {
+    "name": "Alice Hansen",
+    "title": "CMO-in-Residence & Founding Partner",
+    "company": "MH-1 / MarketerHire",
+    "linkedinUrl": "https://www.linkedin.com/in/alicehansen",
+    "analysisDate": "2026-01-21",
+    "postsAnalyzed": 11
+  },
+  "executiveSummary": "Alice Hansen is a CMO-level executive with a distinctive, warm yet authoritative voice that blends personal vulnerability with strategic credibility. Her writing alternates between punchy, dramatic hooks and heartfelt community engagement. She uses signature vocabulary like 'badass,' 'hive,' and 'village' to create an approachable executive persona. Her highest-engagement content combines personal storytelling (family, parenting) with professional context, while her strategic posts establish thought leadership through concrete frameworks and peer-oriented invitations to dialogue. She tags generously in community posts, uses emojis strategically rather than decoratively, and consistently closes with an invitation for engagement or gratitude.",
+  "contentThemes": [
+    {
+      "theme": "AI & Marketing Transformation",
+      "description": "Contrarian takes on AI in B2B marketing, backend automation over content hype, operating model design, and CMO leadership in the AI era",
+      "postCount": 2,
+      "voiceNotes": [
+        "Certainty-led framing: 'That debate is over'",
+        "Bullet points with icons for structured insights",
+        "Peer invitation close: 'I’d love to compare notes'"
+      ]
+    },
+    {
+      "theme": "Community & Events",
+      "description": "Event recaps, conference gratitude posts, peer networking, and CMO community building",
+      "postCount": 3,
+      "voiceNotes": [
+        "Energy-led opener: 'Transformative badassery'",
+        "Heavy tagging of 15-30 attendees",
+        "Gratitude frame with heart emoji close"
+      ]
+    },
+    {
+      "theme": "Personal Vulnerability",
+      "description": "Family stories, sandwich parenting, solo parenting challenges, and personal-professional intersection",
+      "postCount": 1,
+      "voiceNotes": [
+        "Dramatic hook: 'My Dad disarmed live bombs'",
+        "Chronological storytelling with emotional detail",
+        "Pivot to professional relevance",
+        "Invitation for community support: 'pls share your wisdom'"
+      ]
+    },
+    {
+      "theme": "Career & Positioning",
+      "description": "Thought leadership on positioning fundamentals, professional credibility, and career insights",
+      "postCount": 2,
+      "voiceNotes": [
+        "Credentials-led: 'I’ve led positioning for small, large, public, private, and nonprofit'",
+        "Warm peer references with specific names",
+        "Rocket emoji close"
+      ]
+    },
+    {
+      "theme": "Short Commentary & Asks",
+      "description": "Quick market predictions, resource requests, and playful community engagement",
+      "postCount": 3,
+      "voiceNotes": [
+        "Extremely concise: under 200 characters",
+        "Uses 'hive' to address network",
+        "Casual tone with 'pls' and cultural references"
+      ]
+    }
+  ],
+  "engagementAnalysis": {
+    "byPostType": [
+      {
+        "type": "Personal/Vulnerability",
+        "avgReactions": 165,
+        "avgComments": 49
+      },
+      {
+        "type": "Community/Gratitude",
+        "avgReactions": 101,
+        "avgComments": 19
+      },
+      {
+        "type": "Thought Leadership",
+        "avgReactions": 49,
+        "avgComments": 11
+      },
+      {
+        "type": "Playful/Community",
+        "avgReactions": 31,
+        "avgComments": 9
+      },
+      {
+        "type": "Strategic/Promotional",
+        "avgReactions": 27,
+        "avgComments": 4
+      },
+      {
+        "type": "Personal/Promotional",
+        "avgReactions": 24,
+        "avgComments": 12
+      },
+      {
+        "type": "Community/Event",
+        "avgReactions": 21,
+        "avgComments": 1
+      },
+      {
+        "type": "Short Commentary",
+        "avgReactions": 6,
+        "avgComments": 1
+      },
+      {
+        "type": "Ask/Request",
+        "avgReactions": 5,
+        "avgComments": 0
+      }
+    ],
+    "keyInsight": "Highest engagement comes from personal vulnerability combined with professional context (165 reactions, 49 comments). Community gratitude posts with heavy tagging are the second-highest performers. Short commentary and ask posts receive minimal engagement."
+  },
+  "speakingVoiceInsights": {
+    "naturalPhrases": [
+      "AI fluent",
+      "backend automations",
+      "the aha is",
+      "game changing",
+      "la-la pretend",
+      "there’s this dance to do",
+      "it is such a conversation developer",
+      "the petri dish years",
+      "speed to action",
+      "not incremental but kind of game changing",
+      "the promise is realized in backend automations"
+    ],
+    "voiceQualities": [
+      "Diplomatic but direct - leads with certainty not hedging",
+      "Collaborative framing - 'complement to add a layer' not competitive positioning",
+      "Practical over theoretical - 'sprints,' 'operating model,' 'backend'",
+      "Acknowledges fear dynamics empathetically - 'there’s this dance to do'",
+      "Uses casual spoken contractions even in strategic framing",
+      "Builds narrative arcs from market observation to company value proposition"
+    ]
+  }
+}

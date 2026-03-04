@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+.venv/
+
+# Environment & secrets
+.env
+*.json
+!context/**/*.json
+!sources.json
+!package.json
+
+# Service account keys
+moe-platform-*.json
+*-service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Outputs (ephemeral in deployment)
+outputs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Streamlit
+.streamlit/secrets.toml
+

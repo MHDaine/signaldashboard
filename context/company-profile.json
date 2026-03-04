@@ -1,0 +1,63 @@
+{
+  "overview": {
+    "company_name": "MH-1 (by MarketerHire)",
+    "tagline": "\"Full-Stack Human + AI Marketing System\"",
+    "founded": "2024 (new venture, few months old)",
+    "founders": "Division of MarketerHire; Chris Toy (CEO) leads",
+    "headquarters": "United States (Remote-first)",
+    "employees": "Not specified (leverages MarketerHire's talent network)",
+    "funding": "Operates under MarketerHire (Inc 5000 #183)",
+    "valuation": "Not specified"
+  },
+  "mission": "To replace the traditional agency model with an AI-native marketing system that delivers enterprise-grade strategy at startup speed—growing sales, not headcount.",
+  "vision": "To be the \"growth operating system\" for mid-market and venture-backed companies, eliminating the fragmentation and inefficiency of modern marketing through pre-built AI workflows and vetted expert talent.",
+  "value_proposition": {
+    "summary": "Enterprise-grade strategy executed at startup speed. MH-1 delivers:",
+    "points": [
+      "**10x output** across marketing channels",
+      "**Unlimited automations** and workflow development",
+      "**Battle-tested AI workflows** that 99.99% of marketers don't know exist",
+      "**Outcome-based approach** at a fraction of traditional vendor costs"
+    ]
+  },
+  "products_services": [
+    {
+      "name": "Full-Stack Human + AI Marketing System",
+      "description": "Month-to-month subscription combining AI-native specialists with proprietary automation workflows",
+      "target_customer": "Founders, CMOs, VPs of Growth at mid-market and venture-backed companies",
+      "key_features": [
+        "Complete AI marketing audit",
+        "Custom automation roadmap",
+        "Integrated team of AI-native specialists",
+        "Unlimited automations/workflow development",
+        "Sprint-based execution",
+        "Weekly optimization"
+      ],
+      "pricing": "$30,000/month (cancel anytime)"
+    }
+  ],
+  "market_position": {
+    "category": "AI Marketing Services / AI Transformation Consulting",
+    "key_differentiators": [
+      "\"System\" not \"service\" — productized like software",
+      "Unlimited automations included (vs. per-project billing)",
+      "Month-to-month flexibility (vs. 12-month lock-ins)",
+      "Hybrid talent model via MarketerHire's Top 1% Verified Experts",
+      "Access to 1M+ marketing datapoints"
+    ],
+    "notable_customers": "Leverages MarketerHire's 6,000+ customer base as referral network"
+  },
+  "target_market": {
+    "company_size": "Mid-Market, Venture-Backed Growth Stage",
+    "budget": "$360k+/year marketing spend capacity",
+    "industries": "B2B SaaS, Fintech, eCommerce/DTC, Technology",
+    "geography": "United States (primary), Global (remote delivery)"
+  },
+  "quick_facts": [
+    "Positioned in the premium tier at $30k/mo — above low-cost tools ($99/mo) but below enterprise consultancies ($50k+)",
+    "Addresses the \"adoption gap\" where 78% of orgs use AI but <20% see EBIT impact",
+    "Competes on breadth (full-stack) vs. niche players like Avenue Z (GEO-focused)",
+    "\"Cancel anytime\" model is a key risk-reversal differentiator",
+    "Sales cycle estimated at 2-6 weeks due to flexible terms"
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "version": "1.0",
+  "founderId": "alice-hansen",
+  "founderName": "Alice Hansen",
+  "extractedAt": "2026-02-05T00:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 12,
+      "openingStyle": "Bold statement opener - single punchy sentence under 10 words",
+      "paragraphPattern": "Short paragraphs, never more than 2-3 sentences. Short-Long-Short rhythm alternating punchy statements with longer explanatory sentences."
+    },
+    "vocabulary": {
+      "register": "professional-casual",
+      "contractions": true,
+      "avoidList": [
+        "amazing",
+        "awesome",
+        "leverage",
+        "synergy",
+        "optimize",
+        "dive into",
+        "deep dive",
+        "unlock",
+        "rockstar",
+        "touch base",
+        "circle back",
+        "let's unpack",
+        "at the end of the day"
+      ],
+      "signaturePhrases": [
+        "badass",
+        "badassery",
+        "hive",
+        "village",
+        "game changing",
+        "game changer",
+        "reset moment",
+        "linked arms",
+        "compare notes",
+        "srsly",
+        "pls",
+        "revenue architect",
+        "revenue wranglers",
+        "Pipeline Paladins",
+        "backend automation",
+        "operating model",
+        "decision engine",
+        "AI sprints",
+        "full-funnel",
+        "peer CMOs",
+        "convening",
+        "sisterhood and community"
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": false,
+      "hookPattern": "Bold statement opener - 2-8 words, period, sometimes with emoji. Never preamble.",
+      "ctaStyle": "Community invitation / compare notes / invitation to dialogue"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 800,
+      "max": 1000
+    },
+    "averageCharCount": 550,
+    "distribution": {
+      "short": {
+        "percentage": 33,
+        "charRange": "under 200"
+      },
+      "medium": {
+        "percentage": 33,
+        "charRange": "200-800"
+      },
+      "long": {
+        "percentage": 33,
+        "charRange": "800+"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "Transformative badassery. 💃🏻🚀🔥",
+      "why": "Bold statement opener with signature emoji trio - sets energetic tone in 2 words",
+      "engagement": {
+        "likes": 101,
+        "comments": 19
+      }
+    },
+    {
+      "type": "hook",
+      "text": "My Dad disarmed live bombs for work.",
+      "why": "Dramatic personal hook - 7 words that compel reading. Highest-engagement post opener.",
+      "engagement": {
+        "likes": 165,
+        "comments": 49
+      }
+    },
+    {
+      "type": "hook",
+      "text": "🚀 AI is changing marketing, whether you're ready or not.",
+      "why": "Certainty-led strategic opener with rocket emoji energy",
+      "engagement": {
+        "likes": 27,
+        "comments": 4
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "My Dad disarmed live bombs for work. Circa 1970s SFPD, before robots and padded armor, he wore a suit & tie while kneeling in streets.\n\nHe and his partner, with police colleagues globally, founded the International Association of Bomb Technicians and Investigators. To my family, friends, and countless kids-now-adults in Scouts, Camp Fire Girls, and the St Peter’s Teen Club in Pacifica, my Dad’s known as a badass.\n\nHe’s now 86. Health is precarious. He recovered enough a few days ago to return home from a two-week hospital stay, the second in last 18 mos. My mom broke her hip in April. My sister, brother, and I are sandwiched between supporting our parents while parenting our own kids. And in my case, solo parenting.\n\nIn three weeks, I’m facilitating an exec roundtable on sandwich and single parenting while leading amid high visibility, pressure, and always-on stakes.\n\nIf you can relate, pls share your wisdom, rants, and questions. I know one truism for sure: it takes a village. 💃 👩‍👧‍👦 ❤️",
+      "why": "Highest engagement post - personal vulnerability with professional pivot, signature vocabulary ('badass,' 'pls,' 'village'), emoji signature close",
+      "engagement": {
+        "likes": 165,
+        "comments": 49
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "Positioning. It’s hard, essential, and game changing.\n\nI’ve led positioning for small, large, public, private, and nonprofit organizations and I still love the fundamentals.\n\nThank you guru Bob Wright for bringing the truisms and Matt Heinz for convening power players this morning. Loved seeing you Claire Darling, Paramita Bhattacharya, Barbara Leavitt, and Shelli Strand. And here’s to more convo, Justin Pirie and Jeff Yoshimura. 🚀",
+      "why": "Credentials + community warmth pattern. Bold opener, experience credibility, generous tagging, rocket emoji close.",
+      "engagement": {
+        "likes": 49,
+        "comments": 11
+      }
+    },
+    {
+      "type": "cta",
+      "text": "If you can relate, pls share your wisdom, rants, and questions. I know one truism for sure: it takes a village. 💃 👩‍👧‍👦 ❤️",
+      "why": "Community-oriented close with casual abbreviation ('pls'), truism framing, and signature emoji sequence",
+      "engagement": {
+        "likes": 165,
+        "comments": 49
+      }
+    },
+    {
+      "type": "cta",
+      "text": "If you're thinking through how AI changes your marketing org, your roadmap, or your role as a CMO, I'd love to compare notes.",
+      "why": "Peer-level invitation to dialogue - positions her as equal, not authority",
+      "engagement": {
+        "likes": 27,
+        "comments": 4
+      }
+    },
+    {
+      "type": "cta",
+      "text": "Pre-draft research: help me, hive, how do I win?!",
+      "why": "Playful community ask using signature 'hive' address",
+      "engagement": {
+        "likes": 31,
+        "comments": 9
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "Bold Statement Opener",
+      "pattern": "2-8 words. Period. Sometimes with emoji. No preamble.",
+      "examples": [
+        "Transformative badassery. 💃🏻🚀🔥",
+        "Positioning. It's hard, essential, and game changing.",
+        "Prediction over production.",
+        "🚀 AI is changing marketing, whether you're ready or not."
+      ],
+      "frequency": "45%"
+    },
+    {
+      "style": "Personal Hook Opener",
+      "pattern": "Dramatic personal statement. Storytelling lead. Personal before professional.",
+      "examples": [
+        "My Dad disarmed live bombs for work.",
+        "This was fun! 💃"
+      ],
+      "frequency": "25%"
+    },
+    {
+      "style": "Question + Answer Hook",
+      "pattern": "Poses a question then immediately answers or reframes it.",
+      "examples": [
+        "The question isn't \"Should we use AI?\" That debate is over."
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "Community Address Opener",
+      "pattern": "Direct address to network using 'hive' or playful framing.",
+      "examples": [
+        "Hey hive -- I'm looking for recommendations...",
+        "In a bold Any-Given-Friday leap into the unknown..."
+      ],
+      "frequency": "20%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": "💃",
+    "vocabulary": {
+      "celebration": [
+        "💃🏻",
+        "💃",
+        "🚀",
+        "🔥"
+      ],
+      "gratitude": [
+        "❤️"
+      ],
+      "professional": [
+        "💡",
+        "✔",
+        "→"
+      ],
+      "topicSpecific": [
+        "👩‍👧‍👦",
+        "🏈",
+        "🎤️",
+        "😉",
+        "🙂"
+      ]
+    },
+    "placementRules": [
+      "Opening: Single emoji or signature trio to set tone",
+      "Closing: Heart emoji with gratitude posts, dancing emoji with personal posts",
+      "Lists: Light bulb for insights, check marks for actions, arrows for sequences",
+      "Never: Mid-sentence emoji spam",
+      "Never: More than 3 emojis in a row except signature opener",
+      "Topic-specific emojis match context (football for fantasy posts, microphone for podcast)"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "Statement > Story > Community Shoutout",
+      "structure": [
+        "Bold opening statement (1 sentence)",
+        "1-2 sentences of context/story",
+        "Community mentions + gratitude",
+        "Closing emoji/hashtags"
+      ],
+      "useCase": "Event/networking posts, positioning posts"
+    },
+    {
+      "name": "Personal Story > Professional Insight > Call to Engage",
+      "structure": [
+        "Personal hook - family/life story",
+        "Extended narrative with emotional detail and chronological flow",
+        "Pivot to professional relevance (exec roundtable, career parallel)",
+        "Call for community input with 'pls' and signature emoji"
+      ],
+      "useCase": "Vulnerability/authenticity posts (highest engagement)"
+    },
+    {
+      "name": "Certainty Lead > Bullet Framework > Peer Invitation",
+      "structure": [
+        "Emoji + bold certainty statement",
+        "Reframe the question: 'The question isn't X. It's Y.'",
+        "Arrow bullets for problems/observations",
+        "Light bulb bullets for insights",
+        "Check mark bullets for approach/solution",
+        "Reset moment framing",
+        "Peer invitation close: 'I'd love to compare notes'",
+        "Hashtag block"
+      ],
+      "useCase": "Strategic/thought leadership posts (AI, marketing transformation)"
+    },
+    {
+      "name": "Energy Burst > Ask",
+      "structure": [
+        "Short playful opener",
+        "Brief context (1-2 sentences)",
+        "Direct ask to 'hive'"
+      ],
+      "useCase": "Short commentary, requests, playful community posts"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "amazing (use 'badass' or be specific instead)",
+      "awesome (use 'game changing' instead)",
+      "leverage (use 'linked arms' instead)",
+      "synergy",
+      "optimize (use 'tune' instead)",
+      "dive into / deep dive",
+      "unlock / unlocking",
+      "rockstar",
+      "touch base",
+      "circle back",
+      "let's unpack",
+      "at the end of the day"
+    ],
+    "formattingToAvoid": [
+      "Paragraphs longer than 3 sentences",
+      "Excessive hashtags - max 6, only at end of strategic posts",
+      "Over-formatted posts - minimal bold, no headers in posts",
+      "Rhetorical questions in openers - she states, doesn't ask",
+      "All-caps for emphasis - uses emojis instead",
+      "Mid-sentence emoji spam"
+    ],
+    "toneToAvoid": [
+      "Overly promotional self-talk without peer-gratitude frame",
+      "Humble-bragging",
+      "Passive voice",
+      "Hedging language ('I think maybe...')",
+      "Generic platitudes without personal touch",
+      "Skipping the human element in business posts",
+      "Corporate buzzword density",
+      "Closing without invitation or emoji warmth"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "Always at the end, never inline. Only on strategic/thought leadership posts.",
+    "maxCount": 6,
+    "format": "TitleCase (e.g., #B2BMarketing not #b2bmarketing)",
+    "commonTags": [
+      "#B2BMarketing",
+      "#CMO",
+      "#AIinMarketing",
+      "#ModernCMO",
+      "#MarketingLeadership",
+      "#GTM"
+    ]
+  },
+  "taggingStyle": {
+    "frequency": "EXTREMELY generous with @mentions in community/event posts. Minimal to none in personal vulnerability posts.",
+    "patterns": [
+      "Full names (first + last) for LinkedIn tagging functionality",
+      "Sometimes with honorific: 'guru Bob Wright'",
+      "Often with relationship context: 'Thank you Karina for inviting me'",
+      "Grouped by context: 'Kudos and thank you 6sense!'",
+      "Flowing text format: names embedded in narrative, not standalone lists"
+    ],
+    "specialPhrases": [
+      "Kudos and thank you [Company]!",
+      "Thank you [Name] for [specific thing]",
+      "Loved seeing you [Name]",
+      "Special thanks for great convos and inspiration from badass leaders [names]",
+      "And here's to more convo, [Name] and [Name]"
+    ]
+  },
+  "metadata": {
+    "postsAnalyzed": 11,
+    "confidenceScore": 0.9,
+    "extractionMethod": "markdown-parsing",
+    "sourceFile": "alice-hansen-historical-post-analysis.md",
+    "postDateRange": "March 2025 - January 2026"
+  }
+}

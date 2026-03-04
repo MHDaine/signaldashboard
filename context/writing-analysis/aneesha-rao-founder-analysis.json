@@ -1,0 +1,90 @@
+{
+  "profile": {
+    "name": "Aneesha Rao",
+    "title": "Chief Revenue Officer / Head of Data",
+    "company": null,
+    "linkedinUrl": null,
+    "analysisDate": "2026-01",
+    "postsAnalyzed": 1
+  },
+  "executiveSummary": "Aneesha Rao's public voice is defined by operational pragmatism, systems-first thinking, and expertise-calibrated management philosophy. Unlike many startup executives who rely on motivational platitudes or aggressive 'hustle' narratives, Rao's content focuses squarely on the mechanics of execution - specifically how to balance autonomy with accountability when working with expert talent. Her writing style is characterized by precision over persuasion. She uses specific project management terminology (e.g., 'schema of project scope,' 'sprint recap,' 'guardrails') to ground her advice in operational reality, yet softens this rigor with empathetic acknowledgment of the 'ebb and flow' of productivity. A key differentiator is her contrarian stance on communication: she argues that robust systems should preclude the need for constant check-ins, positioning process as a tool for liberation rather than control. Rao bridges the gap between brand aesthetics (English major, high-fashion retail background) and hard revenue accountability (CRO, Head of Data), making her a rare 'dual-threat' voice who can speak the language of creative directors and CFOs alike.",
+  "contentThemes": [
+    {
+      "theme": "The Full-Stack Consumer Operator",
+      "description": "Bridging creative and commercial - speaking both brand language and P&L language",
+      "postCount": null,
+      "voiceNotes": [
+        "Dual-threat positioning",
+        "Creative director in the morning, CFO in the afternoon",
+        "Most growth leaders are either brand-first or metrics-first; Aneesha is both"
+      ]
+    },
+    {
+      "theme": "Managing Expert Talent",
+      "description": "Situational leadership and expertise-calibrated guardrails",
+      "postCount": null,
+      "voiceNotes": [
+        "Treat seniors like juniors and lose them",
+        "Process over pings",
+        "Schema of project scope",
+        "Guardrails depend on expertise level"
+      ]
+    },
+    {
+      "theme": "Premium Consumer Psychology",
+      "description": "High-fashion insights on luxury consumer behavior",
+      "postCount": null,
+      "voiceNotes": [
+        "Premium consumers buy identity validation, not products",
+        "Every touchpoint reinforces or undermines self-image",
+        "Detail scrutiny at luxury level"
+      ]
+    },
+    {
+      "theme": "Portfolio Management",
+      "description": "Scaling from single brand to multi-brand operations",
+      "postCount": null,
+      "voiceNotes": [
+        "Managing one brand is marketing; managing a portfolio is operations",
+        "Systems thinking required",
+        "Distinct positioning across portfolio"
+      ]
+    }
+  ],
+  "engagementAnalysis": {
+    "byPostType": [
+      {
+        "type": "Event/Speaking Announcement",
+        "avgReactions": 48,
+        "avgComments": 3
+      }
+    ],
+    "keyInsight": "Her network is engaged when she posts (48 reactions on single sample). Posting strategy is quality over quantity - selective, strategic posts. Operational content likely performs well given her expertise positioning."
+  },
+  "speakingVoiceInsights": {
+    "naturalPhrases": [
+      "guardrails",
+      "schema of project scope",
+      "precludes the need",
+      "depends entirely on",
+      "let them have at it",
+      "ebb and flow",
+      "sprint recap",
+      "process over pings",
+      "full-stack",
+      "premium consumer",
+      "identity validation",
+      "portfolio management"
+    ],
+    "voiceQualities": [
+      "Operational pragmatism - speaks from the operator seat, not consultant seat",
+      "Systems-first thinking - sees systems, not just tasks",
+      "Expertise-calibrated - adapts approach to talent level",
+      "Mildly contrarian - challenges conventional wisdom with operational insight",
+      "Premium sensibility - attention to detail from fashion background",
+      "Empathetically pragmatic - acknowledges human limitations while maintaining standards",
+      "Precision over persuasion - specific PM terminology grounds advice in operational reality",
+      "Dual-threat credibility - creative/brand thinking AND revenue/metrics thinking"
+    ]
+  }
+}

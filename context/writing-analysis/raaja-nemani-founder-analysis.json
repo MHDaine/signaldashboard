@@ -1,0 +1,139 @@
+{
+  "profile": {
+    "name": "Raaja Nemani",
+    "title": "Co-Founder & CEO",
+    "company": "MarketerHire",
+    "linkedinUrl": "https://www.linkedin.com/in/raajanemani",
+    "analysisDate": "2026-02-05",
+    "postsAnalyzed": 20
+  },
+  "executiveSummary": "Raaja Nemani is a founder-CEO with a distinctive, confident thought-leadership voice rooted in personal entrepreneurial experience (15 years, Bucketfeet exit, MarketerHire). His writing style is direct, declarative, and contrarian -- he opens with bold industry claims, supports them with specific numbers and personal anecdotes, then bridges naturally to MarketerHire/MH-1 as a solution. He favors short punchy paragraphs, heavy use of bullet and numbered lists, and extensive white space for mobile readability. His tone balances authority with self-awareness (e.g., 'Stepping off high horse now,' 'I'm not a CMO'). He avoids emojis, hashtags, and corporate-speak, instead relying on concrete data points, contrasting frameworks (good vs. average, old vs. new), and challenge-style closers to drive engagement.",
+  "contentThemes": [
+    {
+      "theme": "AI Disruption in Marketing",
+      "description": "The transformative impact of AI on marketing tools, workflows, and talent -- positioning the shift as the biggest change since social media",
+      "postCount": 7,
+      "voiceNotes": [
+        "Uses specific numbers to ground claims (13K to 130K to 1.3M martech tools, $47K quote)",
+        "Frames AI as amplifier not threat",
+        "Contrasts tool sprawl with system thinking",
+        "Always bridges to MH-1 as the solution"
+      ]
+    },
+    {
+      "theme": "Hiring & Talent Quality",
+      "description": "The broken hiring process, the gap between average and excellent marketers, and how vetting should work",
+      "postCount": 5,
+      "voiceNotes": [
+        "Self-deprecating honesty ('I'm not a CMO')",
+        "Vivid metaphors (snake oil salesmen vs quiet doers)",
+        "Uses the 10x framing for excellence gap",
+        "Bridges to MarketerHire vetting process"
+      ]
+    },
+    {
+      "theme": "Entrepreneurial Journey & Lessons",
+      "description": "Personal reflections on 15 years of entrepreneurship, selling Bucketfeet, founding MarketerHire",
+      "postCount": 3,
+      "voiceNotes": [
+        "Numbered lesson lists (always 5 items)",
+        "Humble, reflective tone",
+        "Specific names and timelines (Bucketfeet, Chris Toy, 2017)",
+        "Inspirational but grounded closer"
+      ]
+    },
+    {
+      "theme": "Industry Contrarian Takes",
+      "description": "Challenging conventional wisdom about agencies, marketing problems, and SaaS models",
+      "postCount": 3,
+      "voiceNotes": [
+        "Opens with 'Hot take:' or 'Unpopular opinion:'",
+        "Problem diagnosis before solution",
+        "Numbered problem lists followed by contrasting solution",
+        "Advantage statement closers"
+      ]
+    },
+    {
+      "theme": "Company Milestones & Product",
+      "description": "MarketerHire growth updates and MH-1 product positioning",
+      "postCount": 2,
+      "voiceNotes": [
+        "Understated excitement ('Pretty excited to share')",
+        "Short format for milestone announcements",
+        "Specific metrics (6,000 customers)",
+        "Product copy is more formal than organic posts"
+      ]
+    }
+  ],
+  "engagementAnalysis": {
+    "byPostType": [
+      {
+        "type": "Customer Quote / Real Conversation",
+        "avgReactions": 1040,
+        "avgComments": 52,
+        "example": "CEO $47K AI tools quote"
+      },
+      {
+        "type": "Personal Journey / Exit Story",
+        "avgReactions": 368,
+        "avgComments": 62,
+        "example": "What I learned selling first company"
+      },
+      {
+        "type": "Contrarian Take / Hot Take",
+        "avgReactions": 256,
+        "avgComments": 48,
+        "example": "Most companies don't have a marketing problem"
+      },
+      {
+        "type": "Industry Observation / Fear-Opportunity",
+        "avgReactions": 154,
+        "avgComments": 87,
+        "example": "CMOs are terrified right now"
+      },
+      {
+        "type": "Founder Networking / Community",
+        "avgReactions": 370,
+        "avgComments": 66,
+        "example": "Dinner with 20 LA founders"
+      },
+      {
+        "type": "Framework / Lessons Learned",
+        "avgReactions": 204,
+        "avgComments": 36,
+        "example": "15 years of entrepreneurship lessons"
+      },
+      {
+        "type": "Short Milestone Announcement",
+        "avgReactions": 55,
+        "avgComments": 4,
+        "example": "6,000 customers milestone"
+      }
+    ],
+    "keyInsight": "Highest engagement comes from real customer quotes with specific dollar amounts, personal exit/journey stories, and contrarian industry takes. Posts grounded in specific conversations or experiences dramatically outperform generic thought leadership. The $47K CEO quote post (1,040 reactions) outperformed average by 5x, suggesting authenticity and specificity are the primary engagement drivers."
+  },
+  "speakingVoiceInsights": {
+    "naturalPhrases": [
+      "Here's the thing:",
+      "But here's what I tell them:",
+      "This is exactly why we built...",
+      "The future of marketing isn't... It's...",
+      "Which side of history will you be on?",
+      "Stepping off high horse now.",
+      "Not 'good enough.' Excellent.",
+      "The gap between [X] and [Y] is massive",
+      "Where does this leave us?",
+      "The fear is real. But so is the opportunity."
+    ],
+    "voiceQualities": [
+      "Direct and declarative -- states positions rather than hedging",
+      "Self-aware and occasionally self-deprecating",
+      "Quantitative -- grounds arguments in specific numbers",
+      "Contrarian but constructive -- always offers alternative after criticism",
+      "Conversational authority -- speaks from experience, not theory",
+      "Builds credibility through vulnerability ('I'm not a CMO')",
+      "Uses parallel structure and repetition for emphasis",
+      "Mobile-optimized writing -- short paragraphs, heavy line breaks"
+    ]
+  }
+}
