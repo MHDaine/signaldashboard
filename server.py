@@ -144,21 +144,47 @@ def _save_sources(sources: Dict[str, Any]):
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def _get_service_account_info() -> Optional[Dict[str, Any]]:
-    # Try GCP_SERVICE_ACCOUNT env var (JSON string) for deployed environments
+    import logging
+    logger = logging.getLogger("sheets")
+    # 1. Try GCP_SERVICE_ACCOUNT_JSON env var (JSON string)
     sa_json = os.environ.get("GCP_SERVICE_ACCOUNT_JSON")
     if sa_json:
         try:
-            return json.loads(sa_json)
-        except Exception:
-            pass
-    # Local file path
+            info = json.loads(sa_json)
+            logger.info(f"Loaded service account from env: {info.get('client_email', '?')}")
+            return info
+        except Exception as e:
+            logger.error(f"Failed to parse GCP_SERVICE_ACCOUNT_JSON: {e}")
+    # 2. Try Render Secret File at /etc/secrets/
+    render_secret = Path("/etc/secrets/moe-platform-479917-3fb8116d3c78.json")
+    if render_secret.exists():
+        try:
+            info = json.loads(render_secret.read_text())
+            logger.info(f"Loaded service account from Render secret file: {info.get('client_email', '?')}")
+            return info
+        except Exception as e:
+            logger.error(f"Failed to parse Render secret file: {e}")
+    # 3. Local file path (dev)
     if GOOGLE_SERVICE_ACCOUNT_FILE:
         sa_path = Path(GOOGLE_SERVICE_ACCOUNT_FILE)
         if sa_path.exists():
             try:
-                return json.loads(sa_path.read_text())
-            except Exception:
-                pass
+                info = json.loads(sa_path.read_text())
+                logger.info(f"Loaded service account from file: {info.get('client_email', '?')}")
+                return info
+            except Exception as e:
+                logger.error(f"Failed to parse service account file {sa_path}: {e}")
+        else:
+            logger.warning(f"Service account file not found: {sa_path}")
+    # 4. Check project root (for local dev with the file in the repo)
+    local_key = PROJECT_ROOT / "moe-platform-479917-3fb8116d3c78.json"
+    if local_key.exists():
+        try:
+            info = json.loads(local_key.read_text())
+            logger.info(f"Loaded service account from project root: {info.get('client_email', '?')}")
+            return info
+        except Exception as e:
+            logger.error(f"Failed to parse local key file: {e}")
     return None
 
 
@@ -563,10 +589,12 @@ def export_approved():
     try:
         url = _export_approved_to_sheets(signals)
         return {"ok": True, "url": url, "count": len(signals)}
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=500, detail=f"Service account not configured: {e}. Set GCP_SERVICE_ACCOUNT_JSON env var on Render.")
     except PermissionError as e:
         raise HTTPException(status_code=403, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e)[:300])
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {str(e)[:300]}")
 
 
 @app.post("/api/export/enriched")
@@ -577,10 +605,12 @@ def export_enriched():
     try:
         url = _export_enriched_to_sheets(signals)
         return {"ok": True, "url": url, "count": len(signals)}
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=500, detail=f"Service account not configured: {e}. Set GCP_SERVICE_ACCOUNT_JSON env var on Render.")
     except PermissionError as e:
         raise HTTPException(status_code=403, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e)[:300])
+        raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {str(e)[:300]}")
 
 
 # ── Health ───────────────────────────────────────────────────────────────────
@@ -588,6 +618,22 @@ def export_enriched():
 @app.get("/health")
 def health():
     return {"status": "healthy", "version": "2.0.0"}
+
+
+@app.get("/api/debug/sheets")
+def debug_sheets():
+    """Diagnostic endpoint to check Google Sheets configuration."""
+    info = _get_service_account_info()
+    has_env = bool(os.environ.get("GCP_SERVICE_ACCOUNT_JSON"))
+    has_file = bool(GOOGLE_SERVICE_ACCOUNT_FILE) and Path(GOOGLE_SERVICE_ACCOUNT_FILE).exists() if GOOGLE_SERVICE_ACCOUNT_FILE else False
+    return {
+        "gcp_env_var_set": has_env,
+        "gcp_env_var_length": len(os.environ.get("GCP_SERVICE_ACCOUNT_JSON", "")),
+        "local_file_configured": has_file,
+        "service_account_loaded": info is not None,
+        "client_email": info.get("client_email") if info else None,
+        "google_sheet_id": GOOGLE_SHEET_ID,
+    }
 
 
 # ── Serve frontend ───────────────────────────────────────────────────────────
