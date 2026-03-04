@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MH-1 Signal Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 600: '#ea580c', 500: '#f97316', 400: '#fb923c', 300: '#fdba74', 200: '#fed7aa', 100: '#fff7ed', 50: '#fffbf5' },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #ffffff; color: #1e293b; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .tab-btn.active { border-color: #f97316; color: #ea580c; }
+    .tab-btn { border-bottom: 2px solid transparent; transition: all 0.15s; color: #64748b; }
+    .tab-btn:hover { color: #f97316; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 500; }
+    .badge-source { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
+    .badge-type { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+    .score-high { color: #16a34a; }
+    .score-mid { color: #ea580c; }
+    .score-low { color: #dc2626; }
+    .card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .card:hover { border-color: #f97316; box-shadow: 0 1px 6px rgba(249,115,22,0.1); }
+    .progress-bar { transition: width 0.3s ease; }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: '▸ '; color: #94a3b8; }
+    details[open] summary::before { content: '▾ '; }
+    .toast { animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s; }
+    @keyframes slideIn { from { transform: translateY(-1rem); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+    select, input[type=range] { accent-color: #f97316; }
+    input[type=range] { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 4px; background: #fed7aa; outline: none; }
+    input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #f97316; cursor: pointer; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+    input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #f97316; cursor: pointer; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+    input[type=range]::-moz-range-track { height: 6px; border-radius: 4px; background: #fed7aa; }
+    .btn { padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.875rem; font-weight: 500; transition: all 0.15s; cursor: pointer; border: none; }
+    .btn-primary { background: #f97316; color: white; }
+    .btn-primary:hover { background: #ea580c; }
+    .btn-primary:disabled { background: #e2e8f0; color: #94a3b8; cursor: not-allowed; }
+    .btn-secondary { background: #f8fafc; color: #334155; border: 1px solid #e2e8f0; }
+    .btn-secondary:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .btn-danger { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    .btn-danger:hover { background: #fee2e2; }
+    .checkbox-custom { accent-color: #f97316; width: 1rem; height: 1rem; -webkit-appearance: none; appearance: none; border: 2px solid #fed7aa; border-radius: 3px; background: #fff7ed; cursor: pointer; position: relative; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .checkbox-custom:checked { background: #f97316; border-color: #f97316; }
+    .checkbox-custom:checked::after { content: '✓'; color: white; font-size: 0.65rem; font-weight: bold; line-height: 1; }
+    hr { border-color: #e2e8f0; }
+  </style>
+</head>
+<body class="min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 py-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <h1 class="text-2xl font-bold">📡 MH-1 Signal Dashboard</h1>
+        <p class="text-sm text-gray-500">Signal Collection &amp; Enrichment Pipeline</p>
+      </div>
+      <div id="process-status" class="hidden items-center gap-2 text-sm text-orange-500">
+        <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+        <span id="process-label">Processing…</span>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-6 border-b border-gray-200 mb-6">
+      <button class="tab-btn active pb-2 text-sm font-medium" data-tab="collect">🚀 Collect &amp; Rank</button>
+      <button class="tab-btn pb-2 text-sm font-medium" data-tab="approved">✅ Approved <span id="approved-count-badge" class="ml-1 text-xs bg-orange-100 text-orange-600 px-1.5 py-0.5 rounded-full">0</span></button>
+      <button class="tab-btn pb-2 text-sm font-medium" data-tab="enriched">🔬 Enriched</button>
+      <button class="tab-btn pb-2 text-sm font-medium" data-tab="sources">⚙️ Sources</button>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2"></div>
+
+    <!-- ═══ TAB: Collect & Rank ═══ -->
+    <div id="tab-collect" class="tab-content">
+      <!-- Controls -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Sources</label>
+          <div id="source-checkboxes" class="flex flex-wrap gap-3"></div>
+        </div>
+        <div class="flex items-end gap-3">
+          <label class="flex items-center gap-2 text-sm">
+            <input type="checkbox" id="use-keywords" class="checkbox-custom">
+            <span>⚡ Keyword scoring (no API)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Signals/source: <span id="limit-val">50</span></label>
+          <input type="range" id="limit" min="10" max="100" value="50" class="w-full">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Lookback days: <span id="days-val">7</span></label>
+          <input type="range" id="days" min="1" max="14" value="7" class="w-full">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Min engagement: <span id="engage-val">0</span></label>
+          <input type="range" id="min-engagement" min="0" max="100" value="0" class="w-full">
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Score threshold: <span id="threshold-val">70</span></label>
+          <input type="range" id="threshold" min="0" max="100" value="70" class="w-full">
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex gap-3 mb-4">
+        <button id="btn-collect" class="btn btn-primary" onclick="collectAndRank()">🚀 Collect &amp; Rank</button>
+        <button class="btn btn-secondary" onclick="loadSignals()">📂 Load Cleared Signals</button>
+        <button class="btn btn-secondary" onclick="clearSignals()">🗑️ Clear</button>
+      </div>
+
+      <!-- Progress -->
+      <div id="collect-progress" class="hidden mb-4">
+        <div class="flex items-center gap-2 mb-1">
+          <span id="collect-progress-label" class="text-sm text-gray-500">Starting…</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div id="collect-progress-bar" class="h-full bg-orange-500 progress-bar rounded-full" style="width:0%"></div>
+        </div>
+        <p id="collect-progress-detail" class="text-xs text-gray-500 mt-1"></p>
+      </div>
+
+      <!-- Signal list -->
+      <hr class="border-gray-200 mb-4">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold" id="signals-header">Ranked Signals — 0</h2>
+      </div>
+      <div id="signals-list"></div>
+    </div>
+
+    <!-- ═══ TAB: Approved ═══ -->
+    <div id="tab-approved" class="tab-content hidden">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <button id="btn-enrich" class="btn btn-primary" onclick="enrichAll()">🔬 Enrich All</button>
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" id="deep-research" class="checkbox-custom">
+          <span>Deep research</span>
+        </label>
+        <button class="btn btn-secondary" onclick="copyAllLinks()">📋 Copy All Links</button>
+        <button class="btn btn-secondary" onclick="exportApproved()">📤 Export to Sheets</button>
+        <button class="btn btn-danger" onclick="clearApproved()">🗑️ Clear Approved</button>
+      </div>
+
+      <!-- Enrich progress -->
+      <div id="enrich-progress" class="hidden mb-4">
+        <div class="flex items-center gap-2 mb-1">
+          <span id="enrich-progress-label" class="text-sm text-gray-500">Starting…</span>
+        </div>
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div id="enrich-progress-bar" class="h-full bg-emerald-500 progress-bar rounded-full" style="width:0%"></div>
+        </div>
+        <p id="enrich-progress-detail" class="text-xs text-gray-500 mt-1"></p>
+      </div>
+
+      <p id="approved-summary" class="text-sm text-gray-500 mb-4"></p>
+      <div id="approved-list"></div>
+    </div>
+
+    <!-- ═══ TAB: Enriched ═══ -->
+    <div id="tab-enriched" class="tab-content hidden">
+      <div class="flex flex-wrap items-center gap-3 mb-4">
+        <span id="enriched-summary" class="text-sm text-gray-500"></span>
+        <button id="btn-retry" class="btn btn-secondary" onclick="retryFailed()">🔄 Retry Failed</button>
+        <button class="btn btn-secondary" onclick="exportEnriched()">📤 Export to Sheets</button>
+        <button class="btn btn-danger" onclick="clearEnriched()">🗑️ Clear</button>
+      </div>
+
+      <!-- Retry progress -->
+      <div id="retry-progress" class="hidden mb-4">
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div id="retry-progress-bar" class="h-full bg-amber-500 progress-bar rounded-full" style="width:0%"></div>
+        </div>
+        <p id="retry-progress-detail" class="text-xs text-gray-500 mt-1"></p>
+      </div>
+
+      <div id="enriched-list"></div>
+    </div>
+
+    <!-- ═══ TAB: Sources ═══ -->
+    <div id="tab-sources" class="tab-content hidden">
+      <h2 class="text-lg font-semibold mb-4">Configure Collection Sources</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Keywords (one per line)</label>
+          <textarea id="src-keywords" rows="7" class="w-full bg-gray-50 border border-gray-300 rounded-md p-2 text-sm focus:border-orange-500 focus:outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">LinkedIn Profile URLs (one per line)</label>
+          <textarea id="src-linkedin" rows="7" class="w-full bg-gray-50 border border-gray-300 rounded-md p-2 text-sm focus:border-orange-500 focus:outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">RSS Feed URLs (one per line)</label>
+          <textarea id="src-rss" rows="5" class="w-full bg-gray-50 border border-gray-300 rounded-md p-2 text-sm focus:border-orange-500 focus:outline-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Subreddits (one per line, without r/)</label>
+          <textarea id="src-reddit" rows="5" class="w-full bg-gray-50 border border-gray-300 rounded-md p-2 text-sm focus:border-orange-500 focus:outline-none"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="saveSources()">💾 Save Sources</button>
+
+      <hr class="border-gray-200 my-6">
+      <h3 class="text-sm font-semibold mb-3">API Status</h3>
+      <div id="api-status" class="flex flex-wrap gap-4 text-sm"></div>
+    </div>
+
+    <!-- Footer -->
+    <hr class="border-gray-200 mt-8 mb-4">
+    <p class="text-xs text-gray-400">MH-1 Signal Dashboard</p>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
+

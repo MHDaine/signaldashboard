@@ -54,6 +54,37 @@ st.set_page_config(
 st.markdown("""
 <style>
     .block-container { padding-top: 1.5rem; }
+    /* Signal card styling */
+    .signal-card {
+        border: 1px solid rgba(128,128,128,0.2);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .signal-score {
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .signal-source-badge {
+        display: inline-block;
+        background: rgba(100,100,255,0.15);
+        color: inherit;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        margin-right: 6px;
+    }
+    .signal-type-badge {
+        display: inline-block;
+        background: rgba(255,165,0,0.15);
+        color: inherit;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 500;
+    }
     /* Tighten spacing inside expanders */
     [data-testid="stExpander"] .stMarkdown p {
         margin-bottom: 0.15rem;
@@ -603,7 +634,8 @@ with tab_collect:
         run_clicked = st.button("🚀 Collect & Rank", type="primary", use_container_width=True,
                                 disabled=st.session_state.collection_running or st.session_state.ranking_running)
     with btn2:
-        load_clicked = st.button("📂 Load latest", use_container_width=True)
+        load_clicked = st.button("📂 Load Cleared Signals", use_container_width=True,
+                                 help="Reload signals from disk (useful after clearing the view)")
     with btn3:
         clear_clicked = st.button("🗑️ Clear", use_container_width=True)
 
@@ -680,37 +712,59 @@ with tab_collect:
             # Check if already approved
             already = any(a.get("id") == sig.get("id") for a in st.session_state.approved_signals)
 
-            with st.expander(f"{'✅ ' if already else ''}{sc:.0f}  —  {title[:90]}", expanded=False):
-                r1, r2 = st.columns([3, 1])
+            # ── Always-visible preview ──
+            score_color = "#4CAF50" if sc >= 80 else ("#FF9800" if sc >= 60 else "#f44336")
+            pv1, pv2, pv3, pv4 = st.columns([0.4, 3.6, 0.7, 0.7])
 
-                with r1:
-                    summary_line = f"  \n**Summary:** {summary}" if summary else ""
-                    st.markdown(
-                        f"**Source:** `{source}` · **Type:** {news_type}  \n"
-                        f"🔗 [{url[:70]}{'…' if len(url)>70 else ''}]({url})"
-                        f"{summary_line}"
-                    )
-                    st.caption(sig.get("content", "")[:400])
+            with pv1:
+                st.markdown(f"<p class='signal-score' style='color:{score_color}'>{sc:.0f}</p>", unsafe_allow_html=True)
 
-                with r2:
+            with pv2:
+                st.markdown(f"**{title[:100]}**")
+                st.markdown(
+                    f"<span class='signal-source-badge'>{source}</span>"
+                    f"<span class='signal-type-badge'>{news_type}</span>",
+                    unsafe_allow_html=True,
+                )
+                if summary:
+                    st.caption(summary[:220])
+
+            with pv3:
+                if already:
+                    st.markdown("✅ Approved")
+                else:
+                    if st.button("✅ Approve", key=f"approve_{i}", use_container_width=True):
+                        sig["approved"] = True
+                        sig["approved_at"] = datetime.now().isoformat()
+                        st.session_state.approved_signals.append(sig)
+                        ids = {s.get("id") for s in st.session_state.approved_signals}
+                        ts = {s.get("id"): s.get("approved_at", "") for s in st.session_state.approved_signals}
+                        save_approved_flags(ids, ts)
+                        st.rerun()
+
+            with pv4:
+                if url and url != "#":
+                    st.link_button("🔗 Open", url, use_container_width=True)
+
+            # ── Dropdown for detailed article + score breakdown ──
+            with st.expander("📄 Details", expanded=False):
+                d1, d2 = st.columns([3, 1])
+                with d1:
+                    content_preview = sig.get("content", "")[:500]
+                    if content_preview:
+                        st.markdown("**Article Content:**")
+                        st.caption(content_preview)
+                    if sig.get("date_posted"):
+                        st.caption(f"📅 Posted: {sig.get('date_posted')}")
+                with d2:
                     icp = scores.get("icp_interest", scores.get("context_relevance", scores.get("is_news", 0)))
                     st.markdown(
                         f"🎯 ICP Interest: **{icp}**  \n"
                         f"⏰ Timeliness: **{scores.get('timeliness', 0)}**  \n"
                         f"📰 News Quality: **{scores.get('news_quality', scores.get('marketing_relevance', 0))}**"
                     )
-                    if already:
-                        st.success("Approved ✅")
-                    else:
-                        if st.button("✅ Approve", key=f"approve_{i}"):
-                            sig["approved"] = True
-                            sig["approved_at"] = datetime.now().isoformat()
-                            st.session_state.approved_signals.append(sig)
-                            # Persist flags to signals.json
-                            ids = {s.get("id") for s in st.session_state.approved_signals}
-                            ts = {s.get("id"): s.get("approved_at", "") for s in st.session_state.approved_signals}
-                            save_approved_flags(ids, ts)
-                            st.rerun()
+
+            st.markdown("<hr style='margin:0.3rem 0; border-color:rgba(128,128,128,0.12)'>", unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -773,89 +827,123 @@ with tab_approved:
         for i, sig in enumerate(approved):
             rk = sig.get("ranking", {})
             sc = rk.get("total_score", 0)
+            scores = rk.get("scores", {})
             news_type = rk.get("news_type", "unknown")
             summary = rk.get("news_summary", "")
             source = sig.get("collection_source", "")
             url = sig.get("url", "")
             title = sig.get("title", "Untitled")
 
-            with st.expander(f"{sc:.0f}  —  {title[:90]}", expanded=False):
-                c1, c2 = st.columns([4, 1])
+            # ── Always-visible preview ──
+            score_color = "#4CAF50" if sc >= 80 else ("#FF9800" if sc >= 60 else "#f44336")
+            ap1, ap2, ap3, ap4, ap5 = st.columns([0.4, 3.2, 0.7, 0.7, 0.7])
 
-                with c1:
-                    url_line = f"  \n🔗 [{url[:80]}{'…' if len(url)>80 else ''}]({url})" if url else ""
-                    summary_line = f"  \n**Summary:** {summary}" if summary else ""
-                    st.markdown(
-                        f"**Source:** `{source}` · **Type:** {news_type} · **Score:** {sc:.1f}"
-                        f"{url_line}{summary_line}"
-                    )
-                    st.caption(sig.get("content", "")[:500])
+            with ap1:
+                st.markdown(f"<p class='signal-score' style='color:{score_color}'>{sc:.0f}</p>", unsafe_allow_html=True)
 
-                with c2:
-                    if url:
-                        escaped_url = url.replace("\\", "\\\\").replace("'", "\\'").replace('"', '\\"')
-                        components.html(
-                            f"""<html><head><style>
-                            * {{ margin:0; padding:0; box-sizing:border-box; }}
-                            html, body {{ background:transparent; overflow:hidden; }}
-                            button {{
-                                border:1px solid rgba(128,128,128,0.4);
-                                background:transparent;
-                                color: #fafafa;
-                                padding:6px 14px;
-                                border-radius:6px;
-                                cursor:pointer;
-                                font-size:13px;
-                                width:100%;
-                                font-family: "Source Sans Pro", sans-serif;
-                                transition: border-color 0.2s;
-                            }}
-                            button:hover {{ border-color: #aaa; }}
-                            @media (prefers-color-scheme: light) {{
-                                button {{ color: #31333F; }}
-                            }}
-                            </style></head><body>
-                            <button id="cpbtn">📋 Copy link</button>
-                            <script>
-                            document.getElementById('cpbtn').addEventListener('click', function() {{
-                                var btn = this;
-                                var url = '{escaped_url}';
-                                if (window.parent && window.parent.navigator && window.parent.navigator.clipboard) {{
-                                    window.parent.navigator.clipboard.writeText(url).then(function() {{
-                                        btn.innerText = '✅ Copied!';
-                                        setTimeout(function(){{ btn.innerText = '📋 Copy link'; }}, 1500);
-                                    }}).catch(function() {{
-                                        fallbackCopy(url, btn);
-                                    }});
-                                }} else {{
-                                    fallbackCopy(url, btn);
-                                }}
-                            }});
-                            function fallbackCopy(text, btn) {{
-                                var ta = document.createElement('textarea');
-                                ta.value = text;
-                                ta.style.position = 'fixed';
-                                ta.style.left = '-9999px';
-                                document.body.appendChild(ta);
-                                ta.select();
-                                try {{
-                                    document.execCommand('copy');
+            with ap2:
+                st.markdown(f"**{title[:100]}**")
+                st.markdown(
+                    f"<span class='signal-source-badge'>{source}</span>"
+                    f"<span class='signal-type-badge'>{news_type}</span>",
+                    unsafe_allow_html=True,
+                )
+                if summary:
+                    st.caption(summary[:220])
+
+            with ap3:
+                if url and url != "#":
+                    st.link_button("🔗 Open", url, use_container_width=True)
+
+            with ap4:
+                if url:
+                    escaped_url = url.replace("\\", "\\\\").replace("'", "\\'").replace('"', '\\"')
+                    components.html(
+                        f"""<html><head><style>
+                        * {{ margin:0; padding:0; box-sizing:border-box; }}
+                        html, body {{ background:transparent; overflow:hidden; }}
+                        button {{
+                            border:1px solid rgba(128,128,128,0.4);
+                            background:transparent;
+                            color: #fafafa;
+                            padding:6px 14px;
+                            border-radius:6px;
+                            cursor:pointer;
+                            font-size:13px;
+                            width:100%;
+                            font-family: "Source Sans Pro", sans-serif;
+                            transition: border-color 0.2s;
+                        }}
+                        button:hover {{ border-color: #aaa; }}
+                        @media (prefers-color-scheme: light) {{
+                            button {{ color: #31333F; }}
+                        }}
+                        </style></head><body>
+                        <button id="cpbtn_{i}">📋 Copy</button>
+                        <script>
+                        document.getElementById('cpbtn_{i}').addEventListener('click', function() {{
+                            var btn = this;
+                            var url = '{escaped_url}';
+                            if (window.parent && window.parent.navigator && window.parent.navigator.clipboard) {{
+                                window.parent.navigator.clipboard.writeText(url).then(function() {{
                                     btn.innerText = '✅ Copied!';
-                                }} catch(e) {{
-                                    btn.innerText = '⚠️ Failed';
-                                }}
-                                document.body.removeChild(ta);
-                                setTimeout(function(){{ btn.innerText = '📋 Copy link'; }}, 1500);
+                                    setTimeout(function(){{ btn.innerText = '📋 Copy'; }}, 1500);
+                                }}).catch(function() {{
+                                    fallbackCopy(url, btn);
+                                }});
+                            }} else {{
+                                fallbackCopy(url, btn);
                             }}
-                            </script></body></html>""",
-                            height=36,
-                        )
-                    if st.button("❌ Remove", key=f"rm_{i}", use_container_width=True):
-                        st.session_state.approved_signals.pop(i)
-                        ids = {s.get("id") for s in st.session_state.approved_signals}
-                        ts = {s.get("id"): s.get("approved_at", "") for s in st.session_state.approved_signals}
-                        save_approved_flags(ids, ts)
-                        st.rerun()
+                        }});
+                        function fallbackCopy(text, btn) {{
+                            var ta = document.createElement('textarea');
+                            ta.value = text;
+                            ta.style.position = 'fixed';
+                            ta.style.left = '-9999px';
+                            document.body.appendChild(ta);
+                            ta.select();
+                            try {{
+                                document.execCommand('copy');
+                                btn.innerText = '✅ Copied!';
+                            }} catch(e) {{
+                                btn.innerText = '⚠️ Failed';
+                            }}
+                            document.body.removeChild(ta);
+                            setTimeout(function(){{ btn.innerText = '📋 Copy'; }}, 1500);
+                        }}
+                        </script></body></html>""",
+                        height=36,
+                    )
+
+            with ap5:
+                if st.button("❌ Remove", key=f"rm_{i}", use_container_width=True):
+                    st.session_state.approved_signals.pop(i)
+                    ids = {s.get("id") for s in st.session_state.approved_signals}
+                    ts = {s.get("id"): s.get("approved_at", "") for s in st.session_state.approved_signals}
+                    save_approved_flags(ids, ts)
+                    st.rerun()
+
+            # ── Dropdown for detailed article + score breakdown ──
+            with st.expander("📄 Details", expanded=False):
+                d1, d2 = st.columns([3, 1])
+                with d1:
+                    content_preview = sig.get("content", "")[:500]
+                    if content_preview:
+                        st.markdown("**Article Content:**")
+                        st.caption(content_preview)
+                    if sig.get("date_posted"):
+                        st.caption(f"📅 Posted: {sig.get('date_posted')}")
+                    if sig.get("approved_at"):
+                        st.caption(f"✅ Approved: {sig.get('approved_at')[:19]}")
+                with d2:
+                    icp = scores.get("icp_interest", scores.get("context_relevance", scores.get("is_news", 0)))
+                    st.markdown(
+                        f"🎯 ICP Interest: **{icp}**  \n"
+                        f"⏰ Timeliness: **{scores.get('timeliness', 0)}**  \n"
+                        f"📰 News Quality: **{scores.get('news_quality', scores.get('marketing_relevance', 0))}**"
+                    )
+
+            st.markdown("<hr style='margin:0.3rem 0; border-color:rgba(128,128,128,0.12)'>", unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -940,12 +1028,26 @@ with tab_enriched:
             enr = sd.get("enrichment", {})
             rk = orig.get("ranking", {})
             sc = rk.get("total_score", 0)
+            e_source = orig.get("collection_source", "")
+            e_url = orig.get("url", "#")
+            e_title = orig.get("title", "Untitled")
+            e_news_type = rk.get("news_type", "")
 
-            with st.expander(f"✅ {sc:.0f}  —  {orig.get('title', 'Untitled')[:80]}", expanded=j < 2):
-                st.markdown(
-                    f"**Source:** `{orig.get('collection_source', '')}` · **Score:** {sc:.1f} · "
-                    f"🔗 [{orig.get('url', '')[:60]}]({orig.get('url', '#')})"
-                )
+            with st.expander(f"✅ {sc:.0f}  —  {e_title[:80]}", expanded=j < 2):
+                # Preview row
+                ec1, ec2, ec3 = st.columns([0.5, 3.5, 1])
+                with ec1:
+                    color = "#4CAF50" if sc >= 80 else ("#FF9800" if sc >= 60 else "#f44336")
+                    st.markdown(f"<p class='signal-score' style='color:{color}'>{sc:.0f}</p>", unsafe_allow_html=True)
+                with ec2:
+                    st.markdown(
+                        f"<span class='signal-source-badge'>{e_source}</span>"
+                        f"<span class='signal-type-badge'>{e_news_type}</span>",
+                        unsafe_allow_html=True,
+                    )
+                with ec3:
+                    if e_url and e_url != "#":
+                        st.link_button("🔗 Open Article", e_url, use_container_width=True)
 
                 # Research Summary
                 st.markdown(f"##### Research Summary\n{enr.get('deep_research_summary', 'N/A')}")
@@ -1001,12 +1103,23 @@ with tab_enriched:
             for fi, sd in enumerate(fail):
                 orig = sd.get("original_signal", {})
                 rk = orig.get("ranking", {})
-                with st.expander(f"❌ {rk.get('total_score', 0):.0f}  —  {orig.get('title', 'Untitled')[:70]}", expanded=False):
-                    fc1, fc2 = st.columns([4, 1])
+                f_sc = rk.get("total_score", 0)
+                f_source = orig.get("collection_source", "")
+                f_url = orig.get("url", "#")
+                f_title = orig.get("title", "Untitled")
+
+                with st.expander(f"❌ {f_sc:.0f}  —  {f_title[:70]}", expanded=False):
+                    fc1, fc2, fc3 = st.columns([3, 1, 1])
                     with fc1:
                         st.error(f"**Error:** {sd.get('error', 'Unknown')}")
-                        st.markdown(f"🔗 [{orig.get('url', '')[:60]}]({orig.get('url', '#')})")
+                        st.markdown(
+                            f"<span class='signal-source-badge'>{f_source}</span>",
+                            unsafe_allow_html=True,
+                        )
                     with fc2:
+                        if f_url and f_url != "#":
+                            st.link_button("🔗 Open", f_url, use_container_width=True)
+                    with fc3:
                         if st.button("🔄 Retry", key=f"retry_single_{fi}", use_container_width=True,
                                      disabled=st.session_state.enrichment_running):
                             st.session_state.enrichment_running = True
