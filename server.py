@@ -8,6 +8,8 @@ Usage:
     uvicorn server:app --host 0.0.0.0 --port 8000 --reload
 """
 
+import csv
+import io
 import json
 import os
 import subprocess
@@ -611,6 +613,72 @@ def export_enriched():
         raise HTTPException(status_code=403, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"{type(e).__name__}: {str(e)[:300]}")
+
+
+@app.get("/api/export/enriched/csv")
+def export_enriched_csv():
+    """Download enriched signals as a CSV file."""
+    signals = _load_enriched_signals()
+    if not signals:
+        raise HTTPException(status_code=400, detail="No enriched signals")
+
+    headers = [
+        "Score", "Title", "News Type", "Source", "URL",
+        "Deep Research Summary", "Key Data Points",
+        "CMO Impact", "Growth Team Impact", "Agency Impact",
+        "MH-1 Angle", "Talking Points",
+        "Angle 1 Hook", "Angle 1 Message", "Angle 1 CTA",
+        "Angle 2 Hook", "Angle 2 Message", "Angle 2 CTA",
+        "Angle 3 Hook", "Angle 3 Message", "Angle 3 CTA",
+        "Related Sources", "Confidence", "Best Founder", "Status", "Enriched At",
+    ]
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(headers)
+
+    for sig in signals:
+        orig = sig.get("original_signal", {})
+        enr = sig.get("enrichment", {})
+        rk = orig.get("ranking", {})
+        has = bool(enr)
+        impact = enr.get("market_impact", {}) if enr else {}
+        angles = enr.get("content_angles", []) if enr else []
+
+        def af(idx, field):
+            return angles[idx].get(field, "") if idx < len(angles) else ""
+
+        writer.writerow([
+            round(rk.get("total_score", 0), 1),
+            orig.get("title", ""),
+            rk.get("news_type", ""),
+            orig.get("collection_source", ""),
+            orig.get("url", ""),
+            enr.get("deep_research_summary", "") if enr else sig.get("error", "Failed"),
+            "\n".join(enr.get("key_data_points", [])) if enr else "",
+            impact.get("for_cmos", ""),
+            impact.get("for_growth_teams", ""),
+            impact.get("for_agencies", ""),
+            enr.get("mh1_angle", "") if enr else "",
+            "\n".join(enr.get("founder_talking_points", [])) if enr else "",
+            af(0, "hook"), af(0, "key_message"), af(0, "cta_direction"),
+            af(1, "hook"), af(1, "key_message"), af(1, "cta_direction"),
+            af(2, "hook"), af(2, "key_message"), af(2, "cta_direction"),
+            "\n".join(enr.get("related_sources", [])[:5]) if enr else "",
+            enr.get("confidence_score", "") if enr else "",
+            rk.get("best_founder", ""),
+            "Enriched" if has else f"Failed: {sig.get('error', 'Unknown')}",
+            sig.get("enriched_at", ""),
+        ])
+
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"enriched_signals_{ts}.csv"
+
+    return StreamingResponse(
+        iter([output.getvalue()]),
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={filename}"},
+    )
 
 
 # ── Health ───────────────────────────────────────────────────────────────────

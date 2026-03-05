@@ -872,6 +872,31 @@ async function exportEnriched() {
   }
 }
 
+async function downloadEnrichedCSV() {
+  try {
+    toast('Generating CSV…', 'info');
+    const res = await fetch(`${API}/api/export/enriched/csv`);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ detail: res.statusText }));
+      throw new Error(err.detail || res.statusText);
+    }
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    // Extract filename from header or use default
+    const disposition = res.headers.get('Content-Disposition');
+    a.download = disposition ? disposition.split('filename=')[1] : 'enriched_signals.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast('CSV downloaded!', 'success');
+  } catch (e) {
+    toast('CSV download failed: ' + e.message, 'error');
+  }
+}
+
 // ── Sources config ──────────────────────────────────────────────────────────
 
 async function loadSourcesConfig() {
