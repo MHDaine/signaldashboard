@@ -13,6 +13,7 @@ let state = {
   enriched: [],
   allSources: {},
   processing: false,
+  sourceFilter: null,  // null = all, or a Set of active source names
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -397,16 +398,106 @@ function updateApprovedBadge() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
+//  Source Filter
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function buildSourceFilterPills() {
+  const filterContainer = document.getElementById('source-filter');
+  const pillsContainer = document.getElementById('source-filter-pills');
+
+  // Extract unique sources from current signals
+  const sources = [...new Set(state.signals.map(s => s.collection_source || s.type || 'unknown'))].sort();
+
+  if (sources.length <= 1) {
+    filterContainer.classList.add('hidden');
+    return;
+  }
+
+  filterContainer.classList.remove('hidden');
+
+  // Count signals per source (above threshold)
+  const threshold = parseInt(document.getElementById('threshold').value);
+  const counts = {};
+  for (const s of state.signals) {
+    if ((s.ranking?.total_score || 0) >= threshold) {
+      const src = s.collection_source || s.type || 'unknown';
+      counts[src] = (counts[src] || 0) + 1;
+    }
+  }
+
+  // Build pills
+  pillsContainer.innerHTML = sources.map(src => {
+    const count = counts[src] || 0;
+    const isActive = !state.sourceFilter || state.sourceFilter.has(src);
+    const cls = isActive
+      ? 'bg-orange-100 text-orange-700 border-orange-300'
+      : 'bg-gray-100 text-gray-400 border-gray-200';
+    return `<button class="text-xs py-0.5 px-2.5 rounded-full border transition-colors ${cls}" onclick="toggleSourceFilter('${escapeHtml(src)}')">${escapeHtml(src)} <span class="opacity-60">(${count})</span></button>`;
+  }).join('');
+
+  // Update "All" button style
+  const allBtn = filterContainer.querySelector('.source-filter-all');
+  if (!state.sourceFilter) {
+    allBtn.className = 'source-filter-all btn text-xs py-0.5 px-2.5 rounded-full bg-orange-500 text-white border border-orange-500';
+  } else {
+    allBtn.className = 'source-filter-all btn text-xs py-0.5 px-2.5 rounded-full bg-gray-100 text-gray-500 border border-gray-200';
+  }
+}
+
+function setSourceFilter(source) {
+  if (!source) {
+    state.sourceFilter = null; // Show all
+  } else {
+    state.sourceFilter = new Set([source]);
+  }
+  renderSignals();
+}
+
+function toggleSourceFilter(source) {
+  const sources = [...new Set(state.signals.map(s => s.collection_source || s.type || 'unknown'))];
+
+  if (!state.sourceFilter) {
+    // Currently "All" — switch to only this source
+    state.sourceFilter = new Set([source]);
+  } else if (state.sourceFilter.has(source)) {
+    // Deselect this source
+    state.sourceFilter.delete(source);
+    if (state.sourceFilter.size === 0) {
+      state.sourceFilter = null; // All deselected → show all
+    }
+  } else {
+    // Select this source too
+    state.sourceFilter.add(source);
+    // If all sources now selected, reset to null (all)
+    if (state.sourceFilter.size >= sources.length) {
+      state.sourceFilter = null;
+    }
+  }
+  renderSignals();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
 //  Render functions
 // ═══════════════════════════════════════════════════════════════════════════════
 
 function renderSignals() {
   const threshold = parseInt(document.getElementById('threshold').value);
-  const filtered = state.signals.filter(s => (s.ranking?.total_score || 0) >= threshold);
+  let filtered = state.signals.filter(s => (s.ranking?.total_score || 0) >= threshold);
+
+  // Apply source filter
+  if (state.sourceFilter) {
+    filtered = filtered.filter(s => state.sourceFilter.has(s.collection_source || s.type || 'unknown'));
+  }
+
   filtered.sort((a, b) => (b.ranking?.total_score || 0) - (a.ranking?.total_score || 0));
 
+  const totalAboveThreshold = state.signals.filter(s => (s.ranking?.total_score || 0) >= threshold).length;
+  const filterNote = state.sourceFilter ? ` (filtered ${filtered.length} of ${totalAboveThreshold})` : '';
   document.getElementById('signals-header').textContent =
-    `Ranked Signals — ${filtered.length} of ${state.signals.length} ≥ ${threshold}`;
+    `Ranked Signals — ${totalAboveThreshold} of ${state.signals.length} ≥ ${threshold}${filterNote}`;
+
+  // Rebuild filter pills (to update counts and active states)
+  buildSourceFilterPills();
 
   const container = document.getElementById('signals-list');
   if (!filtered.length) {
@@ -490,6 +581,8 @@ async function removeApproved(signalId) {
 
 function clearSignals() {
   state.signals = [];
+  state.sourceFilter = null;
+  document.getElementById('source-filter').classList.add('hidden');
   renderSignals();
 }
 
@@ -627,7 +720,8 @@ async function collectAndRank() {
       }
     }
 
-    // Load results
+    // Load results — reset source filter for fresh data
+    state.sourceFilter = null;
     await loadSignals();
     toast('Collection & ranking complete!', 'success');
   } catch (e) {

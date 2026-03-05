@@ -139,6 +139,12 @@
       <div class="flex items-center justify-between mb-3">
         <h2 class="text-lg font-semibold" id="signals-header">Ranked Signals — 0</h2>
       </div>
+      <!-- Source filter pills -->
+      <div id="source-filter" class="hidden flex flex-wrap items-center gap-2 mb-4">
+        <span class="text-xs text-gray-500 mr-1">Filter:</span>
+        <button class="source-filter-all btn text-xs py-0.5 px-2.5 rounded-full bg-orange-500 text-white" onclick="setSourceFilter(null)">All</button>
+        <div id="source-filter-pills" class="flex flex-wrap gap-1.5"></div>
+      </div>
       <div id="signals-list"></div>
     </div>
 
