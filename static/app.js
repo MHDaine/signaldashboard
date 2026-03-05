@@ -71,16 +71,32 @@ function setProcessing(active, label = 'Processing…') {
   state.processing = active;
   const el = document.getElementById('process-status');
   const lbl = document.getElementById('process-label');
+  const btnCollect = document.getElementById('btn-collect');
+  const btnCancelCollect = document.getElementById('btn-cancel-collect');
+  const btnEnrich = document.getElementById('btn-enrich');
+  const btnCancelEnrich = document.getElementById('btn-cancel-enrich');
+
   if (active) {
     el.classList.remove('hidden');
     el.classList.add('flex');
     lbl.textContent = label;
+    // Swap action buttons → cancel buttons
+    btnCollect.classList.add('hidden');
+    btnCancelCollect.classList.remove('hidden');
+    btnEnrich.classList.add('hidden');
+    btnCancelEnrich.classList.remove('hidden');
   } else {
     el.classList.add('hidden');
     el.classList.remove('flex');
+    // Swap cancel buttons → action buttons
+    btnCollect.classList.remove('hidden');
+    btnCancelCollect.classList.add('hidden');
+    btnEnrich.classList.remove('hidden');
+    btnCancelEnrich.classList.add('hidden');
   }
-  // Disable action buttons
-  document.querySelectorAll('#btn-collect, #btn-enrich').forEach(b => b.disabled = active);
+  // Also disable/enable action buttons as a safety net
+  btnCollect.disabled = active;
+  btnEnrich.disabled = active;
 }
 
 function copyToClipboard(text) {
@@ -358,8 +374,7 @@ function renderEnrichedCard(sd, index) {
 
 async function loadSignals() {
   try {
-    const threshold = parseInt(document.getElementById('threshold').value);
-    const data = await api('GET', `/api/signals?min_score=${threshold}`);
+    const data = await api('GET', '/api/signals?min_score=0');
     state.signals = data.signals || [];
     // Also refresh approved
     const appData = await api('GET', '/api/signals/approved');
@@ -615,6 +630,39 @@ async function clearEnriched() {
     toast('Enriched signals cleared', 'info');
   } catch (e) {
     toast('Failed: ' + e.message, 'error');
+  }
+}
+
+// ── Cancel process ──────────────────────────────────────────────────────────
+
+async function cancelProcess() {
+  try {
+    await api('POST', '/api/process/cancel');
+    toast('Process cancelled', 'warning');
+    setProcessing(false);
+    // Hide all progress bars
+    ['collect-progress', 'enrich-progress', 'retry-progress'].forEach(id => {
+      document.getElementById(id)?.classList.add('hidden');
+    });
+  } catch (e) {
+    // Even if the API call fails, reset the UI so the user can try again
+    setProcessing(false);
+    toast('Cancel failed: ' + e.message, 'error');
+  }
+}
+
+async function checkProcessStatus() {
+  try {
+    const data = await api('GET', '/api/process/status');
+    if (data.running) {
+      setProcessing(true, 'A process is running…');
+      // Show the collect progress area so the cancel button context is clear
+      document.getElementById('collect-progress').classList.remove('hidden');
+      document.getElementById('collect-progress-label').textContent = 'Process running (started before page load)';
+      document.getElementById('collect-progress-bar').style.width = '0%';
+    }
+  } catch (e) {
+    // Silently ignore — server might not be ready yet
   }
 }
 
@@ -945,6 +993,8 @@ document.getElementById('threshold').addEventListener('input', () => {
 
 (async function init() {
   await initSources();
+  // Check if a process is already running (e.g. page was refreshed mid-process)
+  await checkProcessStatus();
   // Try loading existing data
   try {
     const data = await api('GET', '/api/signals?min_score=0');

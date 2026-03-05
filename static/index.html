@@ -119,6 +119,7 @@
       <!-- Action buttons -->
       <div class="flex gap-3 mb-4">
         <button id="btn-collect" class="btn btn-primary" onclick="collectAndRank()">🚀 Collect &amp; Rank</button>
+        <button id="btn-cancel-collect" class="btn btn-danger hidden" onclick="cancelProcess()">✕ Cancel Process</button>
         <button class="btn btn-secondary" onclick="loadSignals()">📂 Load Cleared Signals</button>
         <button class="btn btn-secondary" onclick="clearSignals()">🗑️ Clear</button>
       </div>
@@ -152,6 +153,7 @@
     <div id="tab-approved" class="tab-content hidden">
       <div class="flex flex-wrap items-center gap-3 mb-4">
         <button id="btn-enrich" class="btn btn-primary" onclick="enrichAll()">🔬 Enrich All</button>
+        <button id="btn-cancel-enrich" class="btn btn-danger hidden" onclick="cancelProcess()">✕ Cancel Process</button>
         <label class="flex items-center gap-2 text-sm">
           <input type="checkbox" id="deep-research" class="checkbox-custom">
           <span>Deep research</span>

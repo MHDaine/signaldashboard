@@ -63,6 +63,7 @@ app.add_middleware(
 
 # ── Lock to prevent concurrent subprocess runs ──────────────────────────────
 _process_lock = threading.Lock()
+_active_process: Optional[subprocess.Popen] = None  # track running subprocess for cancellation
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -332,11 +333,14 @@ def _stdout_reader(proc, q: queue.Queue):
 def _stream_subprocess(cmd: List[str]):
     """Run subprocess and yield SSE events from PROGRESS: lines."""
     import time
+    global _active_process
 
     proc = subprocess.Popen(
         cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-        text=True, bufsize=1, cwd=str(PROJECT_ROOT)
+        text=True, bufsize=1, cwd=str(PROJECT_ROOT),
+        preexec_fn=os.setsid,  # new process group so we can kill the tree
     )
+    _active_process = proc
     q: queue.Queue = queue.Queue()
     t = threading.Thread(target=_stdout_reader, args=(proc, q), daemon=True)
     t.start()
@@ -354,8 +358,13 @@ def _stream_subprocess(cmd: List[str]):
         prog = q.get_nowait()
         yield f"data: {json.dumps(prog)}\n\n"
 
-    # Send done event
-    yield f"data: {json.dumps({'status': 'done', 'returncode': proc.returncode})}\n\n"
+    _active_process = None
+
+    # Check if process was cancelled (killed)
+    if proc.returncode and proc.returncode < 0:
+        yield f"data: {json.dumps({'status': 'cancelled', 'returncode': proc.returncode})}\n\n"
+    else:
+        yield f"data: {json.dumps({'status': 'done', 'returncode': proc.returncode})}\n\n"
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -492,6 +501,50 @@ def get_api_status():
         "google_sheets": bool(_get_service_account_info()),
         "openai": bool(os.environ.get("OPENAI_KEY")),
     }
+
+
+# ── Process Control ──────────────────────────────────────────────────────────
+
+@app.get("/api/process/status")
+def process_status():
+    """Check if a process is currently running."""
+    is_locked = _process_lock.locked()
+    is_alive = _active_process is not None and _active_process.poll() is None
+    return {
+        "running": is_locked or is_alive,
+        "has_subprocess": is_alive,
+    }
+
+
+@app.post("/api/process/cancel")
+def cancel_process():
+    """Cancel the currently running process and release the lock."""
+    global _active_process
+    if _active_process and _active_process.poll() is None:
+        # Kill the subprocess tree
+        import signal as sig
+        try:
+            os.killpg(os.getpgid(_active_process.pid), sig.SIGTERM)
+        except (ProcessLookupError, OSError):
+            try:
+                _active_process.kill()
+            except (ProcessLookupError, OSError):
+                pass
+        _active_process = None
+        # Force-release the lock if it's held
+        try:
+            _process_lock.release()
+        except RuntimeError:
+            pass  # Lock wasn't held
+        return {"ok": True, "message": "Process cancelled"}
+
+    # No active subprocess — just release a stuck lock
+    try:
+        _process_lock.release()
+    except RuntimeError:
+        pass
+    _active_process = None
+    return {"ok": True, "message": "Lock released (no active process)"}
 
 
 # ── Collect & Rank (SSE) ────────────────────────────────────────────────────
