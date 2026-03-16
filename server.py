@@ -43,6 +43,7 @@ async def verify_token(credentials: HTTPAuthorizationCredentials = Security(_bea
         raise HTTPException(status_code=401, detail="Invalid or missing API token")
     return credentials.credentials
 
+
 # ── Constants ────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).parent
 SOURCES_FILE = PROJECT_ROOT / "sources.json"
