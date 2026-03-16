@@ -1,0 +1,246 @@
+{
+  "version": "1.0",
+  "founderId": "aneesha-rao",
+  "founderName": "Aneesha Rao",
+  "extractedAt": "2026-02-05T12:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 18,
+      "openingStyle": "Contrarian stance or systems-first observation",
+      "paragraphPattern": "Complex but clear compound sentences linking cause and effect. Active voice. Calibration clauses that add context about when advice applies."
+    },
+    "vocabulary": {
+      "register": "professional-precise",
+      "contractions": true,
+      "avoidList": [
+        "dive into",
+        "deep dive",
+        "unlock",
+        "leverage",
+        "synergy",
+        "hustle",
+        "grind",
+        "game-changing",
+        "revolutionary",
+        "unpack",
+        "circle back",
+        "move the needle"
+      ],
+      "signaturePhrases": [
+        "guardrails",
+        "schema of project scope",
+        "precludes the need",
+        "depends entirely on",
+        "let them have at it",
+        "ebb and flow",
+        "sprint recap",
+        "process over pings",
+        "full-stack",
+        "premium consumer",
+        "identity validation",
+        "portfolio management"
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": false,
+      "hookPattern": "Contrarian stance opener - challenges conventional management or marketing wisdom",
+      "ctaStyle": "Soft CTA - 'Hope you tune in' style, never aggressive"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 100,
+      "max": 300
+    },
+    "averageCharCount": 200,
+    "distribution": {
+      "short": {
+        "percentage": 60,
+        "charRange": "under 300"
+      },
+      "medium": {
+        "percentage": 30,
+        "charRange": "300-600"
+      },
+      "long": {
+        "percentage": 10,
+        "charRange": "600+"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "I think efficient and strategic project management precludes the need for check-ins.",
+      "why": "Contrarian stance opener that challenges conventional management wisdom with operational insight",
+      "engagement": {
+        "likes": null,
+        "comments": null
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "I think efficient and strategic project management precludes the need for check-ins. If everything is set up, then the work should be completed in the timeline set forth.\n\nWith freelancers, the guardrails I implement depend entirely on the level of expertise the freelancer has. With an experienced content or design marketer, I let them have at it, and give a basic schema of project scope.",
+      "why": "Complete demonstration of contrarian opener, systems thinking, expertise calibration, and specific PM terminology",
+      "engagement": {
+        "likes": null,
+        "comments": null
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "Speaking with the Trellis team tomorrow on some of the best strategies to employ for an Amazon-first business! Hope you tune in!\n\nhttps://lnkd.in/eysVWTi4",
+      "why": "Event promotion showing efficient communication style - activity-first, value proposition, soft CTA, clean format",
+      "engagement": {
+        "likes": 48,
+        "comments": 3
+      }
+    },
+    {
+      "type": "hook",
+      "text": "When deliverables are delayed, usually that's stated in a sprint recap meeting, with an updated due date.",
+      "why": "Systems-first observation opener that frames the process before addressing the human element",
+      "engagement": {
+        "likes": null,
+        "comments": null
+      }
+    },
+    {
+      "type": "cta",
+      "text": "Hope you tune in!",
+      "why": "Soft, non-aggressive call to action consistent with her efficient communication style",
+      "engagement": {
+        "likes": 48,
+        "comments": 3
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "Contrarian Stance Opener",
+      "pattern": "Opens by challenging conventional management or marketing wisdom. Takes a position others might shy away from.",
+      "examples": [
+        "I think efficient and strategic project management precludes the need for check-ins.",
+        "The best consumer growth leaders aren't just marketers or just operators.",
+        "Premium consumers don't buy products."
+      ],
+      "frequency": "50%"
+    },
+    {
+      "style": "Systems-First Observation",
+      "pattern": "Opens with a process or structural insight that frames everything that follows. Positions as architect, not participant.",
+      "examples": [
+        "With freelancers, the guardrails I implement depend entirely on the level of expertise the freelancer has.",
+        "Managing one brand is marketing. Managing a portfolio is operations.",
+        "If everything is set up, then the work should be completed in the timeline set forth."
+      ],
+      "frequency": "30%"
+    },
+    {
+      "style": "Action/Event Announcement",
+      "pattern": "Activity-first framing for event promotion. Direct, efficient, value-focused. No preamble.",
+      "examples": [
+        "Speaking with the Trellis team tomorrow on some of the best strategies to employ for an Amazon-first business!"
+      ],
+      "frequency": "20%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": null,
+    "vocabulary": {},
+    "placementRules": [
+      "Default: No emojis in professional content",
+      "Exception: Occasional single emoji for visual break (rare)",
+      "Substitute: Uses exclamation marks sparingly for genuine enthusiasm",
+      "Philosophy: Let the words carry the weight"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "Contrarian Stance -> Explanation -> Calibration",
+      "structure": [
+        "Contrarian or non-obvious position",
+        "Reasoning/explanation",
+        "Calibration by context - 'depends on...' or 'for X vs Y...'"
+      ],
+      "useCase": "Management insights, operational content, thought leadership"
+    },
+    {
+      "name": "Announcement -> Value Prop -> Soft CTA -> Link",
+      "structure": [
+        "Activity/event announcement",
+        "Topic/value proposition - what audience will learn",
+        "Soft call-to-action",
+        "Link"
+      ],
+      "useCase": "Event promotion, speaking engagements, webinars"
+    },
+    {
+      "name": "Observation -> System -> Human Element",
+      "structure": [
+        "Observation about common challenge",
+        "System/process that addresses it",
+        "Acknowledgment of human reality"
+      ],
+      "useCase": "Process discussions, team management content"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "dive into",
+      "deep dive",
+      "unlock",
+      "leverage (as verb)",
+      "synergy",
+      "hustle",
+      "grind",
+      "game-changing",
+      "revolutionary",
+      "unpack",
+      "circle back",
+      "move the needle"
+    ],
+    "formattingToAvoid": [
+      "Em dashes - prefers periods or commas for cleaner flow",
+      "Heavy emoji usage - maintains professional, text-first aesthetic",
+      "Excessive hashtags - clean posts preferred (sample had zero)",
+      "Rhetorical questions as openers - leads with statements, not questions",
+      "Overly formatted posts - no excessive headers, bold, or structure",
+      "All-caps emphasis - calm authority, not shouting"
+    ],
+    "toneToAvoid": [
+      "Hustle culture glorification - believes in systems, not working harder",
+      "Overly promotional language - value-first, not sales-first",
+      "Humble-bragging - direct about achievements when relevant",
+      "Generic platitudes - always operationally specific",
+      "Academic/theoretical voice - speaks from operator seat, not professor seat",
+      "Excessive enthusiasm - measured, calm authority"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "End of post if used at all; default is no hashtags",
+    "maxCount": 3,
+    "format": "CamelCase (e.g., #DTC not #dtc)",
+    "commonTags": [
+      "#DTC",
+      "#Ecommerce",
+      "#ConsumerBrands",
+      "#GrowthMarketing",
+      "#MarketingOps"
+    ]
+  },
+  "taggingStyle": {
+    "frequency": "Rare - used only when directly relevant",
+    "patterns": [
+      "Company mentions by name, not @tag ('Trellis team' not '@Trellis')",
+      "Low tagging frequency - clean, uncluttered posts",
+      "Partner references are professional, acknowledging collaboration"
+    ],
+    "specialPhrases": []
+  },
+  "metadata": {
+    "postsAnalyzed": 1,
+    "confidenceScore": 0.75,
+    "extractionMethod": "markdown-parsing"
+  }
+}

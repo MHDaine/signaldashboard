@@ -1,0 +1,119 @@
+{
+  "profile": {
+    "name": "Matt Greener",
+    "title": "Partner (formerly CMO)",
+    "company": "TrueLoyal",
+    "linkedinUrl": "https://www.linkedin.com/in/mattgreener",
+    "analysisDate": "2026-02-05",
+    "postsAnalyzed": 12
+  },
+  "executiveSummary": "Matt Greener is a contrarian marketing executive who positions himself as the voice of strategic restraint in an era of AI-driven volume. His content challenges the industry's obsession with 'more' -- more content, more campaigns, more tools -- and advocates for quality over quantity, human judgment over automation, and emotional resonance over technical optimization. His core positioning statement is 'The strategic marketer's job is omission.' While most marketing voices celebrate AI capabilities and efficiency gains, Matt questions whether speed without soul creates sustainable value. He is the skeptic in the room who asks 'but why?' before jumping on the next trend.",
+  "contentThemes": [
+    {
+      "theme": "AI Skepticism & Human Value",
+      "description": "Nuanced contrarian position on AI in marketing -- not anti-AI, but anti-hype. Challenges speed without soul, AI panic-buying, and losing the human element that creates emotional resonance.",
+      "postCount": 4,
+      "voiceNotes": [
+        "Introduces named frameworks (Marketing Trifecta, AI panic-buy)",
+        "Balances critique with constructive alternative",
+        "Uses dialogue and metaphor (blender vs spoon) to illustrate dysfunction",
+        "Quotable lines: 'AI is an exponential multiplier for average'"
+      ]
+    },
+    {
+      "theme": "Customer Loyalty & Community",
+      "description": "Reframes loyalty from transactional to emotional. Advocates 'stay campaigns' over 'win-back campaigns' and authentic community building over forced platforms.",
+      "postCount": 4,
+      "voiceNotes": [
+        "Personal anecdotes (coffee shop regular) grounding business insights",
+        "Contrarian reframe: win-back is failure, not success",
+        "Emotional language: 'belonging isn't a feature you can ship'",
+        "Domain expertise from TrueLoyal/TINT/Zinrelo background"
+      ]
+    },
+    {
+      "theme": "Brand vs Product Philosophy",
+      "description": "Defends storytelling and brand-building against the rise of technical/builder culture. A product is a solution; a brand is a reason to care.",
+      "postCount": 2,
+      "voiceNotes": [
+        "Uses specific brand examples with emotional benefits (Canva, Liquid Death, BMW)",
+        "Function vs feeling tension",
+        "Challenges 'vibe coding' era marketers-as-builders",
+        "Arrow emoji for brand example lists"
+      ]
+    },
+    {
+      "theme": "Strategic Restraint & Quality",
+      "description": "Advocates doing less, better. Challenges the industry's volume addiction and 'more with less' paradox.",
+      "postCount": 1,
+      "voiceNotes": [
+        "Triple negative list format ('3 things we must stop doing')",
+        "Prescriptive commands ('Stop optimizing the garbage')",
+        "Craft over scale philosophy"
+      ]
+    },
+    {
+      "theme": "GTM & Cross-Functional Alignment",
+      "description": "Go-to-market strategy and sales-marketing alignment through collaboration, not siloed activity.",
+      "postCount": 1,
+      "voiceNotes": [
+        "Three-legged race metaphor for GTM alignment",
+        "Debate over presentation",
+        "Values team conversations over CRM data"
+      ]
+    }
+  ],
+  "engagementAnalysis": {
+    "byPostType": [
+      {
+        "type": "Company Announcement",
+        "avgReactions": 88,
+        "avgComments": 42
+      },
+      {
+        "type": "Personal Anecdote to Business Insight",
+        "avgReactions": 47,
+        "avgComments": 4
+      },
+      {
+        "type": "Promotional (Reports/Podcasts)",
+        "avgReactions": 20,
+        "avgComments": 4
+      },
+      {
+        "type": "AI Critique / Framework",
+        "avgReactions": 20.5,
+        "avgComments": 1.5
+      },
+      {
+        "type": "Industry Callout / Contrarian Take",
+        "avgReactions": 12.8,
+        "avgComments": 2.6
+      }
+    ],
+    "keyInsight": "Highest engagement comes from personal anecdotes (coffee shop community at 47 reactions) and company milestones (TrueLoyal merger at 88 reactions). Thought leadership posts consistently earn 10-23 reactions with moderate comments. Vivid metaphors and debate-inviting closers drive comment engagement."
+  },
+  "speakingVoiceInsights": {
+    "naturalPhrases": [
+      "The real work is...",
+      "Stop [doing X]",
+      "What if we're [doing wrong thing]?",
+      "Do you agree, or...",
+      "[X] isn't [Y]. It's [Z].",
+      "perfectly [X], perfectly [Y], and perfectly [Z]",
+      "ironic much?",
+      "Speed without soul",
+      "The AI panic-buy",
+      "chief curator of taste"
+    ],
+    "voiceQualities": [
+      "Contrarian but constructive -- always offers alternative, never purely negative",
+      "Philosophical but pragmatic -- big ideas grounded in actionable advice",
+      "Metaphor-driven -- every major insight anchored to vivid, unexpected analogy",
+      "Professional-conversational register -- never stiff, never overly casual",
+      "Wry humor -- dry observations like 'ironic much?' rather than jokes",
+      "Debate-inviting -- questions seek disagreement, not validation",
+      "Prescriptive -- lands on 'stop/start' commands after philosophical framing"
+    ]
+  }
+}

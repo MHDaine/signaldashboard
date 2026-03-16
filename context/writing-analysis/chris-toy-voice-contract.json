@@ -1,0 +1,338 @@
+{
+  "version": "1.0",
+  "founderId": "chris-toy",
+  "founderName": "Chris Toy",
+  "extractedAt": "2026-02-05T12:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 15,
+      "openingStyle": "Conversation quote or product reveal opener",
+      "paragraphPattern": "Short paragraphs (1-4 sentences), single-sentence paragraphs for emphasis, frequent line breaks"
+    },
+    "vocabulary": {
+      "register": "professional-conversational",
+      "contractions": true,
+      "avoidList": [
+        "dive into",
+        "deep dive",
+        "unlock",
+        "unlocking",
+        "leverage",
+        "synergy",
+        "rockstar",
+        "touch base",
+        "circle back",
+        "let's unpack",
+        "at the end of the day",
+        "game-changer",
+        "disrupt",
+        "paradigm shift",
+        "move the needle",
+        "low-hanging fruit"
+      ],
+      "signaturePhrases": [
+        "AI-native marketer",
+        "AI-first CMO",
+        "AIA (AI + Automation)",
+        "MH-1",
+        "blew my socks off",
+        "made me have to take a walk",
+        "the transformation",
+        "This is exactly why we built",
+        "No tricks, no toys, just rapid shipping and results",
+        "puts the math in your favor",
+        "the ground can shift overnight",
+        "marketing escape velocity",
+        "time-boxed execution",
+        "bookend framework",
+        "hiring the playbook, not the brain",
+        "Most teams aren't built for this"
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": true,
+      "hookPattern": "Conversation quote opener or product reveal",
+      "ctaStyle": "Direct engagement ask (comment keyword / DM me) or bold closing statement about the future"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 200,
+      "max": 350
+    },
+    "averageCharCount": 1540,
+    "distribution": {
+      "short": {
+        "percentage": 12,
+        "charRange": "under 200 words"
+      },
+      "medium": {
+        "percentage": 48,
+        "charRange": "200-350 words"
+      },
+      "long": {
+        "percentage": 40,
+        "charRange": "350+ words"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "A CMO told me yesterday: \"We spent $47K in AI marketing tool licenses and not only isn't performance better, we feel even more bloated than ever with extra work.\"",
+      "why": "Conversation opener with specific dollar amount and direct quote - his highest-engagement pattern",
+      "engagement": {
+        "likes": 360,
+        "comments": 90
+      }
+    },
+    {
+      "type": "hook",
+      "text": "AI just reminded us of something brutal: The ground can shift overnight.",
+      "why": "Breaking news hook with signature phrase - bold, urgent, concise",
+      "engagement": {
+        "likes": 344,
+        "comments": 56
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "I just spoke to technical founder of a series B startup, and he told me something I hear >50% of the time with this ICP:\n\nHe'd tried ~12 marketers, all failed. \"Marketing is our weakest link.\"\n\nMost felt like \"hiring the playbook, not the brain.\" Too manual. Too slow. Hard to measure.\n\nThen he contrasted it with his software engineers:\nEngineers build their own tools.\nThey measure output precisely.\nThey justify headcount by shipping product.\nMore engineers = more output + value.\n\nThat's what he expected marketing to deliver, especially in the age of \"growth\".\n\nWhen I explained what our AI Marketers do, he finally heard what he wanted.\n\n- Combines marketing instinct with technical ability\n- Automates and rebuilds workflows, not just runs them\n- Thinks like a builder, not a playbook follower\n- Measured like technical product\n\nHis response? \"Sign me up.\"\nMarketing doesn't need more playbooks or theory.\nIt needs to evolve the job the way software engineers work - build, ship, measure.",
+      "why": "Third highest engagement - conversation opener, contrast structure, bullet list, bold closing statement. Exemplifies all core patterns.",
+      "engagement": {
+        "likes": 284,
+        "comments": 66
+      }
+    },
+    {
+      "type": "cta",
+      "text": "If you want to hire/speak to/learn from one of our AI CMOs - just comment \"AI CMO\"",
+      "why": "Direct engagement ask with specific keyword action - his most effective CTA pattern",
+      "engagement": {
+        "likes": 75,
+        "comments": 12
+      }
+    },
+    {
+      "type": "closing",
+      "text": "AI tools are commodities now.\n\nAI-native marketers who know how to wield them? That's the competitive advantage now.",
+      "why": "Contrast closing with signature vocabulary - tools vs talent, commodity vs advantage",
+      "engagement": {
+        "likes": 360,
+        "comments": 90
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "\"Growth Marketers\" optimized channels.\n\"AI Marketers\" rebuild the workflows themselves. That's the difference.\n\nLifecycle: Not just sending campaigns, but designing AI-powered journeys that write, send, and optimize in real time.\n\nPaid: Not just testing ads manually, but building creative engines that experiment at 10x the pace.\n\nAnalytics: Not just reading dashboards, but engineering AI systems that surface insights and trigger action automatically.\n\nOne role squeezes more juice out of the system.\nThe other redesigns the system entirely.\n\nGrowth was about optimization.\nAI is about reinvention.\n\nThat's what makes an AI Marketer different.",
+      "why": "Bold claim opener with parallel contrast structure throughout - defines the AI Marketer category",
+      "engagement": {
+        "likes": 54,
+        "comments": 10
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "The Conversation Opener",
+      "pattern": "Direct quote or observation from a real conversation with a CMO, founder, or marketing leader, grounding the post immediately in a specific interaction.",
+      "examples": [
+        "A CMO told me yesterday: \"We spent $47K in AI marketing tool licenses and not only isn't performance better, we feel even more bloated than ever with extra work.\"",
+        "I just spoke to technical founder of a series B startup, and he told me something I hear >50% of the time with this ICP:",
+        "Talked with two CMOs today doing $10m and $100m+ in revenue at their companies.",
+        "Another conversation with an AI-Native CMO blew my socks off:"
+      ],
+      "frequency": "35%"
+    },
+    {
+      "style": "The Product Reveal",
+      "pattern": "Genuine excitement about something MH-1 or the team has built. Always starts with \"I just saw\" and includes an emotional reaction.",
+      "examples": [
+        "I just saw the latest version of our LLM Visibility Module that we're rolling out to MH-1 customers.",
+        "I just saw our new MH-1 ad creative testing module generate dozens of ad variations in the time it used to take our teams to brief one campaign.",
+        "Our MH-1 AI marketing solution just shipped an automation module for a customer that made me have to take a walk."
+      ],
+      "frequency": "15%"
+    },
+    {
+      "style": "The Breaking News Hook",
+      "pattern": "Responds to industry developments with immediate relevance. Names the event, gives an emotional reaction, then explains implications.",
+      "examples": [
+        "Gemini 3 dropped yesterday. Everyone's excited. 1000 posts just published telling everyone what they built to date is hot garbage.",
+        "AI just reminded us of something brutal: The ground can shift overnight.",
+        "SEO vs GEO has been one of the most volatile areas of demand and performance we've seen... maybe ever."
+      ],
+      "frequency": "15%"
+    },
+    {
+      "style": "The Pattern/Problem Identification",
+      "pattern": "Names a recurring pattern or challenge observed across multiple companies or conversations.",
+      "examples": [
+        "Marketing leaders are getting stuck in the same place when it comes to AI transformation.",
+        "As marketing orgs try to adopt AI, a new pattern has emerged from companies we are working with. Indecision.",
+        "Marketing is in a constant state of chaos."
+      ],
+      "frequency": "20%"
+    },
+    {
+      "style": "The Bold Claim",
+      "pattern": "Definitive statement or quote that demands attention. Short, declarative, no hedging.",
+      "examples": [
+        "\"Growth Marketers\" optimized channels. \"AI Marketers\" rebuild the workflows themselves. That's the difference.",
+        "We've been patient with our AI-related offering. We knew the vetting bar had to be higher than any role we've ever had."
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "The Data/Poll Opener",
+      "pattern": "Leads with specific quantitative findings from MarketerHire data or industry research.",
+      "examples": [
+        "~80% of CMOs we polled said they know they need a plan for the age of AI Marketing. Almost all admit they don't have one yet or are low in confidence in the one they do.",
+        "One emerging trendline we're seeing among B2B CMOs on MarketerHire: a shift in where new marketing investment is going in 2025."
+      ],
+      "frequency": "5%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": null,
+    "vocabulary": {
+      "thinking": [
+        "🤔"
+      ]
+    },
+    "placementRules": [
+      "Extremely rare - only occasional thinking face emoji",
+      "Never uses emoji strings or emoji for emphasis",
+      "No emoji in openers or closers as a pattern",
+      "Single emoji (if any) as standalone line after a thought-provoking point"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "Conversation -> Insight -> Product Bridge -> CTA",
+      "structure": [
+        "Real conversation opener with specific role and context",
+        "Key insights from the conversation (quoted or paraphrased)",
+        "Why this matters / what it reveals about the market",
+        "Natural bridge to MH-1 or MarketerHire capability",
+        "Direct CTA (comment keyword or DM)"
+      ],
+      "useCase": "CMO conversation posts, customer pain point posts"
+    },
+    {
+      "name": "Product Reveal -> Problem -> Feature List -> Results -> Multiplier Close",
+      "structure": [
+        "I just saw opener with emotional reaction",
+        "The problem this solves (velocity/efficiency framing)",
+        "Dash-prefixed bullet list of capabilities",
+        "Early results with specific metrics",
+        "It doesn't replace... it multiplies framing",
+        "CTA for access"
+      ],
+      "useCase": "Product capability and feature announcement posts"
+    },
+    {
+      "name": "Breaking News -> Impact -> Implications -> Most Teams Aren't Built -> Competitive Advantage",
+      "structure": [
+        "Industry event or model release",
+        "What changed and immediate impact",
+        "Bulleted implications for marketing leaders",
+        "Most teams aren't built for this",
+        "What winning teams do differently",
+        "Bold closing statement about competitive advantage"
+      ],
+      "useCase": "Industry disruption and volatility posts"
+    },
+    {
+      "name": "Pattern Identification -> Elaboration -> Catch-22s -> Solution -> Bold Close",
+      "structure": [
+        "Name the pattern or problem (single dramatic word on its own line)",
+        "What teams are experiencing",
+        "The catch-22s or blockers preventing resolution",
+        "What winning teams do differently",
+        "Bold imperative closing statement"
+      ],
+      "useCase": "Problem pattern and thought leadership posts"
+    },
+    {
+      "name": "Bold Claim -> Parallel Contrast -> Era Statement",
+      "structure": [
+        "Definitive statement setting up old vs new",
+        "Parallel Not just X, but Y structures across multiple domains",
+        "Single-sentence contrast lines",
+        "Era-level framing: Growth was about X. AI is about Y."
+      ],
+      "useCase": "Category definition and role differentiation posts"
+    },
+    {
+      "name": "Historical Arc -> We're At That Moment -> Future Statement",
+      "structure": [
+        "Data or trend opener",
+        "Historical parallel (digital marketing era -> growth marketing era)",
+        "We're at that same moment now",
+        "Era progression: Digital -> Growth -> AI",
+        "Bold optimistic closing about the opportunity"
+      ],
+      "useCase": "AI marketing era and transformation narrative posts"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "Hashtags of any kind",
+      "Excessive emojis or emoji strings",
+      "Generic motivational language without specifics",
+      "Vague claims without data or conversation grounding",
+      "Self-promotional humble-bragging",
+      "Jargon without explanation",
+      "Theory without real-world grounding",
+      "Corporate-speak or buzzwords",
+      "dive into / deep dive",
+      "unlock / unlocking",
+      "leverage (as verb)",
+      "synergy",
+      "rockstar",
+      "touch base",
+      "circle back",
+      "let's unpack",
+      "at the end of the day"
+    ],
+    "formattingToAvoid": [
+      "Hashtags - never used in any post",
+      "Excessive emojis - extremely rare, occasional thinking face only",
+      "Long paragraphs without breaks - always break every 1-4 sentences",
+      "Headers or bold formatting within posts",
+      "Dot-prefixed bullet points - always uses dash-prefixed bullets",
+      "Over-formatted posts with bold, italics, or headers"
+    ],
+    "toneToAvoid": [
+      "Lecturing without grounding in conversations or data",
+      "Promoting MH-1 without providing value first",
+      "Making claims without specific examples",
+      "Dismissing AI concerns - always acknowledge them first",
+      "Positioning AI as replacement - always frame as multiplier",
+      "Passive voice and hedging language",
+      "Generic platitudes without personal touch",
+      "Overly academic or theoretical tone"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "Never used",
+    "maxCount": 0,
+    "format": "N/A - Chris never uses hashtags in any post",
+    "commonTags": []
+  },
+  "taggingStyle": {
+    "frequency": "Rare - not a significant pattern in his posts",
+    "patterns": [
+      "Occasionally references MarketerHire or MH-1 by name",
+      "References roles (CMO, founder) rather than tagging specific people",
+      "No significant @mention pattern observed"
+    ],
+    "specialPhrases": []
+  },
+  "metadata": {
+    "postsAnalyzed": 25,
+    "confidenceScore": 0.94,
+    "extractionMethod": "markdown-parsing"
+  }
+}

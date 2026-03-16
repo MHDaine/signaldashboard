@@ -1,0 +1,29 @@
+# Signal Collection Pipeline
+
+# Web Framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+
+# Async HTTP Client
+httpx==0.27.2
+aiohttp==3.10.9
+
+# AI Providers
+openai>=2.24.0
+
+# Social Media APIs
+praw==7.7.1              # Reddit API
+tweepy==4.14.0           # Twitter/X API
+
+# RSS Feeds
+feedparser==6.0.12
+
+# Export Integrations
+gspread==6.1.2
+google-auth>=2.0.0
+
+# Utilities
+python-dotenv==1.0.1
+rich==13.9.2
+pydantic-settings>=2.0.0

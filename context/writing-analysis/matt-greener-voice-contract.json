@@ -1,0 +1,365 @@
+{
+  "version": "1.0",
+  "founderId": "matt-greener",
+  "founderName": "Matt Greener",
+  "extractedAt": "2026-02-05T12:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 16,
+      "openingStyle": "Provocative question or contrarian statement challenging industry orthodoxy",
+      "paragraphPattern": "Every 2-4 sentences. Short paragraphs with punchy reframe statements between narrative blocks."
+    },
+    "vocabulary": {
+      "register": "professional-conversational",
+      "contractions": true,
+      "avoidList": [
+        "I'm excited to announce",
+        "dive into",
+        "deep dive",
+        "unlock",
+        "leverage (as verb except in ironic usage)",
+        "synergy",
+        "rockstar",
+        "touch base",
+        "circle back",
+        "let's unpack",
+        "at the end of the day",
+        "game changer (without substance)",
+        "hot take (without reasoning)"
+      ],
+      "signaturePhrases": [
+        "The real work is...",
+        "Stop [doing X]",
+        "What if we're [celebrating the wrong thing]?",
+        "Do you agree, or...",
+        "[X] isn't [Y]. It's [Z].",
+        "perfectly [X], perfectly [Y], and perfectly [Z]",
+        "The strategic marketer's job is omission.",
+        "AI is an exponential multiplier for average.",
+        "Belonging isn't a feature you can ship.",
+        "A product is a solution. A brand is a reason to care.",
+        "Speed without soul",
+        "The AI panic-buy",
+        "chief curator of taste"
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": true,
+      "hookPattern": "Provocative question OR industry critique statement OR dialogue scene OR metaphor reframe OR personal scene",
+      "ctaStyle": "Debate-inviting question offering alternative viewpoint or requesting specific examples"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 200,
+      "max": 350
+    },
+    "averageCharCount": 1300,
+    "distribution": {
+      "short": {
+        "percentage": 17,
+        "charRange": "under 600 chars (50-100 words, promotional)"
+      },
+      "medium": {
+        "percentage": 58,
+        "charRange": "600-1600 chars (200-300 words, thought leadership)"
+      },
+      "long": {
+        "percentage": 25,
+        "charRange": "1600+ chars (300-400 words, extended narrative)"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "Is the obsession with \"more\" killing marketing impact?",
+      "why": "Provocative question opener that challenges industry assumption directly",
+      "engagement": {
+        "likes": 13,
+        "comments": 2
+      }
+    },
+    {
+      "type": "hook",
+      "text": "We have a new problem in marketing: Speed without soul.",
+      "why": "Industry critique statement -- names the problem in a memorable, quotable phrase",
+      "engagement": {
+        "likes": 18,
+        "comments": 3
+      }
+    },
+    {
+      "type": "hook",
+      "text": "The barista at my local coffee shop knows my order, asks about my weekend (if I'm lucky), and gives me a free coffee and samples from time to time (if I'm really lucky) not prompted by any specific milestone or anniversary.",
+      "why": "Personal scene opener -- vivid, sensory detail that builds emotional connection before business pivot",
+      "engagement": {
+        "likes": 47,
+        "comments": 4
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "Our industry loves to celebrate a good \"win-back\" campaign. We treat it like a heroic last-minute victory. Maybe it has to do with the cultural obsession with sports. But what if we're celebrating the wrong thing? 🤔  A win-back isn't a success, it's proof that the brand<>customer relationship was already broken.\n\nA win-back campaign is a frantic apology after the damage is done. The real work is in the \"stay\" campaign—the one that keeps your customer engaged continuously. It's about recognizing and acting on the digital equivalent of a sigh or an eye-roll weeks before your customer starts looking elsewhere. It's the shift from guesswork to foresight. Instead of asking \"Why did they leave?\" we should be asking \"Do they feel like leaving?\"\"Are they engaged enough to stay?\"\n\nThe smartest brands are building relationships with their customers, continually giving them reasons to stay loyal. They're investing in predicting dissatisfaction, not just reacting to it.\n\nLet's stop investing all our energy in resurrection and start focusing on preventative care.\n\nDo you agree, or are massive win-back efforts a necessary pillar of modern retention strategy?",
+      "why": "Classic Matt Greener formula: industry critique opener, contrarian reframe, prescriptive advice, debate-inviting close",
+      "engagement": {
+        "likes": 13,
+        "comments": 2
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "We have a new problem in marketing: Speed without soul.\n\nYou know the moment. That giddy rush when you see your AI engine pump out 500 ad variations in a second. Velocity achieved. But now you're swimming in content that's perfectly optimized, perfectly targeted, and perfectly bland.\n\nAI has solved the velocity problem. Great. The new CMO mandate is now the Marketing Trifecta:\n\nStrategy: The human-led North Star. Going a million kilometers an hour down the wrong road isn't a competitive advantage.\n\nVelocity: Strategy without velocity is quickly overtaken, consumed, and lost in the noise.\n\nTaste: The irreplaceable human filter for resonance. Velocity and strategy without taste fail to resonate with the target audience.\n\nAI is an exponential multiplier for average. You still need the finely tuned human intuition, to spot the gem that actually aligns with your brand's psychology.\n\nMarketing today isn't about being the chief prompter. It's about being the chief curator of taste. Knowing when the data is lying and how to make the narrative feel human, not a robotic press release. That's the sustainable moat.\n\nHave you seen any current B2B AI-generated content that's truly 'tasteful,' or is it all just the most-validated average?",
+      "why": "Highest-performing thought leadership post -- names the problem, introduces a trifecta framework, lands with quotable insight and example-request close",
+      "engagement": {
+        "likes": 18,
+        "comments": 3
+      }
+    },
+    {
+      "type": "cta",
+      "text": "Do you agree, or are massive win-back efforts a necessary pillar of modern retention strategy?",
+      "why": "Signature either/or debate close that invites disagreement, not just validation",
+      "engagement": {
+        "likes": 13,
+        "comments": 2
+      }
+    },
+    {
+      "type": "cta",
+      "text": "What's the most off the mark \"personalized\" marketing you've seen? Extra points awarded for funny.",
+      "why": "Specific example request with playful tone -- generates comment discussion",
+      "engagement": {
+        "likes": 10,
+        "comments": 6
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "Provocative Question",
+      "pattern": "Direct, challenging question that confronts industry assumptions.",
+      "examples": [
+        "Is the obsession with \"more\" killing marketing impact?",
+        "Is Marketing dying at the hands of builders?"
+      ],
+      "frequency": "20%"
+    },
+    {
+      "style": "Industry Critique Statement",
+      "pattern": "Calls out a celebrated practice and labels it problematic. Structure: [Industry/Marketers] [loves/is obsessed with] + [practice]. + [But/contrarian pivot]",
+      "examples": [
+        "Our industry loves to celebrate a good \"win-back\" campaign. We treat it like a heroic last-minute victory.",
+        "Marketers are obsessed with \"hyper-personalization.\" But beware!",
+        "We have a new problem in marketing: Speed without soul."
+      ],
+      "frequency": "25%"
+    },
+    {
+      "style": "Dialogue Scene",
+      "pattern": "Mini-screenplay showing a dysfunctional conversation. Character dialogue followed by awkward moment then label the behavior.",
+      "examples": [
+        "CEO: \"We need an AI strategy.\" Marketer: \"Right. Absolutely. I just saw a demo for...\" CEO: \"What problem are we solving?\" Marketer: Silence. \"...Efficiency?\""
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "Metaphor Reframe",
+      "pattern": "Takes a common concept and redefines it through vivid, unexpected metaphor. Structure: [Common practice]? + [Sarcastic description] + [Metaphor pivot]",
+      "examples": [
+        "Annual marketing plan? A masterpiece of spreadsheets and slide decks, presented with confidence in November... and utterly irrelevant by February.",
+        "GTM isn't a relay race. It's a three-legged race through a mud pit."
+      ],
+      "frequency": "20%"
+    },
+    {
+      "style": "Personal Scene",
+      "pattern": "Vivid, relatable personal observation with specific sensory details. Build emotional connection then pivot to business insight.",
+      "examples": [
+        "The barista at my local coffee shop knows my order, asks about my weekend (if I'm lucky), and gives me a free coffee and samples from time to time (if I'm really lucky)..."
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "Milestone Announcement",
+      "pattern": "Emotional framing for company news. Structure: [Time statement] + [Mission framing] + [Vision statement]",
+      "examples": [
+        "It's been a long time coming, years in the making actually. We've grown TINT and Zinrelo with a mission to return trust and authenticity to marketing."
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "Short Promotional",
+      "pattern": "Brief announcement with emoji and link. Used for report launches and podcast promotions.",
+      "examples": [
+        "It's here! 🎉",
+        "Resolved to up your marketing game this year? 🎙"
+      ],
+      "frequency": "5%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": null,
+    "vocabulary": {
+      "thinking": [
+        "🤔"
+      ],
+      "celebration": [
+        "🎉"
+      ],
+      "media": [
+        "🎙",
+        "🎧"
+      ],
+      "directional": [
+        "➡️"
+      ],
+      "lists": [
+        "✅"
+      ]
+    },
+    "placementRules": [
+      "Minimal usage: maximum 1-2 emojis per post, strategically placed",
+      "Opening: Occasionally after short opener (It's here! 🎉)",
+      "Inline: Thinking face after provocative question (🤔)",
+      "Lists: Checkmarks for announcement bullet points (✅)",
+      "Arrows: For brand example lists (➡️)",
+      "Never: Decorative emoji clusters or mid-sentence emoji spam",
+      "Never: More than 2 emojis in a single post"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "The Industry Myth Buster",
+      "structure": [
+        "Industry loves [celebrated practice]",
+        "But what if we're celebrating the wrong thing?",
+        "[Practice] isn't [what they think] -- it's [real truth]",
+        "The real work is [contrarian alternative]",
+        "Prescriptive advice (Stop/Start)",
+        "Closing question inviting debate"
+      ],
+      "useCase": "Challenging industry orthodoxy (win-backs, personalization, more-is-better)"
+    },
+    {
+      "name": "The AI Skeptic Framework",
+      "structure": [
+        "Name the new AI-era problem",
+        "Describe the seductive moment (velocity, efficiency)",
+        "But here's what's missing (human element)",
+        "Introduce a framework (usually 3 parts)",
+        "Land the insight about human value",
+        "Ask for examples/experience"
+      ],
+      "useCase": "AI critique and human-value advocacy posts"
+    },
+    {
+      "name": "Personal Anecdote to Business Insight",
+      "structure": [
+        "Paint a vivid personal scene (specific details)",
+        "Extract the universal truth from it",
+        "Contrast with how brands fail to replicate",
+        "Prescriptive advice (Stop trying to X, instead Y)",
+        "Ask for brand examples"
+      ],
+      "useCase": "Loyalty, community, customer experience topics"
+    },
+    {
+      "name": "The Metaphor Reframe",
+      "structure": [
+        "Take a common practice and describe it sarcastically",
+        "Introduce unexpected metaphor",
+        "Expand the metaphor with specific details",
+        "Land the insight about agility/adaptation",
+        "Ask about reader's approach"
+      ],
+      "useCase": "Strategic planning, GTM alignment, process topics"
+    },
+    {
+      "name": "The Dialogue + Diagnosis",
+      "structure": [
+        "Create a mini-dialogue showing dysfunction",
+        "Label the behavior (This is the X)",
+        "Diagnose the underlying fear/problem",
+        "Offer specific alternative approach",
+        "Ask the one-thing question"
+      ],
+      "useCase": "AI adoption dysfunction, leadership communication gaps"
+    },
+    {
+      "name": "The Obsession Callout",
+      "structure": [
+        "Call out industry obsession directly",
+        "Warning/caution",
+        "Describe what it looks like when it fails",
+        "Reframe with contrast (being known vs being tracked)",
+        "Prescriptive advice",
+        "Ask for funny/specific examples"
+      ],
+      "useCase": "Personalization, data-driven marketing, trend critique"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "I'm excited to announce",
+      "dive into / deep dive",
+      "unlock / unlocking",
+      "leverage (as verb, unless ironic)",
+      "synergy",
+      "rockstar",
+      "touch base",
+      "circle back",
+      "let's unpack",
+      "at the end of the day",
+      "Agree? (as standalone closer)",
+      "hot take (without substantive reasoning)",
+      "vague motivational statements without specific examples"
+    ],
+    "formattingToAvoid": [
+      "Numbered listicles as the main format (uses bullets sparingly within posts)",
+      "Excessive emojis -- max 1-2 per post, strategically placed",
+      "Long hashtag chains -- keeps to 1-4, always at end",
+      "Statistics without interpretation",
+      "Tagging multiple people for engagement bait"
+    ],
+    "toneToAvoid": [
+      "Self-promotional humble-bragging",
+      "Purely negative criticism without constructive alternative",
+      "Preachy lecturing -- questions invite debate rather than lecture",
+      "Generic or vague statements without specific metaphors or brand examples",
+      "Trendy for trend's sake -- critiques trends thoughtfully",
+      "Overly technical jargon without analogy to explain",
+      "Hot takes without substantive reasoning"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "Always at the end, never inline",
+    "maxCount": 4,
+    "format": "CamelCase (e.g., #MarketingStrategy not #marketingstrategy)",
+    "commonTags": [
+      "#MarketingStrategy",
+      "#CommunityPoweredMarketing",
+      "#GoToMarket",
+      "#DemandGeneration",
+      "#MarketingPlan",
+      "#CX",
+      "#CustomerExperience",
+      "#Personalization",
+      "#Brand"
+    ]
+  },
+  "taggingStyle": {
+    "frequency": "Rarely tags individuals -- content-driven engagement over social tagging",
+    "patterns": [
+      "Full names with title in promotional content (e.g., Tiffany Pegues, Head of Social)",
+      "Company names in announcements (TrueLoyal, TINT, Zinrelo)",
+      "Does NOT tag multiple people for engagement bait"
+    ],
+    "specialPhrases": []
+  },
+  "metadata": {
+    "postsAnalyzed": 12,
+    "confidenceScore": 0.88,
+    "extractionMethod": "markdown-parsing"
+  }
+}

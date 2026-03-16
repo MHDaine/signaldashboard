@@ -1,0 +1,396 @@
+{
+  "version": "1.0",
+  "founderId": "nikhil-arora",
+  "founderName": "Nikhil Arora",
+  "extractedAt": "2026-02-05T12:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 10,
+      "openingStyle": "Contrarian challenge or experience/scale drop",
+      "paragraphPattern": "Single sentences as standalone paragraphs, heavy line breaks, scannable punchy rhythm"
+    },
+    "vocabulary": {
+      "register": "professional-casual",
+      "contractions": true,
+      "avoidList": [
+        "dive into",
+        "deep dive",
+        "unlock (as generic buzzword)",
+        "leverage (as verb)",
+        "synergy",
+        "rockstar",
+        "touch base",
+        "circle back",
+        "let's unpack",
+        "at the end of the day",
+        "game-changer (generic)",
+        "hustle",
+        "grind (as motivational cliche)"
+      ],
+      "signaturePhrases": [
+        "That's the unlock",
+        "Here's the truth:",
+        "I've seen this play out",
+        "The teams that are winning...",
+        "If you're serious about [X]...",
+        "Let me be clear",
+        "Same playbook",
+        "More to come",
+        "And it reminded me:",
+        "It's been a grind",
+        "signal vs. noise",
+        "dumb tax",
+        "building on quicksand"
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": true,
+      "hookPattern": "Contrarian challenge or experience-backed scale drop",
+      "ctaStyle": "DM invitation, comment-for-resource, question to audience with tags"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 150,
+      "max": 300
+    },
+    "averageWordCount": 275,
+    "distribution": {
+      "short": {
+        "percentage": 15,
+        "wordRange": "under 150 words"
+      },
+      "medium": {
+        "percentage": 45,
+        "wordRange": "150-300 words"
+      },
+      "long": {
+        "percentage": 30,
+        "wordRange": "300-500 words"
+      },
+      "veryLong": {
+        "percentage": 10,
+        "wordRange": "500+ words"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "Everyone overcomplicates \"brand marketing.\"",
+      "why": "Top-performing post (80 reactions) - classic contrarian challenge opener that reframes a complex topic simply",
+      "engagement": {
+        "likes": 80,
+        "comments": 20
+      }
+    },
+    {
+      "type": "hook",
+      "text": "Most A/B tests on Meta and Google aren't measuring what you think they are.",
+      "why": "Second highest engagement (46 reactions) - challenges assumed knowledge with specificity",
+      "engagement": {
+        "likes": 46,
+        "comments": 15
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "Everyone overcomplicates \"brand marketing.\"\nThe definition I love is:\n\nBrand = the sum total of all conversations happening about your company.\n\nNot:\nYour logo\nYour tagline\nYour latest campaign\n\nBut:\nWhat customers tell their friends\nWhat shows up in Reddit threads\nHow your support interactions feel\nWhat employees say in private\n\nBrand marketing, then, is anything that:\nImproves the quality and quantity of those conversations.\n\nIf you think about it that way, performance and brand aren't in conflict.\n\nPerformance is just the \"measurable subset\" of those conversations.",
+      "why": "Highest engagement post - demonstrates contrarian reframe pattern with Not X / But Y structure and memorable closing one-liner",
+      "engagement": {
+        "likes": 80,
+        "comments": 20
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "I've talked to 20+ CMOs in the last 30 days about all things AI, and the #1 question everyone asked was:\n\n\"What AI tools have worked for you?\"\n\nIt's the WRONG question!!!\n\nHere's my takeaway after working on all things AI for the past year:\n\nAI tools give you an upgrade.\nAI systems give you a moat.\n\nTools are shortcuts.\nSystems are engines.\n\nMost teams are stacking tools and wondering why their CAC isn't dropping, their testing velocity isn't improving, and their insights aren't compounding.\n\nBecause tools don't scale organizations, SYSTEMS DO!\n\nThat's where the unlock actually is.\n\nThe future belongs to the teams that build engines, not tool collections.\n\nIf you need help architecting an AI-native system for your growth engine, feel free to reach out.",
+      "why": "Core thesis post - demonstrates experience drop opener, strong opinion, systems framing, arrow bullets, unlock reveal, and soft CTA",
+      "engagement": {
+        "likes": 28,
+        "comments": 8
+      }
+    },
+    {
+      "type": "cta",
+      "text": "How are you structuring your campaigns these days? Dovas Zakas Kyle White Alex Walkowski Peter Scherr Jagadeesh J. Ziv Deutsch George Spiliopoulos",
+      "why": "Classic Nikhil CTA - question to audience followed by 5-10 tagged names to drive engagement",
+      "engagement": {
+        "likes": 43,
+        "comments": 12
+      }
+    },
+    {
+      "type": "cta",
+      "text": "PS: Want access to the full playbook? Comment below and I will DM it to you.",
+      "why": "Resource-offer CTA pattern - drives comments through value exchange",
+      "engagement": {
+        "likes": 38,
+        "comments": 15
+      }
+    },
+    {
+      "type": "closing",
+      "text": "Your job isn't to convince people you're better. Your job is to make it safe for them to find out.",
+      "why": "Memorable one-liner close - reframes the reader's mental model in a single sentence",
+      "engagement": {
+        "likes": 10,
+        "comments": 3
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "The Contrarian Challenge",
+      "pattern": "\"Most [people/marketers] don't [understand/realize] X\" or \"Everyone overcomplicates X\"",
+      "examples": [
+        "Most marketers don't actually understand how Meta's algorithm works.",
+        "Most A/B tests on Meta and Google aren't measuring what you think they are.",
+        "Everyone overcomplicates \"brand marketing.\"",
+        "If you're still optimizing for lowest CAC going into 2026, you're quietly paying a 'dumb tax' to Meta and Google."
+      ],
+      "frequency": "35%"
+    },
+    {
+      "style": "The Experience/Scale Drop",
+      "pattern": "\"After [specific number] of [action], I've [learned/realized] X\"",
+      "examples": [
+        "After interviewing 100+ marketers, I've realized one simple question reveals more than any case study.",
+        "I've talked to 20+ CMOs in the last 30 days about all things AI, and the #1 question everyone asked was...",
+        "I've managed performance budgets from $10K/month to over $500M/year."
+      ],
+      "frequency": "20%"
+    },
+    {
+      "style": "The Provocative Statement",
+      "pattern": "Bold claim that demands attention",
+      "examples": [
+        "Text-Only SEO Is Over!",
+        "AI just replaced one of my old full-time hires",
+        "I helped a company cut CAC by 30%+.",
+        "One growth tactic has generated hundreds of millions in revenue for companies I've worked with:"
+      ],
+      "frequency": "15%"
+    },
+    {
+      "style": "The Question Hook",
+      "pattern": "Pose a question the audience is asking, then answer it",
+      "examples": [
+        "Why isn't my Facebook playbook working on TikTok?",
+        "The #1 organic question I'm getting from CMOs + founders right now: SEO or AEO - where do you start?",
+        "Want to game the LinkedIn algorithm? Here's the cheat code I just stumbled into"
+      ],
+      "frequency": "15%"
+    },
+    {
+      "style": "The Personal Anecdote",
+      "pattern": "Start with a specific moment or story",
+      "examples": [
+        "Hulu made me watch an entire ad...voluntarily. Yes, voluntarily.",
+        "I was talking to a young founder who sold his first company for ~$70M at 21.",
+        "I've spent the last ~10 months deep in the weeds of AI for all things marketing."
+      ],
+      "frequency": "10%"
+    },
+    {
+      "style": "The Series Format",
+      "pattern": "\"Marketing [analogy/myth] #[N] from my career dictionary\"",
+      "examples": [
+        "Marketing analogy #1 from my career dictionary",
+        "Marketing analogy #2 from my career dictionary",
+        "Marketing Myth #1 \"More Spend = More Growth\""
+      ],
+      "frequency": "5%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": null,
+    "frequency": "Moderate - strategic placement, not every post",
+    "vocabulary": {
+      "actionable": [
+        "✅",
+        "❌",
+        "➡️"
+      ],
+      "engagement": [
+        "👇",
+        "👀",
+        "💬"
+      ],
+      "topical": [
+        "💡",
+        "💸",
+        "🎯",
+        "📊",
+        "🎥"
+      ],
+      "humor": [
+        "😂",
+        "🙃"
+      ],
+      "celebration": [
+        "🏀",
+        "🔥",
+        "🤩"
+      ]
+    },
+    "placementRules": [
+      "Hook emphasis: Single emoji at end of attention-grabbing opener (e.g., 'AI just replaced one of my old full-time hires 👀')",
+      "Content direction: 👇 to indicate content below",
+      "Question prefix: 💬 before audience questions",
+      "Bullet markers: ✅ for what works, ❌ for what doesn't, ➡️ for transitions",
+      "Never: Mid-sentence emoji clusters or excessive emoji use",
+      "Overall: Used strategically to aid scannability, not for decoration"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "Contrarian Take -> Reframe -> Actionable Alternative",
+      "structure": [
+        "Contrarian hook challenging common belief",
+        "Why most people get it wrong (2-3 short lines)",
+        "The real problem/truth (short punch)",
+        "Supporting evidence from experience",
+        "Reframe with new mental model",
+        "Actionable alternative (bullet points with checkmarks)",
+        "Memorable closing line",
+        "Optional: CTA or question + tags"
+      ],
+      "useCase": "Performance marketing insights, algorithm/platform posts"
+    },
+    {
+      "name": "Career Lesson / Framework",
+      "structure": [
+        "Title: Marketing [analogy/myth] #X from my career dictionary",
+        "Setup the analogy/myth",
+        "Explain the framework simply",
+        "Why this matters now",
+        "Examples of who gets it wrong vs. right",
+        "The principle extracted",
+        "Teaser: More to come."
+      ],
+      "useCase": "Marketing philosophy, analogy series posts"
+    },
+    {
+      "name": "Personal Story -> Professional Principle",
+      "structure": [
+        "Attention-grabbing anecdote opening",
+        "What happened (specific details)",
+        "The surprising result/insight",
+        "What it reminded me of / connected to",
+        "The broader principle (with checkmark bullets)",
+        "Application for the reader",
+        "Question or CTA"
+      ],
+      "useCase": "Growth tactics, career lessons, personal experience posts"
+    },
+    {
+      "name": "Tactical How-To",
+      "structure": [
+        "Result-focused hook with specific number",
+        "Context: what most teams do wrong",
+        "What we did instead (numbered steps)",
+        "The real unlock / breakthrough moment",
+        "Results achieved",
+        "CTA: DM me if you want help with this"
+      ],
+      "useCase": "Framework posts, operator playbooks, 90-day plans"
+    },
+    {
+      "name": "AI/Systems Insight",
+      "structure": [
+        "Hook about AI misconception or evolution",
+        "The wrong question people are asking",
+        "The right question/framing",
+        "Tools vs. Systems distinction",
+        "What systems actually look like (arrow bullet list)",
+        "Where the unlock is",
+        "Offer to help"
+      ],
+      "useCase": "AI systems, MH1 positioning, tool vs. system posts"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "dive into / deep dive",
+      "leverage (as verb)",
+      "synergy",
+      "rockstar",
+      "touch base",
+      "circle back",
+      "let's unpack",
+      "at the end of the day",
+      "thought leader (self-referential)",
+      "disruption / disruptive (generic)",
+      "game-changer (without specifics)"
+    ],
+    "formattingToAvoid": [
+      "Dense paragraphs without line breaks",
+      "Excessive hashtags (he almost never uses them)",
+      "Over-formatted posts with bold, headers, or complex formatting",
+      "Walls of text without visual breathing room"
+    ],
+    "toneToAvoid": [
+      "Preachy or lecture-y without earned credibility backing",
+      "Generic advice without specific examples or numbers",
+      "Overly promotional self-talk or hard-selling",
+      "Corporate or formal language",
+      "Humble-bragging",
+      "Passive voice",
+      "Generic platitudes without personal touch (work hard, hustle, grind as motivational)",
+      "Ending without engagement hook or memorable takeaway"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "Almost never used - only 1 out of 25 posts includes hashtags",
+    "maxCount": 3,
+    "format": "CamelCase when used (e.g., #SEO #AEO #LLMOptimization)",
+    "commonTags": [
+      "#SEO",
+      "#AEO",
+      "#LLMOptimization"
+    ],
+    "generalRule": "Nikhil relies on tagging people rather than hashtags for reach. Hashtags should be omitted from almost all posts."
+  },
+  "taggingStyle": {
+    "frequency": "Generous - approximately 40% of posts include tags",
+    "placement": "Always at the end, after a question to the audience",
+    "volume": "5-10 people per post when tagging",
+    "patterns": [
+      "Full names (first + last)",
+      "After a direct question: 'How are you structuring your campaigns these days? [Names]'",
+      "After a curiosity prompt: 'Curious what your own litmus test looks like [Names]'",
+      "With emoji prefix: '💬 Curious what... [Names]'"
+    ],
+    "specialPhrases": [
+      "How are you [doing X]? [Names]",
+      "Curious: what [specific question]? [Names]",
+      "Curious to hear from others: [Names]"
+    ],
+    "frequentlyTagged": [
+      "Jonathan Metrick",
+      "Ziv Deutsch",
+      "Chris Taylor",
+      "George Spiliopoulos",
+      "Allan Tear",
+      "Dovas Zakas",
+      "Kyle White",
+      "Alex Walkowski",
+      "Mihir Chheda",
+      "Ankit Khemka",
+      "Gabriel E.",
+      "Enrico Ferrari"
+    ]
+  },
+  "metadata": {
+    "postsAnalyzed": 25,
+    "confidenceScore": 0.91,
+    "extractionMethod": "markdown-parsing",
+    "dateRange": "April 2025 - January 2026",
+    "platform": "LinkedIn",
+    "totalReactions": 591,
+    "totalComments": 194,
+    "avgReactionsPerPost": 23.6,
+    "avgCommentsPerPost": 7.8
+  }
+}

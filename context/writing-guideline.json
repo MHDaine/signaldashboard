@@ -1,0 +1,597 @@
+{
+  "voice_tone": {
+    "characteristics": [
+      {
+        "dimension": "Formality",
+        "guideline": "Professional-Conversational",
+        "example": "Marketing leaders are getting stuck in the same place when it comes to AI transformation."
+      },
+      {
+        "dimension": "Personality",
+        "guideline": "Operator Pragmatism with Humble Authority",
+        "example": "I wouldn't say I'm an authority on the subject, but I have a specific point of view."
+      },
+      {
+        "dimension": "Point of View",
+        "guideline": "First person (\"I,\" \"we\") for thought leadership; direct address (\"you\") for how-to content",
+        "example": "Trust me, I've been there."
+      },
+      {
+        "dimension": "Energy",
+        "guideline": "Calm, measured, and confident",
+        "example": "Sometimes measuring twice and cutting once is the better option."
+      }
+    ],
+    "description": "The MarketerHire voice is that of the seasoned operator—someone who has built, scaled, and occasionally failed at real businesses, and now shares those lessons without pretense. It’s the voice of a practitioner who has \"been there,\" avoiding academic theory in favor of field notes and real-world application.\n\nThis voice balances conviction with humility. The team takes clear stances (\"AI won’t replace marketers—it raises the bar\") while acknowledging they’re still learning. There’s no \"guru\" energy here; instead, there’s the confidence of someone who has done the work and can speak from experience.\n\nThe overall impression is accessible authority. Complex topics like AI adoption, freelance management, and growth strategy are explained in plain English, using analogies and concrete examples rather than buzzwords. The tone never talks down to readers but treats them as intelligent peers navigating the same challenges.\n\nThe Architectural Layer (Alice Hansen): For enterprise B2B and revenue strategy content, the voice elevates to an \"architectural\" register—speaking in blueprints for revenue growth rather than tactical hacks. This voice uses triadic structures (\"brand, demand, and data\") and emphasizes \"orchestrating decision engines\" over generating leads. It’s the voice of someone who speaks to the C-Suite.\n\nThe Mentor Register (Matt Greener): For educational and career-development content, the voice shifts to a \"mentor-to-mentee\" register—professional, instructional, and strategic. This voice uses numbered frameworks (\"6 ways to...\") and bridges the gap between sales and marketing. It’s more diplomatic and evergreen than the urgent, diagnostic operator voice.",
+    "by_context": [
+      {
+        "context": "Thought Leadership",
+        "guidance": "Contrarian clarity. Start with a common myth or industry fear, then dismantle it with historical context or data. Be direct but not dismissive."
+      },
+      {
+        "context": "Product Announcements",
+        "guidance": "Shipping notes style. Problem → Solution → Outcome. Let results speak—avoid salesy language. Show, don’t tell."
+      },
+      {
+        "context": "Social Media",
+        "guidance": "Punchy and smart. On X/Twitter, be quicker and wittier; on LinkedIn, be more polished and diagnostic."
+      },
+      {
+        "context": "Technical Content",
+        "guidance": "Data-driven and imperative. Lead with actions (\"Simplify your UI\"), quantify everything (\"measurable growth\"), avoid fluff."
+      },
+      {
+        "context": "Sales/Marketing",
+        "guidance": "Trust-first. Demonstrate expertise to build trust. \"If people trust you, they’ll trust what you sell.\""
+      },
+      {
+        "context": "Enterprise/Revenue Strategy",
+        "guidance": "Architectural and executive. Use triadic structures (three-part frameworks). Focus on \"buying groups\" and \"decision engines\" not leads. Speak to the C-Suite. (Alice Hansen register)"
+      },
+      {
+        "context": "Educational/How-To",
+        "guidance": "Mentor-like and instructional. Use numbered lists for actionable frameworks. Bridge strategy and tactics. Be evergreen over urgent. (Matt Greener register)"
+      }
+    ]
+  },
+  "vocabulary": {
+    "preferred_terms": [
+      {
+        "use_this": "Expert marketers / specialized talent",
+        "instead_of": "Freelancers, gig workers",
+        "reason": "Positions talent as premium, not commoditized"
+      },
+      {
+        "use_this": "Execution",
+        "instead_of": "Strategy (alone)",
+        "reason": "Emphasizes action over planning"
+      },
+      {
+        "use_this": "Measurable growth",
+        "instead_of": "ROI, results",
+        "reason": "More specific and data-oriented"
+      },
+      {
+        "use_this": "The bar has moved / raised",
+        "instead_of": "Disruption, revolution",
+        "reason": "Acknowledges change without catastrophizing"
+      },
+      {
+        "use_this": "Guardrails",
+        "instead_of": "Micromanagement",
+        "reason": "Reframes oversight as enabling, not controlling"
+      },
+      {
+        "use_this": "Indecision",
+        "instead_of": "Analysis paralysis",
+        "reason": "Chris Toy's signature term for organizational stuckness"
+      },
+      {
+        "use_this": "Buying groups / Decision engines",
+        "instead_of": "Leads, prospects",
+        "reason": "Enterprise B2B terminology that signals sophistication (Alice Hansen)"
+      },
+      {
+        "use_this": "Architect / Orchestrate",
+        "instead_of": "Build, manage",
+        "reason": "Elevated verbs for strategic content (Alice Hansen)"
+      },
+      {
+        "use_this": "Revenue architecture",
+        "instead_of": "Marketing strategy",
+        "reason": "Frames marketing as structural growth engine (Alice Hansen)"
+      },
+      {
+        "use_this": "Sales enablement",
+        "instead_of": "Marketing support",
+        "reason": "Bridges sales/marketing divide (Matt Greener)"
+      }
+    ],
+    "signature_phrases": [
+      {
+        "phrase": "Move the bar",
+        "usage": "Use when discussing how tools/AI elevate standards rather than replace workers"
+      },
+      {
+        "phrase": "Measure twice, cut once",
+        "usage": "Use to counter \"move fast and break things\" mentality"
+      },
+      {
+        "phrase": "Your why",
+        "usage": "Use when discussing brand clarity and purpose"
+      },
+      {
+        "phrase": "Specific point of view",
+        "usage": "Use when encouraging thought leadership"
+      },
+      {
+        "phrase": "Guardrails, not micromanagement",
+        "usage": "Use when discussing talent management"
+      },
+      {
+        "phrase": "Execution always beats hype",
+        "usage": "Use when grounding AI discussions in reality"
+      },
+      {
+        "phrase": "Marketing is the apex predator",
+        "usage": "Use when defending marketing's durability against automation fears"
+      },
+      {
+        "phrase": "Architect revenue growth",
+        "usage": "Use for positioning strategic marketing work (Alice Hansen style)"
+      },
+      {
+        "phrase": "From plateau to performance",
+        "usage": "Use for transformation narratives (Alice Hansen style)"
+      },
+      {
+        "phrase": "Catalyze momentum",
+        "usage": "Use instead of \"drive growth\" or \"start initiatives\" (Alice Hansen style)"
+      },
+      {
+        "phrase": "Brand, demand, and data",
+        "usage": "The triad for integrated marketing strategy (Alice Hansen style)"
+      },
+      {
+        "phrase": "Clarity, cohesion, and relevance",
+        "usage": "The triad for content/messaging quality (Alice Hansen style)"
+      },
+      {
+        "phrase": "Worth your scroll",
+        "usage": "Use for LinkedIn CTAs to external content (MarketerHire brand voice)"
+      },
+      {
+        "phrase": "Hiding in plain sight",
+        "usage": "Use when revealing overlooked opportunities (MarketerHire brand voice)"
+      }
+    ],
+    "industry_terminology": [
+      {
+        "term": "Fractional [CMO/Executive]",
+        "usage_guideline": "Use freely—this is core to our offering. No need to define."
+      },
+      {
+        "term": "D2C, B2B",
+        "usage_guideline": "Use naturally but spell out on first use if audience is broad"
+      },
+      {
+        "term": "CAC, LTV",
+        "usage_guideline": "Explain or contextualize; avoid acronym soup"
+      },
+      {
+        "term": "Sprint recap, schema of scope",
+        "usage_guideline": "Use in operational content; signals practitioner credibility"
+      },
+      {
+        "term": "AI transformation",
+        "usage_guideline": "Use; but always pair with specific outcomes, not vague promises"
+      },
+      {
+        "term": "GTM (Go-to-Market)",
+        "usage_guideline": "Use in enterprise/B2B content. Signals strategic depth."
+      },
+      {
+        "term": "ICP (Ideal Customer Profile)",
+        "usage_guideline": "Use when discussing targeting. Define for broader audiences."
+      },
+      {
+        "term": "Buying group",
+        "usage_guideline": "Use instead of \"prospect\" for enterprise B2B content. Emphasizes complexity of B2B purchases."
+      },
+      {
+        "term": "Decision engine",
+        "usage_guideline": "Use to describe the B2B buying process (Alice Hansen terminology)."
+      },
+      {
+        "term": "Chief Market Officer",
+        "usage_guideline": "Use when reframing CMO role as market-understanding (vs. marketing tactics)."
+      }
+    ],
+    "jargon_policy": "Use industry terminology to signal expertise, but always tie it to a business outcome. Don’t use jargon to sound smart—use it because it’s the most precise term. When in doubt, use plain English. As Raaja Nemani notes: \"It’s not as bad as over-using acronyms to make yourself sound smart.\"",
+    "words_to_avoid": [
+      {
+        "avoid": "Game-changing, revolutionary",
+        "reason": "Hype language without substance",
+        "use_instead": "Specific outcomes (\"generated 1,000s of leads\")"
+      },
+      {
+        "avoid": "Synergy, leverage (as verbs)",
+        "reason": "Corporate speak",
+        "use_instead": "Plain English alternatives"
+      },
+      {
+        "avoid": "Hustle, grind",
+        "reason": "Glorifies overwork vs. smart systems",
+        "use_instead": "Working structurally, systems-based approach"
+      },
+      {
+        "avoid": "Disrupt/disruption",
+        "reason": "Overused and vague",
+        "use_instead": "\"Move the bar,\" \"raise the standard\""
+      },
+      {
+        "avoid": "Easy, simple, just",
+        "reason": "Dismissive of real complexity",
+        "use_instead": "Be honest about what's involved"
+      },
+      {
+        "avoid": "Amazing, incredible, exciting",
+        "reason": "Empty superlatives",
+        "use_instead": "Let results speak"
+      }
+    ]
+  },
+  "formatting": {
+    "sentence_structure": {
+      "typical_length": "Short to medium. 10-20 words is the sweet spot. Break long sentences.",
+      "complexity": "Simple and compound sentences. Avoid nested clauses.",
+      "voice": "Active voice strongly preferred. \"AI raises the bar\" not \"The bar is raised by AI.\""
+    },
+    "paragraph_structure": {
+      "length": "1-3 sentences per paragraph. Dense walls of text lose readers.",
+      "flow": "Each paragraph should have one clear point. Use transitions sparingly—let white space do the work."
+    },
+    "lists": {
+      "when_to_use": "For steps, options, comparisons, or when listing 3+ items",
+      "format": "Bullets for unordered items; numbers for sequential steps or rankings",
+      "parallel_structure": "Required. Start each item with the same part of speech."
+    },
+    "headers": {
+      "style": "Sentence case preferred (\"How to hire a growth marketer\" not \"How To Hire A Growth Marketer\")",
+      "hierarchy": "H2 for major sections, H3 for subsections. Don't skip levels.",
+      "formatting": "Bold for emphasis within paragraphs; headers for navigation"
+    },
+    "opening_patterns": [
+      {
+        "name": "The Tension Hook",
+        "description": "Start with a conflict, myth, or misconception",
+        "example": "Marketers aren't worried about AI. Here's what marketers heard during the last 20 years..."
+      },
+      {
+        "name": "The Story Hook",
+        "description": "Open with a personal anecdote or failure",
+        "example": "Our brand name was spelled incorrectly on the carton... instead of 'Bucketfeet,' it said 'Burcketfeet.'"
+      },
+      {
+        "name": "The Vulnerability Hook",
+        "description": "Acknowledge shared struggle to lower defenses",
+        "example": "If you happen to be one of the people caught up in the cuts, breathe."
+      },
+      {
+        "name": "The Reframe Hook",
+        "description": "Counter popular opinion with a surprising take",
+        "example": "I think efficient and strategic project management precludes the need for check-ins."
+      },
+      {
+        "name": "The Identity Hook",
+        "description": "Open with who you are and what you do (Alice Hansen)",
+        "example": "I'm Alice Hansen... I architect revenue growth from plateau to performance."
+      },
+      {
+        "name": "The Diagnostic Hook",
+        "description": "Open with a common failure mode (MarketerHire Brand)",
+        "example": "Launching without a GTM plan is like sailing without a map... You'll burn time, budget, and goodwill."
+      }
+    ],
+    "closing_patterns": [
+      {
+        "name": "The Implication Close",
+        "description": "Move from observation to action",
+        "example": "End a problem diagnosis by implying the solution (shipping, execution, decision)"
+      },
+      {
+        "name": "The Trust Transfer",
+        "description": "Connect expertise to offering",
+        "example": "If people trust you, they'll trust what you sell."
+      },
+      {
+        "name": "The Principle Close",
+        "description": "Distill to a memorable rule",
+        "example": "Be original. Find your own voice, develop your own original content, make your point in your own way."
+      },
+      {
+        "name": "The \"Full Guide\" CTA",
+        "description": "Position external links as the complete resource (MarketerHire Brand)",
+        "example": "Full guide here -> or \"If any of that hits close to home, the long version... is worth your scroll.\""
+      },
+      {
+        "name": "The Triad Summary",
+        "description": "Close with a three-part synthesis (Alice Hansen)",
+        "example": "We don't just generate noise; we drive the clarity, cohesion, and relevance required to meet buying groups exactly where they are."
+      }
+    ],
+    "visual_elements": {
+      "emoji_usage": "Minimal to none. Use sparingly for emphasis on social only, never in long-form.",
+      "bold_italic": "Bold for key terms and emphasis. Italics for titles or introducing new concepts.",
+      "line_breaks": "Use generously. White space aids comprehension, especially on mobile."
+    }
+  },
+  "dos_and_donts": {
+    "do": [
+      {
+        "rule": "Anchor in Tension",
+        "description": "Start with a common myth or fear and dismantle it with context",
+        "example": "AI won't replace marketers—all that actually happened was people needed more marketers"
+      },
+      {
+        "rule": "Lead with Story",
+        "description": "Use personal failures or concrete examples to humanize lessons",
+        "example": "I still remember the panic I felt when I was fired at 26 years old"
+      },
+      {
+        "rule": "Take a Stance",
+        "description": "Every piece needs a \"specific point of view.\" Don’t be wishy-washy.",
+        "example": "I wouldn't say I'm an authority, but I have a specific point of view"
+      },
+      {
+        "rule": "Use Plain English",
+        "description": "Avoid buzzwords. Say \"teams are stuck\" not \"organizations are experiencing friction\"",
+        "example": "It's your why, it's your reason for being"
+      },
+      {
+        "rule": "Quantify Value",
+        "description": "Always tie advice to measurable outcomes",
+        "example": "Generated 1,000s of leads, measurable growth, $100M+ campaigns"
+      }
+    ],
+    "dont": [
+      {
+        "rule": "Don't Doom-Monger",
+        "description": "Never frame AI or industry change as apocalyptic",
+        "alternative": "Position change as \"raising the bar\" for skilled practitioners"
+      },
+      {
+        "rule": "Don't Over-Sell",
+        "description": "Avoid salesy language. Let outputs speak for themselves.",
+        "alternative": "Show results (\"personalized landing pages\") rather than make claims"
+      },
+      {
+        "rule": "Don't Glorify Hustle",
+        "description": "Avoid language suggesting working harder is the solution",
+        "alternative": "Focus on working structurally, with better systems"
+      },
+      {
+        "rule": "Don't Be Vague",
+        "description": "Avoid generic advice like \"communicate better\"",
+        "alternative": "Specify how (\"via sprint recaps,\" \"through a schema of scope\")"
+      },
+      {
+        "rule": "Don't Project Perfection",
+        "description": "Avoid the \"untouchable founder\" persona",
+        "alternative": "Share battle scars and lessons from failure"
+      },
+      {
+        "rule": "Don't Use Growth-Hack Slang",
+        "description": "Avoid: \"hacks,\" \"tricks,\" \"viral,\" \"crushing it\" (Alice Hansen register)",
+        "alternative": "Use architectural language—\"orchestrate,\" \"architect,\" \"catalyze\""
+      },
+      {
+        "rule": "Don't Focus on Tactics Without Strategy",
+        "description": "Don't write about how to set up an ad campaign (Alice Hansen register)",
+        "alternative": "Write about why the campaign aligns with business strategy and revenue architecture"
+      },
+      {
+        "rule": "Don't Mix Diagnostic with Instructional",
+        "description": "MarketerHire brand voice is urgent and diagnostic (\"here’s what’s broken\"); Matt Greener’s voice is evergreen and instructional (\"here’s how to build\")",
+        "alternative": "Pick one register per piece—don't blend"
+      }
+    ]
+  },
+  "content_pillars": [
+    {
+      "name": "AI + Human Marketing Operations",
+      "description": "The intersection of AI technology and human marketing expertise. Focus on operational transformation, not hype.",
+      "key_messages": [
+        "AI raises the bar—it doesn't replace marketers",
+        "The bottleneck is organizational indecision, not technology",
+        "Execution beats experimentation; shipping beats planning"
+      ],
+      "example_topics": [
+        "How MH-1 automates personalized landing pages",
+        "Moving from AI experimentation to AI transformation",
+        "Why marketing is the \"apex predator\" of internet jobs"
+      ]
+    },
+    {
+      "name": "Expert Talent & The Future of Work",
+      "description": "The shift to on-demand, specialized marketing talent. Focus on quality, vetting, and flexible models.",
+      "key_messages": [
+        "Specialized talent beats generalists",
+        "The \"talent cloud\" is the new normal",
+        "Culture is created everywhere—not just in offices"
+      ],
+      "example_topics": [
+        "How to hire a fractional CMO",
+        "Managing freelancers with guardrails, not micromanagement",
+        "The economics of expert marketplaces"
+      ]
+    },
+    {
+      "name": "Brand Clarity & Thought Leadership",
+      "description": "Building authentic brands through clear positioning and original perspectives. Brand = Culture.",
+      "key_messages": [
+        "Your brand is your \"why,\" not your logo",
+        "Thought leaders make you think; influencers make you act",
+        "Originality beats curation—develop your own voice"
+      ],
+      "example_topics": [
+        "How to become a thought leader in your industry",
+        "Why brand and culture are mirror images",
+        "The creator economy's impact on B2B"
+      ]
+    },
+    {
+      "name": "Growth Marketing Operations",
+      "description": "The mechanics of growth—channel selection, lead flow, automation. Data-driven, execution-focused.",
+      "key_messages": [
+        "Channel fit matters more than channel popularity",
+        "The \"plumbing\" (CRM, automation) is as important as creative",
+        "Measure twice, cut once—but then ship"
+      ],
+      "example_topics": [
+        "Paid social channel selection framework",
+        "Lead flow operations and CRM integration",
+        "UI/UX as a growth lever"
+      ]
+    },
+    {
+      "name": "Career Resilience & Leadership",
+      "description": "Navigating career turbulence in tech. Empathetic, experience-based guidance.",
+      "key_messages": [
+        "Career setbacks are industry rites of passage, not failures",
+        "Breathe before you react; strategize before you spray-and-pray",
+        "Vulnerability builds trust more than invincibility"
+      ],
+      "example_topics": [
+        "Navigating layoffs: An anti-panic framework",
+        "From individual contributor to P&L owner",
+        "Building trust through authentic leadership"
+      ]
+    }
+  ],
+  "example_content": [
+    {
+      "title": "Thought Leadership (Chris Toy Style)",
+      "style": "Thought Leadership",
+      "content": "Marketers aren't worried about AI. Here's what marketers heard during the last 20 years of digital/internet upending our industry:\n\n- Search will make marketing obsolete\n- Social media will replace advertising\n- Programmatic will automate us all away\n\nAll that actually happened was people needed more marketers and more advertising for ever-evolving new tactics. AI won't be any different for us.",
+      "why_it_works": "Opens with a contrarian hook that challenges conventional fear. Uses historical context as evidence. Confident but not arrogant. Plain English throughout."
+    },
+    {
+      "title": "Career Advice (Nikhil Arora Style)",
+      "style": "Career Advice",
+      "content": "If you happen to be one of the people caught up in the cuts, breathe. Yes, breathe. Trust me, I've been there. I still remember the panic I felt when I was fired at 26 years old. 'How will I pay my rent?' was the first thing that came to mind.",
+      "why_it_works": "Leads with empathy and vulnerability. Uses personal failure to build trust. Short, punchy sentences create urgency without panic. Direct address (\"you\") creates intimacy."
+    },
+    {
+      "title": "Operational Guidance (Aneesha Rao Style)",
+      "style": "Operational Guidance",
+      "content": "I think efficient and strategic project management precludes the need for check-ins. If everything is set up, then the work should be completed in the timeline set forth. With freelancers, the guardrails I implement depend entirely on the level of expertise. With an experienced content or design marketer, I let them have at it, and give a basic schema of project scope.",
+      "why_it_works": "Takes a mildly contrarian stance (systems > communication volume). Uses precise PM terminology. Calibrates advice by context. Calm, authoritative tone."
+    },
+    {
+      "title": "Enterprise Strategy (Alice Hansen Style)",
+      "style": "Enterprise Strategy",
+      "content": "To catalyze momentum in enterprise SaaS, we must stop chasing leads and start orchestrating decision engines. My work focuses on the alignment of brand, demand, and data-led execution. We don't just generate noise; we drive the clarity, cohesion, and relevance required to meet buying groups exactly where they are.",
+      "why_it_works": "Uses the triadic structure throughout. Elevated vocabulary (\"catalyze,\" \"orchestrate,\" \"decision engines\"). C-Suite focus on buying groups vs. leads. Architectural framing—marketing as a structural engine, not tactical execution."
+    },
+    {
+      "title": "Diagnostic LinkedIn Post (MarketerHire Brand Voice)",
+      "style": "Diagnostic LinkedIn Post",
+      "content": "If your campaigns try to reach everyone, they'll resonate with no one. High-value customers are hiding in plain sight... Customer segmentation flips the script: you market to real groups with shared behaviors, needs, and triggers, not a faceless average.",
+      "why_it_works": "Opens with the pain point (wasted targeting). Uses signature phrase \"hiding in plain sight.\" Diagnostic but solution-focused. Anti-fluff—says what segmentation actually does rather than using vague promises."
+    },
+    {
+      "title": "Educational Content (Matt Greener Style)",
+      "style": "Educational Content",
+      "content": "6 ways to make yourself a more powerful marketer:\n1. Align your materials with sales team needs\n2. Bridge the gap between strategy and execution\n3. Build trust through financial literacy...",
+      "why_it_works": "Uses numbered list structure. Mentor-to-mentee tone—instructional not urgent. Evergreen advice that doesn’t expire. Bridges sales/marketing divide. Professional and diplomatic."
+    }
+  ],
+  "platform_guidelines": [
+    {
+      "platform": "LinkedIn",
+      "guidelines": {
+        "post_length": "Medium-form (150-300 words) performs well. Can go longer for deep dives.",
+        "formatting": "Use line breaks generously. Avoid walls of text. Lists work well.",
+        "hook_style": "Lead with tension, story, or a counterintuitive take in the first line.",
+        "cta_style": "Soft CTAs preferred. Invite engagement (\"What’s your take?\") over hard sells.",
+        "voice": "The \"Consultant-Operator\"—diagnostic, helpful, solution-focused."
+      }
+    },
+    {
+      "platform": "Twitter/X",
+      "guidelines": {
+        "thread_style": "Open strong, make each tweet standalone, build to insight.",
+        "standalone_tweet_style": "Punchy, contrarian, or curated insight with additive commentary.",
+        "engagement_style": "Amplify other smart operators. Add value when retweeting, don't just share.",
+        "voice": "The \"Smart Friend\"—quick, witty, occasionally irreverent. Less polished than LinkedIn."
+      }
+    },
+    {
+      "platform": "Blog/Long-form",
+      "guidelines": {
+        "structure": "Clear headers, scannable sections, table of contents for 2000+ word pieces.",
+        "depth": "Comprehensive and reference-worthy. These are \"canonical\" documents.",
+        "ctas": "Natural integration at end. Product mention should flow from content, not interrupt it.",
+        "voice": "The \"Professor\"—thorough, structured, authoritative but accessible."
+      }
+    },
+    {
+      "platform": "Email/Newsletter",
+      "guidelines": {
+        "tone": "Personal and direct. Write to one person, not a list.",
+        "length": "Respect inbox. Get to the point.",
+        "value": "Lead with insight, not ask. Every email should teach something."
+      }
+    }
+  ],
+  "quick_reference": {
+    "sound_like": "Confident operator, pragmatic advisor, experienced practitioner",
+    "key_characteristics": [
+      "Plain English over jargon",
+      "Concrete examples over abstract theory",
+      "Conviction balanced with humility",
+      "Data and outcomes over hype and promises",
+      "Vulnerability that builds trust"
+    ],
+    "avoid_sounding": "Academic, salesy, panicky, \"hustle culture,\" guru-ish",
+    "when_in_doubt": "Ask \"Would an experienced operator say this?\" If it sounds like corporate speak, marketing fluff, or disconnected theory—rewrite it."
+  },
+  "source_analysis": [
+    {
+      "name": "Chris Toy",
+      "role": "CEO",
+      "contribution": "Contrarian clarity, AI pragmatism, \"execution beats hype\" ethos"
+    },
+    {
+      "name": "Raaja Nemani",
+      "role": "Co-founder",
+      "contribution": "Story-driven teaching, brand/culture philosophy, thought leadership frameworks"
+    },
+    {
+      "name": "Aneesha Rao",
+      "role": "Partner, Consumer",
+      "contribution": "Systems-first management, PM terminology, process > pings perspective"
+    },
+    {
+      "name": "Cameron Rzonca",
+      "role": "Director, AI Ops",
+      "contribution": "Data-driven brevity, mathematical precision, imperative style"
+    },
+    {
+      "name": "Nikhil Arora",
+      "role": "Partner",
+      "contribution": "Empathetic vulnerability, career resilience, anti-panic framing"
+    },
+    {
+      "name": "Alice Hansen*",
+      "role": "CMO (Intrepid Arc)",
+      "contribution": "Architectural voice, triadic structures, enterprise B2B terminology, revenue orchestration"
+    },
+    {
+      "name": "Matt Greener*",
+      "role": "CMO (Zinrelo)",
+      "contribution": "Mentor-to-mentee register, numbered frameworks, sales enablement, B2B strategy"
+    }
+  ]
+}

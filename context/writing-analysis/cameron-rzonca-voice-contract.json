@@ -1,0 +1,255 @@
+{
+  "version": "1.0",
+  "founderId": "cameron-rzonca",
+  "founderName": "Cameron Rzonca",
+  "extractedAt": "2026-02-05T00:00:00Z",
+  "voiceRules": {
+    "sentenceStructure": {
+      "averageLength": 22,
+      "openingStyle": "Reflective opener -- frames announcements within a process of thought",
+      "paragraphPattern": "Long-form paragraph-based content, no bullet points in body, structured narrative arcs"
+    },
+    "vocabulary": {
+      "register": "professional-reflective",
+      "contractions": true,
+      "avoidList": [
+        "pumped",
+        "stoked",
+        "crushing it",
+        "disrupting",
+        "pivoting",
+        "synergy",
+        "leverage",
+        "circle back",
+        "low-hanging fruit",
+        "don't miss out",
+        "limited time",
+        "what if I told you",
+        "ever wonder"
+      ],
+      "signaturePhrases": [
+        "After a lot of reflection",
+        "This move represents more than",
+        "It's a reflection of where our industry is heading",
+        "The future belongs to",
+        "I'll always be grateful for that foundation",
+        "changed the trajectory of",
+        "Huge shoutout to",
+        "incredible project to be a part of",
+        "Onward",
+        "shaping that future",
+        "thoughtfully combine",
+        "incredibly energized",
+        "Before turning the page",
+        "And finally",
+        "I also want to sincerely thank",
+        "A very special thank you to",
+        "I'm proud of what we built"
+      ]
+    },
+    "rhetoric": {
+      "rhetoricalQuestions": false,
+      "hookPattern": "Reflection + Revelation: 'After [internal process], I'm [emotion] to share that [announcement]'",
+      "ctaStyle": "No direct CTA -- closes with reflective summary and 'Onward' signature"
+    }
+  },
+  "lengthProfile": {
+    "sweetSpot": {
+      "min": 600,
+      "max": 2800
+    },
+    "averageCharCount": 1700,
+    "distribution": {
+      "short": {
+        "percentage": 0,
+        "charRange": "under 500"
+      },
+      "medium": {
+        "percentage": 50,
+        "charRange": "500-800"
+      },
+      "long": {
+        "percentage": 50,
+        "charRange": "2500-3000+"
+      }
+    }
+  },
+  "canonicalExamples": [
+    {
+      "type": "hook",
+      "text": "After a lot of reflection, I'm excited to share that I'm officially transitioning from WPP to MarketerHire.",
+      "why": "Signature reflective opener -- signals considered decision, creates anticipation, invites reader into the journey",
+      "engagement": {
+        "likes": 64,
+        "comments": 8
+      }
+    },
+    {
+      "type": "full-post",
+      "text": "After a lot of reflection, I'm excited to share that I'm officially transitioning from WPP to MarketerHire.\n\nI'll be stepping into the role of Director of AI Marketing Operations, leading the MH-1 Program, MarketerHire's Full-Stack Human + AI Marketing System.\n\nThis move represents more than a title change. It's a reflection of where our industry is heading.\n\nMarketing is no longer just about channels, budgets, or optimization frameworks.\n\nWe're entering an era where AI-enabled systems, automation, and intelligence layers are reshaping how teams operate, how decisions are made, and how impact is measured.\n\nThe future belongs to organizations that can thoughtfully combine human strategy and creativity with AI-driven execution and scale, and I'm incredibly energized to help build that future through MH-1.\n\nBefore turning the page, I want to express deep gratitude to the people at WPP who shaped my career and trusted me along the way.\n\nWPP gave me the opportunity to learn at an incredible pace, build and lead teams, and work on world-class brands, including adidas, Tiffany & Co., Mazda, The Cheesecake Factory, eHarmony, and Pella Windows.\n\nThose experiences pushed me to grow not just as a marketer, but as a leader, and I'll always be grateful for that foundation.\n\nThank you to Davey Varela, Malia Hanagami, Lauren Iannelli, Jake Meyer, Roger Lis, and Sabrina Malen. Your guidance, collaboration, and belief in my growth made a lasting impact.\n\nA very special thank you to Gillian Collison who gave me my first opportunity to freelance with WPP when I was starting my own freelance agency many years ago.\n\nThat opportunity ultimately blossomed into a long and meaningful career at WPP, and truly changed the trajectory of my professional life.\n\nI also want to sincerely thank Chris Toy for the opportunity to build something new on an AI foundation, and for the trust to creatively explore how this industry can grow, evolve, and operate differently when AI is treated as a core capability rather than an afterthought.\n\nThe vision behind MH-1 represents a rare chance to rethink how modern marketing organizations are designed, and I'm grateful to be part of shaping that future.\n\nAnd finally, thank you to Kirk Stanovich, one of the most empathetic leaders I've had in my career.\n\nKirk helped elevate my understanding of leadership beyond building strong teams, and toward something far more important, showing your team that you genuinely care about them as people.\n\nHe was pivotal to my growth as a leader, and I have no doubt he'll continue to thrive and make an incredible impact wherever his career takes him next.\n\nI'm proud of what we built, grateful for the relationships, and excited for what's ahead.\n\nOnward 🚀\n\nTLDR, generated by AI but approved by a human 🤝\nLeaving WPP grateful\nLeading MH-1\nBuilding the future of marketing with humans and AI together",
+      "why": "Highest engagement post -- full career transition arc with extended gratitude, industry vision framing, and signature closer",
+      "engagement": {
+        "likes": 64,
+        "comments": 8
+      }
+    },
+    {
+      "type": "hook",
+      "text": "Awesome to see the Reddit x adidas \"You Got This\" AMA campaign recognized by the Shorty Awards.",
+      "why": "Positive recognition opener -- direct, warm, immediately credits the work rather than self",
+      "engagement": {
+        "likes": 10,
+        "comments": 1
+      }
+    },
+    {
+      "type": "cta",
+      "text": "I'm proud of what we built, grateful for the relationships, and excited for what's ahead.\n\nOnward 🚀",
+      "why": "Triple-structure closing reflection with signature 'Onward' closer -- pride, gratitude, forward momentum",
+      "engagement": {
+        "likes": 64,
+        "comments": 8
+      }
+    }
+  ],
+  "openingPatterns": [
+    {
+      "style": "Reflection + Revelation",
+      "pattern": "'After [internal process], I'm [emotion] to share that [announcement]' -- frames announcements within considered thought process",
+      "examples": [
+        "After a lot of reflection, I'm excited to share that I'm officially transitioning from WPP to MarketerHire."
+      ],
+      "frequency": "50%"
+    },
+    {
+      "style": "Positive Recognition Opener",
+      "pattern": "'[Enthusiastic adjective] to see [specific achievement/recognition]' -- direct, warm, credits work over self",
+      "examples": [
+        "Awesome to see the Reddit x adidas \"You Got This\" AMA campaign recognized by the Shorty Awards."
+      ],
+      "frequency": "50%"
+    }
+  ],
+  "emojiUsage": {
+    "signatureEmoji": "🚀",
+    "vocabulary": {
+      "momentum": [
+        "🚀"
+      ],
+      "collaboration": [
+        "🤝"
+      ]
+    },
+    "placementRules": [
+      "Maximum 2 emojis per post",
+      "Closing position only -- never mid-sentence, never opening",
+      "Thematic tie-in required: rocket for 'Onward', handshake for collaboration",
+      "Never decorative -- each emoji must carry meaning",
+      "Never: multiple scattered emojis, emoji-heavy celebration strings"
+    ]
+  },
+  "structuralPatterns": [
+    {
+      "name": "Career Transition Announcement",
+      "structure": [
+        "Reflection + Announcement opener",
+        "Role details (1-2 paragraphs)",
+        "Significance framing connecting personal to macro",
+        "Industry context (2-3 paragraphs) with 'The future belongs to...' vision",
+        "Gratitude transition ('Before turning the page...')",
+        "Extended gratitude (multiple paragraphs naming 8+ individuals)",
+        "Closing reflection (triple structure: proud, grateful, excited)",
+        "Signature closer: 'Onward' with rocket emoji",
+        "Optional TLDR with AI meta-note"
+      ],
+      "useCase": "Major career moves, role changes, company transitions"
+    },
+    {
+      "name": "Recognition/Celebration Post",
+      "structure": [
+        "Positive recognition opener",
+        "Context (1-2 sentences on impact and results)",
+        "Team credit ('Huge shoutout to everyone on the team')",
+        "External link"
+      ],
+      "useCase": "Award recognition, campaign wins, team achievements"
+    },
+    {
+      "name": "Industry Observation Post (Projected)",
+      "structure": [
+        "Clear observation statement",
+        "Supporting context or evidence",
+        "Implication for teams/organizations",
+        "Forward vision ('The future belongs to...')",
+        "Signature closer: 'Onward' with rocket emoji"
+      ],
+      "useCase": "AI + marketing trends, industry commentary, thought leadership"
+    }
+  ],
+  "antiPatterns": {
+    "neverUse": [
+      "pumped",
+      "stoked",
+      "crushing it",
+      "disrupting",
+      "pivoting",
+      "synergy",
+      "leverage",
+      "circle back",
+      "low-hanging fruit",
+      "don't miss out",
+      "limited time",
+      "what if I told you",
+      "ever wonder",
+      "I'm the best",
+      "my achievement"
+    ],
+    "formattingToAvoid": [
+      "Excessive emojis -- maximum 2 per post, closing only",
+      "Hashtags -- zero, ever, none",
+      "Bullet points in post body -- uses paragraph form exclusively",
+      "ALL CAPS for emphasis -- never",
+      "Multiple exclamation points -- one max, used sparingly",
+      "Line breaks for drama -- no 'One. Word. Sentences.' technique"
+    ],
+    "toneToAvoid": [
+      "Humble-bragging without substance",
+      "Taking credit without acknowledging others",
+      "Generic 'thankful' posts without specific names",
+      "Urgency or pressure language",
+      "Contrarian or controversial positioning",
+      "Sarcasm or irony",
+      "Complaining or venting",
+      "Overly promotional self-talk",
+      "Question hooks in openers",
+      "Casual bro-culture language"
+    ]
+  },
+  "hashtagStyle": {
+    "placement": "Never -- zero hashtags is a deliberate stylistic choice",
+    "maxCount": 0,
+    "format": "N/A",
+    "commonTags": []
+  },
+  "taggingStyle": {
+    "frequency": "Exceptionally generous with @mentions, especially in career transition posts",
+    "patterns": [
+      "Full names (First + Last)",
+      "Grouped by relationship type: former colleagues/mentors, new leaders, key individuals",
+      "Always with specific context: what they did, how it impacted him, emotional descriptor",
+      "Career announcements: 8-12+ individuals tagged",
+      "Recognition posts: 0 specific names, team reference instead"
+    ],
+    "specialPhrases": [
+      "Thank you to [Name] for [specific contribution]",
+      "A very special thank you to [Name] who [story]",
+      "I also want to sincerely thank [Name]",
+      "[Name] was pivotal to my growth as [role]"
+    ]
+  },
+  "metadata": {
+    "postsAnalyzed": 2,
+    "confidenceScore": 0.65,
+    "extractionMethod": "markdown-parsing"
+  }
+}
