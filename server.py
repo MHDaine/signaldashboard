@@ -523,6 +523,7 @@ def reject_signal(signal_id: str, req: RejectRequest, token: str = Depends(verif
     feedback_entry = {
         "signal_id": signal_id,
         "signal_title": found.get("title", ""),
+        "signal_summary": rk.get("news_summary", ""),
         "signal_source": found.get("collection_source", found.get("type", "")),
         "signal_url": found.get("url", ""),
         "signal_score": rk.get("total_score", 0),

@@ -223,9 +223,13 @@ def load_feedback_context() -> str:
              "The following signals have been rejected by reviewers. Penalize signals matching these patterns:"]
     for entry in recent:
         title = entry.get("signal_title", "unknown signal")
+        summary = entry.get("signal_summary", "")
         reason = entry.get("rejection_reason", "")
         if reason:
-            lines.append(f'- "{title}" — {reason}')
+            label = f'"{title}"'
+            if summary:
+                label += f' ({summary})'
+            lines.append(f'- {label} — {reason}')
 
     if len(lines) == 2:
         return ""
