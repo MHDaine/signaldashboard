@@ -76,6 +76,8 @@ let state = {
   sourceFilter: null,  // null = all, or a Set of active source names
 };
 
+let _rejectingSignalId = null;
+
 // ═══════════════════════════════════════════════════════════════════════════════
 //  Utilities
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -254,6 +256,7 @@ function renderSignalCard(sig, index, mode = 'collect') {
   const id = sig.id || '';
 
   const isApproved = state.approved.some(a => a.id === id);
+  const isRejected = sig.rejected === true;
   const icp = scores.icp_interest || scores.context_relevance || scores.is_news || 0;
   const timeliness = scores.timeliness || 0;
   const newsQuality = scores.news_quality || scores.marketing_relevance || 0;
@@ -262,8 +265,14 @@ function renderSignalCard(sig, index, mode = 'collect') {
   if (mode === 'collect') {
     if (isApproved) {
       actionButtons = `<span class="text-emerald-600 text-sm font-medium">✅ Approved</span>`;
+    } else if (isRejected) {
+      actionButtons = `
+        <span class="text-red-500 text-sm font-medium">❌ Rejected</span>
+        <button class="btn btn-secondary text-xs py-1 px-3" onclick="unrejectSignal('${id}')">↩ Undo</button>`;
     } else {
-      actionButtons = `<button class="btn btn-secondary text-xs py-1 px-3" onclick="approveSignal('${id}')">✅ Approve</button>`;
+      actionButtons = `
+        <button class="btn btn-secondary text-xs py-1 px-3" onclick="approveSignal('${id}')">✅ Approve</button>
+        <button class="btn btn-danger text-xs py-1 px-3" onclick="showRejectModal('${id}')">❌ Reject</button>`;
     }
   } else if (mode === 'approved') {
     actionButtons = `
@@ -654,6 +663,59 @@ async function removeApproved(signalId) {
     renderSignals();
     updateApprovedBadge();
     toast('Signal removed', 'info');
+  } catch (e) {
+    toast('Failed: ' + e.message, 'error');
+  }
+}
+
+// ── Reject flow ──────────────────────────────────────────────────────────
+
+function showRejectModal(signalId) {
+  _rejectingSignalId = signalId;
+  document.getElementById('reject-reason').value = '';
+  document.getElementById('reject-modal').classList.remove('hidden');
+}
+
+function hideRejectModal() {
+  _rejectingSignalId = null;
+  document.getElementById('reject-modal').classList.add('hidden');
+}
+
+async function submitRejection() {
+  const reason = document.getElementById('reject-reason').value.trim();
+  if (!reason) { toast('Please enter a reason', 'warning'); return; }
+  if (!_rejectingSignalId) return;
+  await rejectSignal(_rejectingSignalId, reason);
+  hideRejectModal();
+}
+
+async function rejectSignal(signalId, reason) {
+  try {
+    await api('POST', `/api/signals/${signalId}/reject`, { reason });
+    // Update local state
+    const sig = state.signals.find(s => s.id === signalId);
+    if (sig) {
+      sig.rejected = true;
+      sig.rejection_reason = reason;
+    }
+    renderSignals();
+    toast('Signal rejected', 'info');
+  } catch (e) {
+    toast('Failed: ' + e.message, 'error');
+  }
+}
+
+async function unrejectSignal(signalId) {
+  try {
+    await api('POST', `/api/signals/${signalId}/unreject`);
+    const sig = state.signals.find(s => s.id === signalId);
+    if (sig) {
+      delete sig.rejected;
+      delete sig.rejected_at;
+      delete sig.rejection_reason;
+    }
+    renderSignals();
+    toast('Rejection undone', 'info');
   } catch (e) {
     toast('Failed: ' + e.message, 'error');
   }

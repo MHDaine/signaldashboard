@@ -249,6 +249,20 @@
       <div id="api-status" class="flex flex-wrap gap-4 text-sm"></div>
     </div>
 
+    <!-- Reject Modal -->
+    <div id="reject-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+      <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+        <h3 class="text-lg font-semibold mb-3">Why are you rejecting this signal?</h3>
+        <textarea id="reject-reason" rows="4"
+          placeholder="e.g., Not relevant to our ICP, too old, low quality..."
+          class="w-full border border-gray-300 rounded-md p-2 text-sm focus:border-orange-500 focus:outline-none mb-4"></textarea>
+        <div class="flex justify-end gap-3">
+          <button class="btn btn-secondary" onclick="hideRejectModal()">Cancel</button>
+          <button class="btn btn-danger" onclick="submitRejection()">Reject Signal</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <hr class="border-gray-200 mt-8 mb-4">
     <p class="text-xs text-gray-400">MH-1 Signal Dashboard</p>

@@ -5,7 +5,7 @@ MH-1 Signal Dashboard — FastAPI Backend
 Serves the API and static frontend. Deployable on Render.
 
 Usage:
-    uvicorn server:app --host 0.0.0.0 --port 8000 --reload
+    uvicorn server:app --host 0.0.0.0 --port 8000 --reload --reload-exclude venv
 """
 
 import csv
@@ -28,6 +28,8 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from dotenv import load_dotenv
+import firebase_admin
+from firebase_admin import credentials as fb_credentials, firestore
 
 load_dotenv()
 
@@ -44,6 +46,26 @@ async def verify_token(credentials: HTTPAuthorizationCredentials = Security(_bea
     return credentials.credentials
 
 
+# ── Firebase ─────────────────────────────────────────────────────────────────
+def _init_firebase():
+    if firebase_admin._apps:
+        return
+    sa_json = os.environ.get("FIREBASE_SERVICE_ACCOUNT_JSON")
+    if sa_json:
+        info = json.loads(sa_json)
+        cred = fb_credentials.Certificate(info)
+    else:
+        sa_file = os.environ.get("SERVICE_ACCOUNT", "")
+        if sa_file and Path(sa_file).exists():
+            cred = fb_credentials.Certificate(sa_file)
+        else:
+            raise RuntimeError("Firebase not configured: set SERVICE_ACCOUNT (file) or FIREBASE_SERVICE_ACCOUNT_JSON (JSON string)")
+    firebase_admin.initialize_app(cred)
+
+_init_firebase()
+_firestore_db = firestore.client()
+
+
 # ── Constants ────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).parent
 SOURCES_FILE = PROJECT_ROOT / "sources.json"
@@ -56,6 +78,8 @@ ENRICHED_FILE = OUTPUTS_DIR / "enriched_signals.json"
 GOOGLE_SHEET_ID = os.environ.get("GOOGLE_SHEET_ID", "1sPd5rGeErbKA09XIov6vjg6sTKrc_-lzmjQbb04KQBw")
 GOOGLE_SERVICE_ACCOUNT_FILE = os.environ.get("GOOGLE_SHEETS_SERVICE_ACCOUNT", "")
 SIGNAL_RETENTION_DAYS = 7
+FIREBASE_COLLECTION = os.environ.get("COLLECTION", "mh_newsletter")
+FIREBASE_FEEDBACK_DOC = "feedback"
 
 ALL_SOURCES = {
     "linkedin-keywords": "LinkedIn Keywords",
@@ -141,6 +165,20 @@ def _save_approved_flags(approved_ids: set, approved_timestamps: Dict[str, str])
             sig.pop("approved", None)
             sig.pop("approved_at", None)
     _save_signals_file(data)
+
+
+def _load_feedback() -> List[Dict[str, Any]]:
+    doc = _firestore_db.collection(FIREBASE_COLLECTION).document(FIREBASE_FEEDBACK_DOC).get()
+    if doc.exists:
+        return doc.to_dict().get("feedback", [])
+    return []
+
+
+def _save_feedback(entries: List[Dict[str, Any]]):
+    _firestore_db.collection(FIREBASE_COLLECTION).document(FIREBASE_FEEDBACK_DOC).set({
+        "feedback": entries,
+        "updated_at": datetime.now().isoformat(),
+    })
 
 
 def _load_sources() -> Dict[str, Any]:
@@ -393,6 +431,10 @@ class CollectRequest(BaseModel):
     use_keywords: bool = False
 
 
+class RejectRequest(BaseModel):
+    reason: str
+
+
 class EnrichRequest(BaseModel):
     signal_ids: Optional[List[str]] = None
     deep: bool = False
@@ -456,6 +498,59 @@ def unapprove_signal(signal_id: str, token: str = Depends(verify_token)):
             sig.pop("approved", None)
             sig.pop("approved_at", None)
     _save_signals_file(data)
+    return {"ok": True}
+
+
+@app.post("/api/signals/{signal_id}/reject")
+def reject_signal(signal_id: str, req: RejectRequest, token: str = Depends(verify_token)):
+    data = _load_signals_file()
+    found = None
+    for sig in data.get("signals", []):
+        if sig.get("id") == signal_id:
+            sig["rejected"] = True
+            sig["rejected_at"] = datetime.now().isoformat()
+            sig["rejection_reason"] = req.reason
+            sig.pop("approved", None)
+            sig.pop("approved_at", None)
+            found = sig
+            break
+    if not found:
+        raise HTTPException(status_code=404, detail="Signal not found")
+    _save_signals_file(data)
+
+    # Append to feedback file
+    rk = found.get("ranking", {})
+    feedback_entry = {
+        "signal_id": signal_id,
+        "signal_title": found.get("title", ""),
+        "signal_source": found.get("collection_source", found.get("type", "")),
+        "signal_url": found.get("url", ""),
+        "signal_score": rk.get("total_score", 0),
+        "signal_news_type": rk.get("news_type", ""),
+        "signal_scores": rk.get("scores", {}),
+        "rejection_reason": req.reason,
+        "rejected_at": found["rejected_at"],
+    }
+    entries = _load_feedback()
+    entries.append(feedback_entry)
+    _save_feedback(entries)
+    return {"ok": True}
+
+
+@app.post("/api/signals/{signal_id}/unreject")
+def unreject_signal(signal_id: str, token: str = Depends(verify_token)):
+    data = _load_signals_file()
+    for sig in data.get("signals", []):
+        if sig.get("id") == signal_id:
+            sig.pop("rejected", None)
+            sig.pop("rejected_at", None)
+            sig.pop("rejection_reason", None)
+    _save_signals_file(data)
+
+    # Remove from feedback file
+    entries = _load_feedback()
+    entries = [e for e in entries if e.get("signal_id") != signal_id]
+    _save_feedback(entries)
     return {"ok": True}
 
 

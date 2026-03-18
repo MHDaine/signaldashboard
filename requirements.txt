@@ -23,6 +23,9 @@ feedparser==6.0.12
 gspread==6.1.2
 google-auth>=2.0.0
 
+# Firebase
+firebase-admin>=6.0.0
+
 # Utilities
 python-dotenv==1.0.1
 rich==13.9.2

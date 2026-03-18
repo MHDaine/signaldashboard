@@ -33,6 +33,8 @@ import re
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from dotenv import load_dotenv
+import firebase_admin
+from firebase_admin import credentials as fb_credentials, firestore
 from openai import AsyncOpenAI
 from rich.console import Console
 from rich.table import Table
@@ -48,6 +50,8 @@ OPENAI_API_KEY = os.environ.get("OPENAI_KEY") or os.environ.get("OPENAI_API_KEY"
 
 CONTEXT_FILE = "context/context_summary.md"
 POV_FILE = "context/pov.md"
+FIREBASE_COLLECTION = os.environ.get("COLLECTION", "mh_newsletter")
+FIREBASE_FEEDBACK_DOC = "feedback"
 
 # Model to use - gpt-5-nano is the cheapest/fastest OpenAI model
 OPENAI_MODEL = "gpt-5-nano-2025-08-07"
@@ -131,7 +135,7 @@ MH-1's ICPs are:
 They care about: AI transforming marketing operations, marketing attribution & measurement, fractional/flexible talent models, agency model disruption, martech consolidation, CMO challenges, B2B SaaS growth, marketing efficiency & ROI, AI adoption gaps, and marketing automation.
 
 They do NOT care about: generic tech news, consumer product launches unrelated to marketing, crypto/web3, celebrity news, general business news with no marketing angle, self-help, or job postings.
-
+{feedback_context}
 ## Signal to Score
 
 **Source:** {source}
@@ -180,6 +184,55 @@ def load_context() -> str:
     return MH1_THEMES
 
 
+def _init_firebase():
+    if firebase_admin._apps:
+        return
+    sa_json = os.environ.get("FIREBASE_SERVICE_ACCOUNT_JSON")
+    if sa_json:
+        info = json.loads(sa_json)
+        cred = fb_credentials.Certificate(info)
+    else:
+        sa_file = os.environ.get("SERVICE_ACCOUNT", "")
+        if sa_file and Path(sa_file).exists():
+            cred = fb_credentials.Certificate(sa_file)
+        else:
+            return  # silently skip — feedback is optional for ranking
+    firebase_admin.initialize_app(cred)
+
+
+def load_feedback_context() -> str:
+    """Load rejection feedback from Firestore and summarize for the scoring prompt."""
+    try:
+        _init_firebase()
+        if not firebase_admin._apps:
+            return ""
+        db = firestore.client()
+        doc = db.collection(FIREBASE_COLLECTION).document(FIREBASE_FEEDBACK_DOC).get()
+        if not doc.exists:
+            return ""
+        entries = doc.to_dict().get("feedback", [])
+    except Exception:
+        return ""
+
+    if not entries:
+        return ""
+
+    recent = entries[-50:]
+
+    lines = ["\n## Rejection Feedback (from human review)",
+             "The following signals have been rejected by reviewers. Penalize signals matching these patterns:"]
+    for entry in recent:
+        title = entry.get("signal_title", "unknown signal")
+        reason = entry.get("rejection_reason", "")
+        if reason:
+            lines.append(f'- "{title}" — {reason}')
+
+    if len(lines) == 2:
+        return ""
+
+    return "\n".join(lines) + "\n"
+
+
 def load_signals(filepath: str) -> List[Dict[str, Any]]:
     """Load signals from JSON file."""
     with open(filepath, 'r') as f:
@@ -222,17 +275,19 @@ def get_engagement_str(signal: Dict[str, Any]) -> str:
 async def score_signal_with_openai(
     signal: Dict[str, Any],
     client: AsyncOpenAI,
-    themes: str
+    themes: str,
+    feedback_context: str = ""
 ) -> Dict[str, Any]:
     """Score a single signal using OpenAI gpt-5-nano — ICP interest litmus test."""
-    
+
     content = get_signal_content(signal)
-    
+
     user_prompt = SCORING_PROMPT.format(
         source=signal.get("collection_source", signal.get("type", "unknown")),
         title=signal.get("title", "")[:200],
         content=content,
-        url=signal.get("url", "")
+        url=signal.get("url", ""),
+        feedback_context=feedback_context
     )
     
     try:
@@ -565,9 +620,10 @@ async def rank_signals(
         # Initialize async OpenAI client
         client = AsyncOpenAI(api_key=OPENAI_API_KEY)
     
-    # Load themes for scoring
+    # Load themes and feedback for scoring
     themes = load_context()
-    
+    feedback_ctx = load_feedback_context()
+
     # Limit signals if specified
     if max_signals:
         signals = signals[:max_signals]
@@ -597,7 +653,7 @@ async def rank_signals(
         if use_keywords:
             return signal, score_signal_with_keywords(signal)
         try:
-            result = await score_signal_with_openai(signal, client, themes)
+            result = await score_signal_with_openai(signal, client, themes, feedback_ctx)
             return signal, result
         except Exception as e:
             return signal, score_signal_with_keywords(signal, f"Exception: {str(e)[:50]}")
